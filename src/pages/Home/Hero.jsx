@@ -1,6 +1,9 @@
 import React from "react";
+
 import HeroImg from "../../images/hero.png"
+import Vector from "../../images/Vector.png"
 import Button from "../../components/Button/Button";
+
 
 const Hero = () => {
   return(
@@ -16,6 +19,7 @@ const Hero = () => {
       </div>
 
       <div className="flex">
+        <img src={Vector} alt="vectorImage" className="h-1/2 w-3/4 absolute right-0 -top-2.5" />
         <img src={HeroImg} alt="heroImg" className="h-[500px] " />
       </div>
     </div>
