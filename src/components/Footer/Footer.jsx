@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom"
 
-import Circle from "../../images/circle.png"
-import Circle1 from "../../images/Circle1.png"
-import Logo from "../../images/logo1.png"
-import Facebook from "../../images/facebook.png"
-import Instagram from "../../images/instagram.png"
+import Circle from "./FooterImages/circle.png"
+import Circle1 from "./FooterImages/Circle1.png"
+import Logo from "./FooterImages/logo1.png"
+import Facebook from "./FooterImages/facebook.png"
+import Instagram from "./FooterImages/instagram.png"
 
 const Footer = () => {
   return (
@@ -27,7 +27,7 @@ const Footer = () => {
 
           <div className="w-2/6 pl-16 leading-loose m-auto h-24">
             <Link to="/about" className="hover:text-teal-400">About us</Link> <br />
-            <Link to="/" className="hover:text-teal-400">Home</Link> <br />
+            <Link to="#" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="hover:text-teal-400">Home</Link> <br />
             <Link to="/services" className="hover:text-teal-400">Services</Link> <br />
             <Link to="/news" className="hover:text-teal-400">Blog</Link> <br />
             <Link to="/contact" className="hover:text-teal-400">Contact us</Link>
@@ -44,11 +44,11 @@ const Footer = () => {
             <img src={Circle1} alt="circle" className=" absolute -right-50 -top-24" />
           </div>
         <div className="flex justify-center gap-3 w-1/14 mt-36">
-          <div className="bg-white rounded-full p-1">
-            <img src={Facebook} alt="facebookIcon" />
+          <div className="bg-white rounded-full hover:bg-[#3a3f3e] p-1">
+            <img src={Facebook} alt="facebookIcon" className="cursor-pointer" />
           </div>
-          <div className="bg-white rounded-full p-1">
-            <img src={Instagram} alt="instagramIcon" />
+          <div className="bg-white rounded-full hover:bg-[#3a3f3e] p-1">
+            <img src={Instagram} alt="instagramIcon" className="cursor-pointer" />
           </div>
         </div>
       </div>
