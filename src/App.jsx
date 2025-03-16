@@ -11,6 +11,7 @@ import News from "./pages/News/News";
 
 function App() {
   return (
+    <div>
     <Router>
       <Header />
       <Routes>
@@ -23,6 +24,8 @@ function App() {
       <NewsLetter />
       <Footer />
     </Router>
+    </div>
+
   );
 }
 
