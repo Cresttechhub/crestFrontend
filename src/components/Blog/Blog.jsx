@@ -1,0 +1,7 @@
+import React from "react";
+
+const Blog = () => {
+  return <div className="px-8 py-6">I am Blog</div>;
+};
+
+export default Blog;
