@@ -15,6 +15,7 @@ import { PiRocketLight } from "react-icons/pi";
 const words = ["Build.", "Grow.", "Create."];
 
 const Hero = () => {
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -95,6 +96,7 @@ const Hero = () => {
       </div>
     </div>
   );
+
 };
 
 export default Hero;

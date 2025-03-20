@@ -19,8 +19,9 @@ function Header() {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/80 shadow-md backdrop-blur-md" : "bg-white"
       }`}
-    >
-      <nav className="container mx-auto flex justify-between items-center px-16 py-6 ">
+    ><nav className="container mx-auto flex justify-between items-center px-16 py-6 ">
+
+
         <div>
           <img src={Logo} alt="Logo" />
         </div>
