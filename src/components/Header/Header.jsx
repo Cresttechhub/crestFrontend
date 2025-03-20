@@ -20,7 +20,7 @@ function Header() {
         isScrolled ? "bg-white/80 shadow-md backdrop-blur-md" : "bg-white"
       }`}
     >
-      <nav className="container mx-auto flex justify-between items-center px-8 py-6 ">
+      <nav className="container mx-auto flex justify-between items-center px-16 py-6 ">
         <div>
           <img src={Logo} alt="Logo" />
         </div>
