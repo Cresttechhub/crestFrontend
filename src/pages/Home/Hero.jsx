@@ -13,6 +13,7 @@ import { IoSearch } from "react-icons/io5";
 import { PiRocketLight } from "react-icons/pi";
 
 const words = ["Build.", "Grow.", "Create."];
+
 const images = [image1, image2, image3, image4, image5];
 
 const Hero = () => {
@@ -75,11 +76,15 @@ const Hero = () => {
     exit: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
   };
 
+
+
+
   return (
     <div className="mt-64 px-16 py-6 flex flex-row items-center justify-between">
       {/* Text Section */}
       <div className="">
         <div className="text-[72px] text-[#1E1E1E] font-bold">
+
           Learn.
           <motion.span
             key={words[index]} // Use words[index] as the key
@@ -93,6 +98,7 @@ const Hero = () => {
               damping: 150,
             }} // Added spring transition
             className="text-green-600 inline-block" //added inline-block to allow vertical movement
+
           >
             {words[index]}
           </motion.span>
@@ -135,6 +141,7 @@ const Hero = () => {
         />
 
         {/* Profile Images */}
+
         <div className="absolute -right-40 transform -translate-x-1/2 -translate-y-1/2">
           <div className="bg-[#FFFFFF] rounded-[25px] shadow-lg p-4 flex flex-col items-center w-[400px]">
             <div className="flex relative w-full justify-center items-center">
@@ -165,10 +172,12 @@ const Hero = () => {
           </div>
           {/* Background layer for the subtle effect */}
           <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
+       
         </div>
       </div>
     </div>
   );
+]
 };
 
 export default Hero;
