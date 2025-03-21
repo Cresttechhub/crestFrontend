@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import image1 from "../../images/Ellipse 1.svg";
 import image2 from "../../images/Ellipse 2.svg";
 import image3 from "../../images/Ellipse 3.svg";
@@ -13,28 +13,86 @@ import { IoSearch } from "react-icons/io5";
 import { PiRocketLight } from "react-icons/pi";
 
 const words = ["Build.", "Grow.", "Create."];
+const images = [image1, image2, image3, image4, image5];
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
+  // const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    let timeoutId;
+
+    const changeWord = () => {
+      setIndex((prevIndex) => (prevIndex + 1) % words.length);
+    };
+
+    const displayNextWord = () => {
+      timeoutId = setTimeout(() => {
+        changeWord();
+      }, 2000); // 2 seconds delay before transitioning
+    };
+
+    displayNextWord();
+
+    return () => clearTimeout(timeoutId);
+  }, [index]);
+
+  const [animationStage, setAnimationStage] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 5000);
+      setAnimationStage((prev) => (prev + 1) % 2); // Toggle between 0 and 1
+    }, 3000); // Adjust interval as needed
+
     return () => clearInterval(interval);
   }, []);
+
+  const imageVariants = {
+    initial: { x: 0, opacity: 1, scale: 1, zIndex: 1 },
+    animate: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      zIndex: 1,
+      transition: { duration: 0.5 },
+    },
+    moveIn: (index) => ({
+      x:
+        index === 0
+          ? 60
+          : index === 1
+          ? 30
+          : index === 3
+          ? -30
+          : index === 4
+          ? -60
+          : 0,
+      opacity: 1,
+      scale: 1,
+      zIndex: index === 2 ? 3 : index === 1 || index === 3 ? 2 : 1,
+      transition: { duration: 0.5 },
+    }),
+    exit: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
+  };
+
   return (
     <div className="mt-64 px-16 py-6 flex flex-row items-center justify-between">
       {/* Text Section */}
       <div className="">
         <div className="text-[72px] text-[#1E1E1E] font-bold">
-          Learn.{" "}
+          Learn.
           <motion.span
-            key={words[index]}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: -20, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-green-600"
+            key={words[index]} // Use words[index] as the key
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            exit={{ y: "-100%", opacity: 0 }}
+            transition={{
+              duration: 0.5,
+              type: "spring",
+              stiffness: 600,
+              damping: 150,
+            }} // Added spring transition
+            className="text-green-600 inline-block" //added inline-block to allow vertical movement
           >
             {words[index]}
           </motion.span>
@@ -77,20 +135,36 @@ const Hero = () => {
         />
 
         {/* Profile Images */}
-        <div className="bg-[#FFFFFF] rounded-[25px] shadow-[0px_2px_24px_16px_#ffffff] p-4 mt-6 flex flex-col items-center relative">
-          <div className="flex relative">
-            <div className="flex">
-              <img src={image1} alt="" />
-              <img src={image2} alt="" />
-              <img src={image3} alt="" />
-              <img src={image4} alt="" />
-              <img src={image5} alt="" />
+        <div className="absolute -right-40 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="bg-[#FFFFFF] rounded-[25px] shadow-lg p-4 flex flex-col items-center w-[400px]">
+            <div className="flex relative w-full justify-center items-center">
+              <AnimatePresence initial={false} custom={animationStage}>
+                {images.map((image, index) => (
+                  <motion.img
+                    key={index}
+                    src={image}
+                    alt={`Profile ${index + 1}`}
+                    initial="initial"
+                    animate={animationStage === 0 ? "animate" : "moveIn"}
+                    exit="exit"
+                    variants={imageVariants}
+                    custom={index}
+                    style={{
+                      ...(animationStage === 0 && {
+                        transform: `translateX(${(index - 2) * 50}px)`, // Use translateX for centering
+                      }),
+                    }}
+                  />
+                ))}
+              </AnimatePresence>
+            </div>
+            <div className="text-[#1E1E1E]  flex items-center justify-center space-x-2 mt-4">
+              <h1 className="text-[40px] font-medium">10K </h1>
+              <span className="text-[16px]">Learners & Counting!</span>
             </div>
           </div>
-          <div className="text-[#1E1E1E] flex items-center space-x-2 mt-6">
-            <h1 className="text-[40px] font-medium">10K </h1>
-            <span className="text-[16px]">Learners & Counting!</span>
-          </div>
+          {/* Background layer for the subtle effect */}
+          <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
         </div>
       </div>
     </div>
