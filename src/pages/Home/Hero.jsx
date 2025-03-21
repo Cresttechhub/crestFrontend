@@ -10,14 +10,12 @@ import cap from "../../images/graduation-cap.svg";
 import homeHero from "../../images/home-hero.svg";
 import flight from "../../images/flight.svg";
 import { IoSearch } from "react-icons/io5";
-import { PiRocketLight } from "react-icons/pi";
 
 const words = ["Build.", "Grow.", "Create."];
 const images = [image1, image2, image3, image4, image5];
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
-  // const isFirstRender = useRef(true);
 
   useEffect(() => {
     let timeoutId;
@@ -42,7 +40,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setAnimationStage((prev) => (prev + 1) % 2); // Toggle between 0 and 1
-    }, 3000); // Adjust interval as needed
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -82,7 +80,7 @@ const Hero = () => {
         <div className="text-[72px] text-[#1E1E1E] font-bold">
           Learn.
           <motion.span
-            key={words[index]} // Use words[index] as the key
+            key={words[index]}
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: "0%", opacity: 1 }}
             exit={{ y: "-100%", opacity: 0 }}
@@ -91,8 +89,8 @@ const Hero = () => {
               type: "spring",
               stiffness: 600,
               damping: 150,
-            }} // Added spring transition
-            className="text-green-600 inline-block" //added inline-block to allow vertical movement
+            }}
+            className="text-green-600 inline-block"
           >
             {words[index]}
           </motion.span>
@@ -151,7 +149,7 @@ const Hero = () => {
                     custom={index}
                     style={{
                       ...(animationStage === 0 && {
-                        transform: `translateX(${(index - 2) * 50}px)`, // Use translateX for centering
+                        transform: `translateX(${(index - 2) * 50}px)`,
                       }),
                     }}
                   />
@@ -163,7 +161,6 @@ const Hero = () => {
               <span className="text-[16px]">Learners & Counting!</span>
             </div>
           </div>
-          {/* Background layer for the subtle effect */}
           <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
         </div>
       </div>
