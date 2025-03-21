@@ -75,8 +75,6 @@ const Hero = () => {
   };
 
 
-
-
   return (
     <div className="mt-64 px-16 py-6 flex flex-row items-center justify-between">
       {/* Text Section */}
@@ -169,12 +167,11 @@ const Hero = () => {
             </div>
           </div>
           <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
-       
+
         </div>
       </div>
     </div>
   );
-]
-};
+
 
 export default Hero;
