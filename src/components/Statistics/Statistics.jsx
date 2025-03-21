@@ -6,12 +6,16 @@ const Statistics = () => {
   const [stat1, setStat1] = useState(10);
   const [stat2, setStat2] = useState(50);
   const [stat3, setStat3] = useState(30);
+
   const [animationComplete, setAnimationComplete] = useState(false);
   const [ref, inView] = useInView({ triggerOnce: true }); // Trigger only once
 
   useEffect(() => {
     if (inView && !animationComplete) {
-      // Check if in view and animation not complete
+
+  const [ref, inView] = useInView();
+
+  
       let count = 0;
       const interval = setInterval(() => {
         count++;
@@ -24,13 +28,11 @@ const Statistics = () => {
           setStat1(40);
           setStat2(200);
           setStat3(95);
-          setAnimationComplete(true);
-        }
-      }, 1000);
 
       return () => clearInterval(interval);
     }
   }, [inView, animationComplete]);
+
 
   const statVariants = {
     initial: { y: "100%", opacity: 0 },
