@@ -46,7 +46,6 @@ const Statistics = () => {
   return (
     <div className="px-16 py-36 " ref={ref}>
       <div className="bg-[#1E1E1E] text-white rounded-[25px] container mx-auto flex justify-around items-center pt-20 pb-20">
-        {/* Expert-Led Courses */}
         <div className="text-center">
           <AnimatePresence initial={false} mode="wait">
             <motion.h2
@@ -63,9 +62,7 @@ const Statistics = () => {
           <p className="text-[16px] mt-2">Expert-Led Courses</p>
         </div>
 
-        {/* Separators */}
         <div className="h-40 border-r border-white" />
-        {/* Hours of Live & Self-Paced Learning */}
         <div className="text-center">
           <AnimatePresence initial={false} mode="wait">
             <motion.h2
@@ -83,10 +80,8 @@ const Statistics = () => {
             Hours of Live & Self-Paced Learning
           </p>
         </div>
-        {/* Separators */}
-        <div className="h-40 border-r border-white" />
 
-        {/* Student Satisfaction Rate */}
+        <div className="h-40 border-r border-white" />
         <div className="text-center">
           <AnimatePresence initial={false} mode="wait">
             <motion.h2
