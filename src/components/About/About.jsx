@@ -8,6 +8,7 @@ const About = () => {
   const [paragraph1, setParagraph1] = useState("");
   const [paragraph2, setParagraph2] = useState("");
   const navigate = useNavigate();
+
   const [ref, inView] = useInView({ threshold: 0.2 });
   const timeoutRefs = useRef([]);
 
@@ -53,9 +54,11 @@ const About = () => {
     };
   }, [inView]);
 
+
   const handleButtonClick = () => {
     navigate("/about");
   };
+
 
   const paragraphVariants = {
     initial: { opacity: 0, y: 10 },
@@ -114,10 +117,7 @@ const About = () => {
               Learn More
             </button>
           </div>
-        </div>
-      </div>
-    </div>
-  );
+
 };
 
 export default About;
