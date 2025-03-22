@@ -74,13 +74,11 @@ const Hero = () => {
     exit: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
   };
 
-
   return (
     <div className="mt-64 px-16 py-6 flex flex-row items-center justify-between">
       {/* Text Section */}
       <div className="">
         <div className="text-[72px] text-[#1E1E1E] font-bold">
-
           Learn.
           <motion.span
             key={words[index]}
@@ -94,7 +92,6 @@ const Hero = () => {
               damping: 150,
             }} // Added spring transition
             className="text-green-600 inline-block" //added inline-block to allow vertical movement
-
           >
             {words[index]}
           </motion.span>
@@ -167,11 +164,9 @@ const Hero = () => {
             </div>
           </div>
           <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
-
         </div>
       </div>
     </div>
   );
-
-
+};
 export default Hero;
