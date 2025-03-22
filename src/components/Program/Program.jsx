@@ -3,6 +3,7 @@ import { MdAccessTime } from "react-icons/md";
 import { SlPeople } from "react-icons/sl";
 import { FaRegCheckSquare } from "react-icons/fa";
 
+
 const ProgramCard = ({
   title,
   level,
@@ -106,6 +107,7 @@ const Program = () => {
         </div>
       </div>
     </section>
+
   );
 };
 
