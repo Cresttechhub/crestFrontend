@@ -98,7 +98,7 @@ const Hero = () => {
           <h1>Innovate.</h1>
         </div>
 
-        <p className="mt-4 text-[16px] text-[#6D737A] w-[596px]">
+        <p className="mt-4 text-[20px] text-[#6D737A] w-[596px]">
           Gain in-demand tech skills online with expert mentorship, hands-on
           projects, and real-world training. Join live classes, build a
           portfolio, connect with industry experts, and access internships-all
