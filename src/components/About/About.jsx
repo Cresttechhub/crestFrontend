@@ -54,11 +54,9 @@ const About = () => {
     };
   }, [inView]);
 
-
   const handleButtonClick = () => {
     navigate("/about");
   };
-
 
   const paragraphVariants = {
     initial: { opacity: 0, y: 10 },
@@ -117,7 +115,10 @@ const About = () => {
               Learn More
             </button>
           </div>
-
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default About;
