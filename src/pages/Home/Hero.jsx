@@ -74,13 +74,11 @@ const Hero = () => {
     exit: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
   };
 
-
   return (
     <div className="mt-64 px-16 py-6 flex flex-row items-center justify-between">
       {/* Text Section */}
       <div className="">
         <div className="text-[72px] text-[#1E1E1E] font-bold">
-
           Learn.
           <motion.span
             key={words[index]}
@@ -94,14 +92,13 @@ const Hero = () => {
               damping: 150,
             }} // Added spring transition
             className="text-green-600 inline-block" //added inline-block to allow vertical movement
-
           >
             {words[index]}
           </motion.span>
           <h1>Innovate.</h1>
         </div>
 
-        <p className="mt-4 text-[16px] text-[#6D737A] w-[596px]">
+        <p className="mt-4 text-[20px] text-[#6D737A] w-[596px]">
           Gain in-demand tech skills online with expert mentorship, hands-on
           projects, and real-world training. Join live classes, build a
           portfolio, connect with industry experts, and access internships-all
@@ -167,11 +164,9 @@ const Hero = () => {
             </div>
           </div>
           <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
-
         </div>
       </div>
     </div>
   );
-
-
+};
 export default Hero;
