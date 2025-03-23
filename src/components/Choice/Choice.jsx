@@ -43,7 +43,7 @@ const Choice = () => {
                 {feature.description}
               </p>
               {index < features.length - 1 && (
-                <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-px bg-gray-300" />
+                <div className="hidden md:block absolute top-0 bottom-0 right-0 border border-[#6D737A] opacity-20"></div>
               )}
             </div>
           ))}
