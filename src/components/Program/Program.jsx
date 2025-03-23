@@ -3,7 +3,6 @@ import { MdAccessTime } from "react-icons/md";
 import { SlPeople } from "react-icons/sl";
 import { FaRegCheckSquare } from "react-icons/fa";
 
-
 const ProgramCard = ({
   title,
   level,
@@ -49,7 +48,7 @@ const ProgramCard = ({
           N{price} <span className="text-[#6D737A] text-[16px]">/ Course</span>
         </p>
         <a
-          href="/signup"
+          href="/enroll"
           className="block text-center bg-[#00A665] font-medium text-white text-[16px] py-6 rounded-[15px] mt-4 hover:border-2 hover:border-[#00A665] hover:bg-white  hover:text-[#00A665]"
         >
           Join Now
@@ -107,7 +106,6 @@ const Program = () => {
         </div>
       </div>
     </section>
-
   );
 };
 
