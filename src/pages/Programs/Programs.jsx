@@ -5,6 +5,11 @@ import Tracks from "../../components/Tracks/Tracks";
 import { MdLightbulbOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
+import program_hero from "../../images/program_hero.svg";
+import thickGreen from "../../images/thickGreen.svg";
+import thinGreen1 from "../../images/thinGreen1.svg";
+import thinGreen2 from "../../images/thinGreen2.svg";
+import cresthub from "../../images/cresthub.svg";
 
 const Programs = () => {
   const navigate = useNavigate();
@@ -35,6 +40,63 @@ const Programs = () => {
   return (
     <div className="mt-36">
       {/* hero */}
+      <div className="px-16 py-6">
+        <div className="relative flex  h-[385px]">
+          <div className="text-white bg-[#15211F] p-6 rounded-tl-[25px] rounded-bl-[25px] w-full relative ">
+            <img
+              src={thickGreen}
+              alt=""
+              className="absolute rounded-[25px] top-0 left-0 inset-0"
+            />
+            <div className="p-10">
+              <h2 className="text-[44px] font-bold ">
+                Become a Tech Pro with Our Training Programs
+              </h2>
+
+              <p className="text-[16px] mt-8 ">
+                Gain in-demand skills with hands-on learning, expert mentorship,
+                and real-world projects. Choose the perfect program for you and
+                start your tech journey today!
+              </p>
+            </div>
+          </div>
+          <div className="relative bg-green-100 p-6 rounded-tr-[25px] rounded-br-[25px] w-[800px] flex items-center justify-center">
+            <img
+              src={program_hero}
+              alt="Man with laptop"
+              className="object-contain h-auto"
+            />
+
+            <h1 className="absolute bottom-20 left-48 text-[#1E1E1E] font-bold">
+              CrestTech Hub
+            </h1>
+
+            {/* <img src={thinGreen1} alt="" className="absolute z-auto" />
+            <img src={thinGreen2} alt="" className="" /> */}
+            <img
+              src={thinGreen1}
+              alt=""
+              className="absolute -z-0"
+              style={{
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+            <img
+              src={thinGreen2}
+              alt=""
+              className="absolute "
+              style={{
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
       {/* program component */}
       <Program />
       {/* choice component */}
