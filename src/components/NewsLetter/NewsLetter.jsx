@@ -1,35 +1,42 @@
 import React from "react";
 
+import Microsoft from "../../images/Microsoft.svg"
+import Slack from "../../images/Slack.svg"
+import Google from "../../images/Google.svg"
+
 const NewsLetter = () => {
   return (
-    <div className="px-8 py-6 bg-[#fff]">
-      <h1 className="font-semibold text-[31px] text-[#222222] mb-4">
-        Lorem, ipsum.
-      </h1>
-      <p className="mb-8 text-[17px] text-[#525252] w-[500px]">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-        similique error
-      </p>
-      <div className="bg-[#1b1b1b] text-white py-8 px-6 rounded-xl flex items-center justify-between ">
-        <div className="mb-4 md:mb-0">
-          <h2 className="text-[31px] font-medium mb-4">Stay in the loop</h2>
+    <div>
+      <div className="flex justify-between items-center px-24">
+        <div>
+<img src={Microsoft} alt="Partners" />
+        </div>
+        <div>
+<img src={Slack} alt="Partners" />
+        </div>
+        <div className="flex">
+      <img src={Google} alt="Partners" />
+        </div>
+      </div>
+      <div className="bg-[#00A665] text-white py-8 px-6 flex items-center justify-between ">
+        <div className="mb-4 md:mb-0 ml-20">
+          <h2 className="text-[31px] font-bold mb-1">Stay in the loop</h2>
           <p className=" text-[18px]">
-            Subscribe to receive the latest news and updates about Crest Tech
-            Hub.
+            Subscribe to receive the latest news and updates about <br /> Crest Tech
+            Hub.We promise not to spam you!
           </p>
-          <p className="text-[18px]">We promise not to spam you!</p>
         </div>
         <form className="flex w-full md:w-auto relative">
           <input
             type="email"
             placeholder="Enter email address"
-            className="px-4 py-2 rounded-md w-full pr-60 bg-[#fff] text-black focus:outline-none"
+            className="px-3 py-1 rounded-[19px] w-full pr-60 bg-[#fff] text-[#A0A0A0] text-[15px] font-[400] focus:outline-none h-15"
           />
           <button
             type="submit"
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#009365] font-medium text-[13px] text-white  px-4 py-2 rounded-md hover:bg-[#579b85]"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#009E65] font-medium text-white px-10 py-2 rounded-[12px] border border-transparent hover:bg-white hover:border-[#009E65] hover:text-[#009E65] cursor-pointer text-[16px] "
           >
-            Contact us
+            Subscribe
           </button>
         </form>
       </div>
