@@ -1,6 +1,6 @@
 import React from "react";
 import about_img from "../../images/about_img.svg";
-import leaders from "../../images/leaders.svg";
+import leaders from "../../images/amarachi.png";
 import { FaUserCheck } from "react-icons/fa";
 import { RiBuilding2Line, RiUserCommunityFill } from "react-icons/ri";
 import { LuGraduationCap } from "react-icons/lu";
@@ -203,7 +203,7 @@ const About = () => {
               <img
                 src={leader.image}
                 alt={leader.name}
-                className="w-[261px] h-[247px] rounded-[20px] object-cover"
+                className="w-[261px] h-[247px] rounded-[20px] bg-[#F6F6F8] object-cover"
               />
               <h3 className="text-[20px] font-bold text-[#1E1E1E]">
                 {leader.name}
