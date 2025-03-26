@@ -91,10 +91,7 @@ const Programs = () => {
           </div>
         </div>
       </div>
-
-      {/* program component */}
       <Program />
-      {/* choice component */}
       <Choice />
       {/* Track component */}
       <Tracks />
