@@ -9,7 +9,6 @@ import program_hero from "../../images/program_hero.svg";
 import thickGreen from "../../images/thickGreen.svg";
 import thinGreen1 from "../../images/thinGreen1.svg";
 import thinGreen2 from "../../images/thinGreen2.svg";
-import cresthub from "../../images/cresthub.svg";
 
 const Programs = () => {
   const navigate = useNavigate();
@@ -60,23 +59,11 @@ const Programs = () => {
               </p>
             </div>
           </div>
-          <div className="relative bg-green-100 p-6 rounded-tr-[25px] rounded-br-[25px] w-[800px] flex items-center justify-center">
-            <img
-              src={program_hero}
-              alt="Man with laptop"
-              className="object-contain h-auto"
-            />
-
-            <h1 className="absolute bottom-20 left-48 text-[#1E1E1E] font-bold">
-              CrestTech Hub
-            </h1>
-
-            {/* <img src={thinGreen1} alt="" className="absolute z-auto" />
-            <img src={thinGreen2} alt="" className="" /> */}
+          <div className="relative bg-green-100 p-6 rounded-tr-[25px] rounded-br-[25px] w-[800px] flex items-center justify-center overflow-hidden">
             <img
               src={thinGreen1}
               alt=""
-              className="absolute -z-0"
+              className="absolute z-10"
               style={{
                 top: "50%",
                 left: "50%",
@@ -86,13 +73,21 @@ const Programs = () => {
             <img
               src={thinGreen2}
               alt=""
-              className="absolute "
+              className="absolute z-10"
               style={{
                 top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
+                left: "45%",
+                transform: "translate(-50%, -50%) ",
               }}
             />
+            <img
+              src={program_hero}
+              alt="Man with laptop"
+              className="relative object-contain h-auto z-10"
+            />
+            <h1 className="absolute bottom-20 left-48 text-[#1E1E1E] font-bold z-20">
+              CrestTech Hub
+            </h1>
           </div>
         </div>
       </div>
