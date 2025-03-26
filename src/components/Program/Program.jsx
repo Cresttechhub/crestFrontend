@@ -45,7 +45,12 @@ const ProgramCard = ({
           ))}
         </ul>
         <p className="text-[#00A665] font-bold text-[36px] mt-4">
-          N{price} <span className="text-[#6D737A] text-[16px]">/ Course</span>
+
+          N{price}{" "}
+          <span className="text-[#6D737A] text-[16px] font-normal">
+            / Course
+          </span>
+
         </p>
         <a
           href="/enroll"
@@ -94,7 +99,9 @@ const Program = () => {
     },
   ];
   return (
-    <section className="py-20">
+
+    <section className="pt-20">
+
       <div className="bg-[#FAFAFA] px-16 py-6">
         <h2 className="text-[30px] text-[#1E1E1E] font-bold text-center mb-12">
           Our Program
