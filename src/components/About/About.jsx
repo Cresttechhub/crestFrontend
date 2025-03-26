@@ -76,13 +76,17 @@ const About = () => {
     <div className="px-16 py-6" ref={ref}>
       <div className="flex justify-between">
         <div className="w-full">
-          <img src={about_img} alt="About Crest Tech Hub" />
+          <img
+            src={about_img}
+            alt="about image"
+            className="w-[667px] h-[447px] rounded-[25px] object-cover"
+          />
         </div>
-        <div className="w-full flex flex-col justify-start">
+        <div className="w-full flex flex-col justify-start mt-6">
           <h1 className="text-[40px] text-[#1E1E1E] font-bold mb-8">
             About Crest Tech Hub
           </h1>
-          <div className="text-[#6D737A] text-2xl min-h-[120px] leading-relaxed">
+          <div className="text-[#6D737A] text-[16px] leading-[36px]">
             <AnimatePresence>
               <motion.p
                 key="paragraph1"

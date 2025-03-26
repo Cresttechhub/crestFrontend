@@ -5,27 +5,32 @@ import NewsLetter from "./components/NewsLetter/NewsLetter";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
-import Services from "./pages/Services/Services";
-import Contact from "./pages/Contact/Contact";
-import News from "./pages/News/News";
+import Programs from "./pages/Programs/Programs";
+import Enroll from "../src/pages/auth/enroll";
+// import Mentorship from "./pages/Mentorship/Mentorship";
+// import FAQs from "./pages/FAQs/FAQs";
+// import Blogs from "./pages/Blogs/Blogs";
+// import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
     <div>
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <NewsLetter />
-      <Footer />
-    </Router>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/enroll" element={<Enroll />} />
+          {/* <Route path="/mentorship" element={<Mentorship />} /> */}
+          {/* <Route path="/faqs" element={<FAQs />} /> */}
+          {/* <Route path="/blogs" element={<Blogs />} /> */}
+          {/* <Route path="/contact" element={<Contact />} /> */}
+        </Routes>
+        <NewsLetter />
+        <Footer />
+      </Router>
     </div>
-
   );
 }
 
