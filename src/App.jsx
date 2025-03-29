@@ -9,7 +9,7 @@ import Programs from "./pages/Programs/Programs";
 import Enroll from "../src/pages/auth/enroll";
 // import Mentorship from "./pages/Mentorship/Mentorship";
 // import FAQs from "./pages/FAQs/FAQs";
-// import Blogs from "./pages/Blogs/Blogs";
+import Blogs from "./pages/Blogs/Blogs.jsx";
 // import Contact from "./pages/Contact/Contact";
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
           {/* <Route path="/blogs" element={<Blogs />} /> */}
           {/* <Route path="/contact" element={<Contact />} /> */}
         </Routes>
+        <Blogs />
         <NewsLetter />
         <Footer />
       </Router>

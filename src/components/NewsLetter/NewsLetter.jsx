@@ -1,22 +1,23 @@
 import React from "react";
 
-import Microsoft from "../../images/Microsoft.svg"
-import Slack from "../../images/Slack.svg"
-import Google from "../../images/Google.svg"
+import Partner1 from "../../images/Partner1.svg"
+import Partner2 from "../../images/Partner2.svg"
+import Partner3 from "../../images/Partner3.svg"
 
 const NewsLetter = () => {
   return (
     <div>
-      <div className="flex justify-between items-center px-24">
+      <div className="flex justify-around items-center px-24 -mb-7 h-[200px]">
         <div>
-<img src={Microsoft} alt="Partners" />
+          <img src={Partner1} alt="Partners" className="bg-transparent filter invert w-76" />
+        </div>
+        <div className="flex"> 
+          <img src={Partner3} alt="Partners" className="w-48" />
         </div>
         <div>
-<img src={Slack} alt="Partners" />
+          <img src={Partner2} alt="Partners" className="bg-transparent filter invert w-64" />
         </div>
-        <div className="flex">
-      <img src={Google} alt="Partners" />
-        </div>
+
       </div>
       <div className="bg-[#00A665] text-white py-8 px-6 flex items-center justify-between ">
         <div className="mb-4 md:mb-0 ml-20">
