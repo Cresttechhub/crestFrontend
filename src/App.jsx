@@ -8,7 +8,11 @@ import About from "./pages/About/About";
 import Programs from "./pages/Programs/Programs";
 import Enroll from "../src/pages/auth/enroll";
 import Mentorship from "./pages/Mentorship/Mentorship";
+
 import FAQs from "./pages/FAQs/FAQs";
+
+
+
 // import Blogs from "./pages/Blogs/Blogs";
 import Contact from "./pages/Contact/Contact";
 
@@ -22,8 +26,14 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/enroll" element={<Enroll />} />
+
           <Route path="/mentorship" element={<Mentorship />} />
           <Route path="/faqs" element={<FAQs />} />
+
+
+          <Route path="/mentorship" element={<Mentorship />} />
+
+
           {/* <Route path="/blogs" element={<Blogs />} /> */}
           <Route path="/contact" element={<Contact />} />
         </Routes>
