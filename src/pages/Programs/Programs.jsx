@@ -9,7 +9,10 @@ import program_hero from "../../images/program_hero.svg";
 import thickGreen from "../../images/thickGreen.svg";
 import thinGreen1 from "../../images/thinGreen1.svg";
 import thinGreen2 from "../../images/thinGreen2.svg";
+<<<<<<< HEAD
 import cresthub from "../../images/cresthub.svg";
+=======
+>>>>>>> main
 
 const Programs = () => {
   const navigate = useNavigate();
@@ -60,6 +63,7 @@ const Programs = () => {
               </p>
             </div>
           </div>
+<<<<<<< HEAD
           <div className="relative bg-green-100 p-6 rounded-tr-[25px] rounded-br-[25px] w-[800px] flex items-center justify-center">
             <img
               src={program_hero}
@@ -77,6 +81,13 @@ const Programs = () => {
               src={thinGreen1}
               alt=""
               className="absolute -z-0"
+=======
+          <div className="relative bg-green-100 p-6 rounded-tr-[25px] rounded-br-[25px] w-[800px] flex items-center justify-center overflow-hidden">
+            <img
+              src={thinGreen1}
+              alt=""
+              className="absolute z-10"
+>>>>>>> main
               style={{
                 top: "50%",
                 left: "50%",
@@ -86,6 +97,7 @@ const Programs = () => {
             <img
               src={thinGreen2}
               alt=""
+<<<<<<< HEAD
               className="absolute "
               style={{
                 top: "50%",
@@ -93,13 +105,37 @@ const Programs = () => {
                 transform: "translate(-50%, -50%)",
               }}
             />
+=======
+              className="absolute z-10"
+              style={{
+                top: "50%",
+                left: "45%",
+                transform: "translate(-50%, -50%) ",
+              }}
+            />
+            <img
+              src={program_hero}
+              alt="Man with laptop"
+              className="relative object-contain h-auto z-10"
+            />
+            <h1 className="absolute bottom-20 left-48 text-[#1E1E1E] font-bold z-20">
+              CrestTech Hub
+            </h1>
+>>>>>>> main
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* program component */}
       <Program />
       {/* choice component */}
+=======
+      <Program />
+
+      {/* choice component */}
+
+>>>>>>> main
       <Choice />
       {/* Track component */}
       <Tracks />
