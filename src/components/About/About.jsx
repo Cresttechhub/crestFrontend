@@ -84,7 +84,7 @@ const About = () => {
         </div>
         <div className="w-full flex flex-col justify-start mt-6">
           <h1 className="text-[40px] text-[#1E1E1E] font-bold mb-8">
-            About Crest Tech Hub
+            About CrestTech Hub
           </h1>
           <div className="text-[#6D737A] text-[16px] leading-[36px]">
             <AnimatePresence>

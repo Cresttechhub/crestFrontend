@@ -10,7 +10,7 @@ import Enroll from "../src/pages/auth/enroll";
 import Mentorship from "./pages/Mentorship/Mentorship";
 import FAQs from "./pages/FAQs/FAQs";
 // import Blogs from "./pages/Blogs/Blogs";
-// import Contact from "./pages/Contact/Contact";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route path="/mentorship" element={<Mentorship />} />
           <Route path="/faqs" element={<FAQs />} />
           {/* <Route path="/blogs" element={<Blogs />} /> */}
-          {/* <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <NewsLetter />
         <Footer />

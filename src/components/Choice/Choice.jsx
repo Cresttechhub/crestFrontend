@@ -25,13 +25,10 @@ const features = [
 ];
 const Choice = () => {
   return (
-
-
     <section className="py-10">
-
       <div className="px-16 py-6">
         <h2 className="text-[30px] text-[#1E1E1E] font-bold  text-center mb-12">
-          Why Choose Crest Tech Hub?
+          Why Choose CrestTech Hub?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
@@ -52,9 +49,7 @@ const Choice = () => {
           ))}
         </div>
       </div>
-
     </section>
-
   );
 };
 

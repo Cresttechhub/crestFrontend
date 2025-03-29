@@ -16,7 +16,7 @@ const initialMentors = [
     image: wakilat,
   },
   {
-    name: "Soliu Opeyemi Zakariyau",
+    name: "Soliu Opeyemi Sakariyau",
     role: "Co-Founder",
     description: "Tech entrepreneur with innovative solutions.",
     tags: ["Tech Innovation", "Software Development"],
@@ -163,7 +163,7 @@ export default function Mentors() {
           onClick={handleViewMore}
           className="mt-12 px-6 py-4 text-white text-[16px] hover:text-[#009E65] font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
         >
-          View More Mentors
+          View More Team Member
         </button>
       )}
     </div>

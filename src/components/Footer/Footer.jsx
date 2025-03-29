@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
 
         <div className=" flex flex-col leading-9">
-          <h1 className="text-[20px] font-[500] mb-3 ">PROGRAM</h1>
+          <h1 className="text-[20px] font-[500] mb-3 ">PROGRAMS</h1>
           <p>4-Week Bootcamp</p>
           <p>3-Month Masterclass</p>
           <p>Software Development</p>
@@ -68,7 +68,6 @@ const Footer = () => {
               rel="noopener noreferrer"
             >
               <FaInstagram className="text-white text-2xl hover:text-[#009E65] cursor-pointer w-[15px]" />
-
             </a>
           </div>
         </div>
