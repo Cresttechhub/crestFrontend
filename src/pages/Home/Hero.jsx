@@ -75,10 +75,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="mt-64 px-16 py-6 flex flex-row items-center justify-between">
+    <div className="mt-32 md:mt-64 md:px-16 md:py-6 flex  flex-col p-8 md:flex-row md:items-center md:justify-between">
       {/* Text Section */}
       <div className="">
-        <div className="text-[72px] text-[#1E1E1E] font-bold">
+        <div className="text-[32px] md:text-[72px] text-[#1E1E1E] font-bold">
           Learn.
           <motion.span
             key={words[index]}
@@ -98,18 +98,18 @@ const Hero = () => {
           <h1>Innovate.</h1>
         </div>
 
-        <p className="mt-4 text-[16px] text-[#6D737A] w-[596px]">
+        <p className="mt-4 text-[16px] text-[#6D737A] min-w-[340px] md:max-w-[596px]">
           Gain in-demand tech skills online with expert mentorship, hands-on
           projects, and real-world training. Join live classes, build a
           portfolio, connect with industry experts, and access internships-all
           affordably!
         </p>
-        <div className="flex items-center mt-6">
-          <button className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center w-full">
+        <div className="flex items-center mt-12 md:mt-6">
+          <button className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center md:w-full">
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
           </button>
-          <div className="ml-4 flex items-center border border-[#737373] rounded-[15px] px-8 py-2 text-[#6D737A] text-[14px] w-full">
+          <div className="ml-4 hidden md:flex items-center border border-[#737373] rounded-[15px] px-8 py-2 text-[#6D737A] text-[14px] w-full">
             <input
               type="text"
               placeholder="What do you want to learn?"
@@ -120,22 +120,26 @@ const Hero = () => {
         </div>
       </div>
       {/* Image Section */}
-      <div className="relative">
+      <div className="relative mt-20 md:mt-0">
         <img
           src={homeHero}
           alt="Woman on laptop"
           className="bg-[#D1F1E5] rounded-3xl relative"
         />
-        <img src={cap} alt="cap" className="absolute top-12 -right-16 w-40" />
+        <img
+          src={cap}
+          alt="cap"
+          className="absolute top-12 right-2 md:-right-16 w-30 md:w-40"
+        />
         <img
           src={laptop}
           alt="laptop"
-          className="absolute top-80 -left-16 w-40"
+          className="absolute top-80 -left-12 md:-left-16 w-30 md:w-40"
         />
 
         {/* Profile Images */}
 
-        <div className="absolute -right-40 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute -right-20 md:-right-40 transform -translate-x-1/2 -translate-y-1/2">
           <div className="bg-[#FFFFFF] rounded-[25px] shadow-lg p-4 flex flex-col items-center w-[400px]">
             <div className="flex relative w-full justify-center items-center">
               <AnimatePresence initial={false} custom={animationStage}>
@@ -158,7 +162,7 @@ const Hero = () => {
                 ))}
               </AnimatePresence>
             </div>
-            <div className="text-[#1E1E1E]  flex items-center justify-center space-x-2 mt-4">
+            <div className="text-[#1E1E1E] flex items-center justify-center space-x-2 mt-4">
               <h1 className="text-[40px] font-medium">10K </h1>
               <span className="text-[16px]">Learners & Counting!</span>
             </div>
