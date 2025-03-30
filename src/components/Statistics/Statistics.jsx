@@ -77,7 +77,9 @@ const Statistics = () => {
           >
             {stat2} +
           </motion.h2>
+
           <p className="text-[14px] md:text-[16px]   mt-2">
+
             Hours of Live & Self-Paced Learning
           </p>
         </motion.div>

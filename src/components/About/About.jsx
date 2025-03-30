@@ -113,8 +113,9 @@ const About = () => {
           </div>
           <div className=" mt-10 mb-10 md:mb-0 md:mt-12">
             <button
+
               className="w-full md:w-[159px] py-6 md:px-6 md:py-2 text-white text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
-              onClick={handleButtonClick}
+onClick={handleButtonClick}
             >
               Learn More
             </button>
