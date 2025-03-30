@@ -37,9 +37,16 @@ const Contact = () => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
+
+      // Reset the form after a few seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      }, 5000); // Resets after 5 seconds
     }, 2000);
   };
 
@@ -143,7 +150,7 @@ const Contact = () => {
           <button
             disabled={isSubmitting || isSubmitted}
             type="submit"
-            className={`w-full text-white p-3 rounded-[15px] text-[16px] transition ${
+            className={`w-full mt-6 text-white p-3 rounded-[15px] text-[16px] transition ${
               isSubmitted ? "bg-[#1cf3a4]" : "bg-[#009E65]"
             }`}
           >
