@@ -73,9 +73,9 @@ const About = () => {
   };
 
   return (
-    <div className="px-16 py-6" ref={ref}>
-      <div className="flex justify-between">
-        <div className="w-full">
+    <div className="md:px-16 md:py-6 p-8" ref={ref}>
+      <div className="flex flex-col md:flex-row justify-between">
+        <div className="hidden md:block w-full">
           <img
             src={about_img}
             alt="about image"
@@ -111,14 +111,21 @@ const About = () => {
               </motion.p>
             </AnimatePresence>
           </div>
-          <div className="mt-12">
+          <div className=" mt-10 mb-10 md:mb-0 md:mt-12">
             <button
-              className="w-[159px] px-6 py-2 text-white text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
+              className="w-full md:w-[159px] px-6 py-2 text-white text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
               onClick={handleButtonClick}
             >
               Learn More
             </button>
           </div>
+        </div>
+        <div className="block md:hidden w-full">
+          <img
+            src={about_img}
+            alt="about image"
+            className="w-[667px] h-[447px] rounded-[25px] object-cover"
+          />
         </div>
       </div>
     </div>
