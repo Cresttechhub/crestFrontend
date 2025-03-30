@@ -37,8 +37,8 @@ const Statistics = () => {
   };
 
   return (
-    <div className="px-16 py-36" ref={ref}>
-      <div className="bg-[#1E1E1E] text-white rounded-[25px] container mx-auto flex justify-around items-center pt-20 pb-20">
+    <div className="mt-12 md:mt-0 md:px-16 md:py-36 p-8" ref={ref}>
+      <div className="bg-[#1E1E1E] text-white rounded-[25px] container mx-auto flex flex-col md:flex-row justify-around items-center pt-20 pb-20">
         <motion.div
           className="text-center"
           initial="hidden"
@@ -57,7 +57,10 @@ const Statistics = () => {
           <p className="text-[16px] mt-2">Expert-Led Courses</p>
         </motion.div>
 
-        <div className="h-40 border-r border-white" />
+        {/* <div className="h-40 border-b md:border-r border-white" />
+         */}
+        {/* <div className="md:border-r border-b md:border-b-0 border-white w-full md:w-auto h-0.5 md:h-auto" /> */}
+        <div className="md:border-r md:h-40 border-b w-100 mt-8 mb-8 md:mb-0 md:mt-0 md:w-0 md:border-b-0 border-white " />
 
         <motion.div
           className="text-center"
@@ -74,12 +77,13 @@ const Statistics = () => {
           >
             {stat2} +
           </motion.h2>
-          <p className="text-[16px] mt-2">
+          <p className="md:text-[16px]   mt-2">
             Hours of Live & Self-Paced Learning
           </p>
         </motion.div>
 
-        <div className="h-40 border-r border-white" />
+        {/* <div className="h-40 border-b md:border-r border-white" /> */}
+        <div className="md:border-r md:h-40 border-b w-100 mt-8 md:mt-0 mb-8 md:mb-0 md:w-0 md:border-b-0 border-white " />
 
         <motion.div
           className="text-center"
