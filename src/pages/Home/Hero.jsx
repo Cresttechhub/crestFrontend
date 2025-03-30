@@ -163,8 +163,10 @@ const Hero = () => {
               </AnimatePresence>
             </div>
             <div className="text-[#1E1E1E] flex items-center justify-center space-x-2 mt-4">
-              <h1 className="text-[40px] font-medium">10K </h1>
-              <span className="text-[16px]">Learners & Counting!</span>
+              <h1 className="text-[30px] md:text-[40px] font-medium">10K </h1>
+              <span className="text-[14px] md:text-[16px]">
+                Learners & Counting!
+              </span>
             </div>
           </div>
           <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
