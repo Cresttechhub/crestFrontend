@@ -15,7 +15,7 @@ const ProgramCard = ({
   return (
     <div className="bg-white shadow-lg rounded-2xl p-6 w-full">
       <div className="flex justify-between">
-        <h3 className="font-semibold text-[20px]">{title}</h3>
+        <h3 className="font-semibold text-16px] md:text-[20px]">{title}</h3>
         <span
           className={`text-xs font-medium px-2 py-1 rounded-lg ${
             level === "Beginner-friendly"
@@ -26,7 +26,7 @@ const ProgramCard = ({
           {level}
         </span>
       </div>
-      <div className="text-[16px] text-[#6D737A] ">
+      <div className="text-[14px] md:text-[16px] text-[#6D737A] ">
         <p className="mt-4">{description}</p>
         <p className="mt-4 flex items-center">
           <MdAccessTime className="mr-2" />
@@ -44,7 +44,7 @@ const ProgramCard = ({
             </li>
           ))}
         </ul>
-        <p className="text-[#00A665] font-bold text-[36px] mt-4">
+        <p className="text-[#00A665] font-bold text-[24px] md:text-[36px] mt-4">
           N{price}{" "}
           <span className="text-[#6D737A] text-[16px] font-normal">
             / Course
@@ -52,7 +52,7 @@ const ProgramCard = ({
         </p>
         <a
           href="/enroll"
-          className="block text-center bg-[#00A665] font-medium text-white text-[16px] py-6 rounded-[15px] mt-4 hover:border-2 hover:border-[#00A665] hover:bg-white  hover:text-[#00A665]"
+          className="block text-center bg-[#00A665] font-medium text-white text-14px] md:text-[16px] py-6 rounded-[15px] mt-4 hover:border-2 hover:border-[#00A665] hover:bg-white  hover:text-[#00A665]"
         >
           Join Now
         </a>
@@ -98,11 +98,11 @@ const Program = () => {
   ];
   return (
     <section className="pt-20">
-      <div className="bg-[#FAFAFA] px-16 py-6">
-        <h2 className="text-[30px] text-[#1E1E1E] font-bold text-center mb-12">
+      <div className="bg-[#FAFAFA] md:px-16 md:py-6 p-8">
+        <h2 className="text-[18px] md:text-[30px] text-[#1E1E1E] font-bold md:text-center mb-12">
           Our Programs
         </h2>
-        <div className="flex justify-between space-x-10">
+        <div className="flex flex-col space-y-10 md:flex-row justify-between space-x-10">
           {programs.map((program, index) => (
             <ProgramCard key={index} {...program} />
           ))}

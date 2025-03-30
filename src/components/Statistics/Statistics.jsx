@@ -50,11 +50,11 @@ const Statistics = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[50px] font-medium"
+            className="text-[30px] md:text-[50px] font-medium"
           >
             {stat1} +
           </motion.h2>
-          <p className="text-[16px] mt-2">Expert-Led Courses</p>
+          <p className="text-[14px] md:text-[16px] mt-2">Expert-Led Courses</p>
         </motion.div>
 
         {/* <div className="h-40 border-b md:border-r border-white" />
@@ -73,11 +73,13 @@ const Statistics = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[50px] font-medium"
+            className="text-[30px] md:text-[50px] font-medium"
           >
             {stat2} +
           </motion.h2>
-          <p className="md:text-[16px]   mt-2">
+
+          <p className="text-[14px] md:text-[16px]   mt-2">
+
             Hours of Live & Self-Paced Learning
           </p>
         </motion.div>
@@ -96,11 +98,13 @@ const Statistics = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[50px] font-medium"
+            className="text-[30px] md:text-[50px] font-medium"
           >
             {stat3} %
           </motion.h2>
-          <p className="text-[16px] mt-2">Student Satisfaction Rate</p>
+          <p className="text-[14px] md:text-[16px] mt-2">
+            Student Satisfaction Rate
+          </p>
         </motion.div>
       </div>
     </div>

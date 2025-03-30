@@ -83,10 +83,10 @@ const About = () => {
           />
         </div>
         <div className="w-full flex flex-col justify-start mt-6">
-          <h1 className="text-[40px] text-[#1E1E1E] font-bold mb-8">
+          <h1 className="text-[18px] md:text-[40px] text-[#1E1E1E] font-bold mb-8">
             About CrestTech Hub
           </h1>
-          <div className="text-[#6D737A] text-[16px] leading-[36px]">
+          <div className="text-[#6D737A] text-[14px] md:text-[16px] leading-[36px]">
             <AnimatePresence>
               <motion.p
                 key="paragraph1"
@@ -113,8 +113,9 @@ const About = () => {
           </div>
           <div className=" mt-10 mb-10 md:mb-0 md:mt-12">
             <button
-              className="w-full md:w-[159px] px-6 py-2 text-white text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
-              onClick={handleButtonClick}
+
+              className="w-full md:w-[159px] py-6 md:px-6 md:py-2 text-white text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
+onClick={handleButtonClick}
             >
               Learn More
             </button>
