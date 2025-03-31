@@ -13,9 +13,9 @@ const ProgramCard = ({
   price,
 }) => {
   return (
-    <div className="bg-white shadow-lg rounded-2xl p-6 w-full">
+    <div className="bg-white shadow-lg rounded-2xl p-6 w-full h-full">
       <div className="flex justify-between">
-        <h3 className="font-semibold text-16px] md:text-[20px]">{title}</h3>
+        <h3 className="font-semibold text-[16px] md:text-[20px]">{title}</h3>
         <span
           className={`text-xs font-medium px-2 py-1 rounded-lg ${
             level === "Beginner-friendly"
