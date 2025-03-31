@@ -99,6 +99,7 @@ const About = () => {
             />
           </div>
           <div className="w-full flex flex-col justify-start mt-6">
+
             <Link
               to="/"
               className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
@@ -106,6 +107,7 @@ const About = () => {
               <IoArrowBackOutline />
               <h1 className="text-[16px]">Back</h1>
             </Link>
+
             <h1 className="text-[18px] md:text-[30px] text-[#1E1E1E] font-bold mb-8">
               About Crest Tech Hub
             </h1>
