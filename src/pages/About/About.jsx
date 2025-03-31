@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import aboutImg from "../../images/about_img.svg";
 import leaders from "../../images/amarachi.png";
 import { FaUserCheck } from "react-icons/fa";
+import { IoArrowBackOutline } from "react-icons/io5";
 import { RiBuilding2Line, RiUserCommunityFill } from "react-icons/ri";
 import { LuGraduationCap } from "react-icons/lu";
 import { MdLightbulbOutline } from "react-icons/md";
@@ -97,6 +99,15 @@ const About = () => {
             />
           </div>
           <div className="w-full flex flex-col justify-start mt-6">
+
+            <Link
+              to="/"
+              className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
+            >
+              <IoArrowBackOutline />
+              <h1 className="text-[16px]">Back</h1>
+            </Link>
+
             <h1 className="text-[18px] md:text-[30px] text-[#1E1E1E] font-bold mb-8">
               About Crest Tech Hub
             </h1>

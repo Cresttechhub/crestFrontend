@@ -98,13 +98,13 @@ const Hero = () => {
           <h1>Innovate.</h1>
         </div>
 
-        <p className="mt-4 text-[16px] text-[#6D737A] min-w-[340px] md:max-w-[596px]">
+        <p className="mt-4 text-[14px] md:text-[16px] text-[#6D737A] min-w-[340px] md:max-w-[596px]">
           Gain in-demand tech skills online with expert mentorship, hands-on
           projects, and real-world training. Join live classes, build a
           portfolio, connect with industry experts, and access internships-all
           affordably!
         </p>
-        <div className="flex items-center mt-12 md:mt-6">
+        <div className="flex items-center  text-[14px] md:text-[16px] mt-12 md:mt-6">
           <button className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center md:w-full">
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
@@ -163,12 +163,10 @@ const Hero = () => {
               </AnimatePresence>
             </div>
             <div className="text-[#1E1E1E] flex items-center justify-center space-x-2 mt-4">
-
               <h1 className="text-[30px] md:text-[40px] font-medium">10K </h1>
               <span className="text-[14px] md:text-[16px]">
                 Learners & Counting!
               </span>
-
             </div>
           </div>
           <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />

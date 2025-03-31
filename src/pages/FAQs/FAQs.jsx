@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { IoChevronDownOutline } from "react-icons/io5";
+import { IoArrowBackOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const faqs = [
@@ -51,6 +52,13 @@ export default function FAQ() {
 
   return (
     <div className="max-w-3xl mx-auto py-16 px-4 mt-36 mb-16 text-center">
+      <Link
+        to="/"
+        className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
+      >
+        <IoArrowBackOutline />
+        <h1 className="text-[16px]">Back</h1>
+      </Link>
       <h2 className="text-[30px] text-[#1E1E1E] font-bold mb-20">
         Frequently Asked Questions
       </h2>

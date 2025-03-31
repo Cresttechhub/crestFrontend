@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Program from "../../components/Program/Program";
 import Choice from "../../components/Choice/Choice";
 import Tracks from "../../components/Tracks/Tracks";
 import { MdLightbulbOutline } from "react-icons/md";
+import { IoArrowBackOutline } from "react-icons/io5";
+
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
 import program_hero from "../../images/program_hero.svg";
@@ -37,29 +40,36 @@ const Programs = () => {
     setIsSubmitted(false);
   };
   return (
-    <div className="mt-36">
+    <div className="mt-28 md:mt-56">
       {/* hero */}
-      <div className="px-16 py-6">
-        <div className="relative flex  h-[385px]">
-          <div className="text-white bg-[#15211F] p-6 rounded-tl-[25px] rounded-bl-[25px] w-full relative ">
+      <div className="md:px-16 md:py-6 p-8 -mb-10 md:mb-0">
+        <Link
+          to="/"
+          className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
+        >
+          <IoArrowBackOutline />
+          <h1 className="text-[16px]">Back</h1>
+        </Link>
+        <div className="relative flex flex-col md:flex-row md:h-[385px]">
+          <div className="text-white bg-[#15211F] h-[385px] p-6 w-full relative rounded-tr-[25px] rounded-tl-[25px] md:rounded-tr-none md:rounded-l-[25px] md:rounded-bl-[25px]">
             <img
               src={thickGreen}
               alt=""
               className="absolute rounded-[25px] top-0 left-0 inset-0"
             />
-            <div className="p-10">
-              <h2 className="text-[44px] font-bold ">
+            <div className="p-10 relative z-20">
+              <h2 className="text-[28px] md:text-[44px] font-bold ">
                 Become a Tech Pro with Our Training Programs
               </h2>
 
-              <p className="text-[16px] mt-8 ">
+              <p className="text-[14px] md:text-[16px] mt-8 ">
                 Gain in-demand skills with hands-on learning, expert mentorship,
                 and real-world projects. Choose the perfect program for you and
                 start your tech journey today!
               </p>
             </div>
           </div>
-          <div className="relative bg-green-100 p-6 rounded-tr-[25px] rounded-br-[25px] w-[800px] flex items-center justify-center overflow-hidden">
+          <div className="relative bg-green-100 p-6 w-full md:w-[800px] flex items-center justify-center overflow-hidden rounded-bl-[25px] rounded-br-[25px] md:rounded-tl-none md:rounded-r-[25px] md:rounded-br-[25px] mt-0 md:mt-0">
             <img
               src={thinGreen1}
               alt=""
@@ -85,7 +95,7 @@ const Programs = () => {
               alt="Man with laptop"
               className="relative object-contain h-auto z-10"
             />
-            <h1 className="absolute bottom-20 left-48 text-[#1E1E1E] font-bold z-20">
+            <h1 className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-[#1E1E1E] font-bold z-20">
               CrestTech Hub
             </h1>
           </div>
@@ -101,32 +111,32 @@ const Programs = () => {
       {/* Track component */}
       <Tracks />
       <div className="pt-16 ">
-        <div className="flex space-x-4 items-center justify-center bg-[#E4FFF2] py-8">
-          <MdLightbulbOutline className="text-[#00A665] text-xl " />
-          <p className="text-[#1E1E1E] text-[16px] font-medium">
+        <div className="flex space-x-2 items-center justify-center bg-[#E4FFF2] p-8">
+          <MdLightbulbOutline className="text-[#00A665] text-[50px] " />
+          <p className="text-[#1E1E1E] text-wrap text-[14px] md:text-[16px] font-medium">
             All programs include real-world projects and internship
             opportunities!
           </p>
         </div>
       </div>
-      <div className="pt-10">
+      <div className="pt-10 p-8">
         <div className="flex flex-col space-y-4 items-center justify-center">
-          <p className="text-[#1E1E1E] text-[25px] font-bold">
+          <p className="text-[#1E1E1E] text-[18px] md:text-[25px] font-bold">
             Ready to Start Your Tech Journey?
           </p>
-          <p className="text-[#6D737A] text-[16px]">
+          <p className="text-[#6D737A] text-[14px md:text-[16px] text-center">
             Join our community of learners and kickstart your career in tech
           </p>
-          <div className="flex space-x-8">
+          <div className="block w-full md:flex md:items-center md:justify-center space-x-8">
             <button
               onClick={handleEnrollClick}
-              className="w-[159px] px-2 py-4 text-white text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
+              className="w-full md:w-[159px] px-2 py-4 text-white text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
             >
               Enroll Now
             </button>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="w-[159px] px-6 py-4 text-[16px] border-2 border-[#009365] text-[#009365] rounded-[15px] cursor-pointer"
+              className="w-full mt-8 md:mt-0 md:w-[159px] px-6 py-4 text-[14px] md:text-[16px] border-2 border-[#009365] text-[#009365] rounded-[15px] cursor-pointer"
             >
               Schedule a call
             </button>
