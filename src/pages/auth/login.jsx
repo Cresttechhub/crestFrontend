@@ -13,7 +13,11 @@ import { IoCloseSharp } from "react-icons/io5";
 
 const Login = () => {
   const [errors, setErrors] = useState({});
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    rememberMe: false,
+  });
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -199,14 +203,14 @@ const Login = () => {
                   Remember me
                 </span>
               </label>
-              <a
-                href="#"
 
+              <Link
+                to="/forgetpassword"
                 className="text-[14px] md:text-[16px] font-medium text-[#00A665] hover:underline"
 
               >
                 Forgot Password
-              </a>
+              </Link>
             </div>
             <button
               className="bg-[#009E65]text-white py-6 md:px-6 md:py-4 text-white text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:bg-white hover:border-2 hover:border-[#009E65] w-full   rounded-[15px] cursor-pointer"
@@ -226,7 +230,7 @@ const Login = () => {
               </Link>
             </p>
             <p className="mt-4 text-[16px] text-[#1E1E1E]">Or login with</p>
-            <div className="flex justify-center mt-4 space-x-6 ">
+            <div className="flex justify-center mt-4 space-x-16 ">
               <FaFacebookF className="bg-[#1877F2] w-6 h-6 p-0.5 rounded-full text-white" />
               <FcGoogle className="w-6 h-6" />
               <FaApple className="w-6 h-6" />

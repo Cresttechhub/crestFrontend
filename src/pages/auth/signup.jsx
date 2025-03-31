@@ -336,7 +336,7 @@ const Signup = () => {
               </Link>
             </p>
             <p className="mt-4 text-[16px] text-[#1E1E1E]">Or login with</p>
-            <div className="flex justify-center mt-4 space-x-6 ">
+            <div className="flex justify-center mt-4 space-x-16 ">
               <FaFacebookF className="bg-[#1877F2] w-6 h-6 p-0.5 rounded-full text-white" />
               <FcGoogle className="w-6 h-6" />
               <FaApple className="w-6 h-6" />
