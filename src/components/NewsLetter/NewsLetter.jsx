@@ -4,6 +4,7 @@ import Partner1 from "../../images/Partner1.svg"
 import Partner2 from "../../images/Partner2.svg"
 import Partner3 from "../../images/Partner3.svg"
 
+
 const NewsLetter = () => {
   return (
     <div>
@@ -17,7 +18,6 @@ const NewsLetter = () => {
         <div>
           <img src={Partner2} alt="Partners" className="bg-transparent filter invert w-64" />
         </div>
-
       </div>
       <div className="bg-[#00A665] text-white py-8 px-6 flex items-center justify-between ">
         <div className="mb-4 md:mb-0 ml-20">
