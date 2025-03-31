@@ -101,7 +101,9 @@ const Enroll = () => {
             Enroll Now
           </h2>
           <div className="">
-            <label htmlFor="" className="">
+
+            <label htmlFor="" className="text-[#1E1E1E] text-[16px]">
+
               Full Name
             </label>
             <input
@@ -118,7 +120,11 @@ const Enroll = () => {
             )}
           </div>
           <div className="">
-            <label htmlFor="">Email</label>
+
+            <label htmlFor="" className="text-[#1E1E1E] text-[16px]">
+              Email
+            </label>
+
             <input
               type="email"
               placeholder="Enter your email"
@@ -133,7 +139,11 @@ const Enroll = () => {
             )}
           </div>
           <div className="">
-            <label htmlFor="">Phone Number</label>
+
+            <label htmlFor="" className="text-[#1E1E1E] text-[16px]">
+              Phone Number
+            </label>
+
             <input
               type="number"
               placeholder="Enter your phone number"
@@ -148,7 +158,9 @@ const Enroll = () => {
             )}
           </div>
           <div className="relative">
-            <label className="block mb-2">Programs</label>
+
+            <label className="block mb-2 text-[#1E1E1E]">Programs</label>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="w-full p-3 border border-[#1E1E1E] rounded-[15px] flex justify-between items-center focus:outline-none focus:ring focus:ring-[#1E1E1E]"

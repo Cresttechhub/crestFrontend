@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
+
+
 import { useNavigate } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 import topLeft from "../../images/topLeft.png";
 import bottomLeft from "../../images/bottomLeft.png";
 import topRight from "../../images/topRight.png";
 import bottomRight from "../../images/bottomRight.png";
+
+import logo from "../..//images/logo.png";
+import whiteLogo from "../../images/whiteLogo.png";
+import greenLogo from "../../images/greenLogo.png";
+import check from "../../images/check.png";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple, FaFacebookF } from "react-icons/fa";
+import { IoCloseSharp } from "react-icons/io5";
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -69,160 +81,209 @@ const Signup = () => {
   };
 
   // Framer Motion Animations
-  const controls = useAnimation();
 
-  React.useEffect(() => {
-    const sequence = async () => {
-      await controls.start({
-        y: -20,
-        transition: { duration: 1, yoyo: Infinity },
-      });
-    };
-    sequence();
-  }, [controls]);
 
-  const reverseControls = useAnimation();
+  useEffect(() => {
+    if (isSubmitted) {
+      const redirectTimeout = setTimeout(() => {
+        navigate("/login"); // Redirect to login page
+      }, 3000); // Redirect after 3 seconds
 
-  React.useEffect(() => {
-    const sequence = async () => {
-      await reverseControls.start({
-        y: 20,
-        transition: { duration: 1, yoyo: Infinity },
-      });
-    };
-    sequence();
-  }, [reverseControls]);
+      return () => clearTimeout(redirectTimeout); // Clear timeout if component unmounts
+    }
+  }, [isSubmitted, navigate]);
 
+  if (isSubmitting) {
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="relative w-40 h-40 p-8 shadow-md bg-white rounded-[15px]">
+          <motion.div
+            className="absolute inset-0 rounded-full border-t-4 border-[#00A665] animate-spin"
+            initial={{ rotate: 0 }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+          />
+          <img
+            src={logo}
+            alt="Logo"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16"
+          />
+        </div>
+      </div>
+    );
+  }
   if (isSubmitted) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="bg-white p-8 rounded shadow-md">
-          <h2 className="text-2xl font-semibold mb-4 text-center">
-            Signup Successful!
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="bg-white -40 h-40 p-8 rounded-[15px] shadow-md text-center">
+          <img src={check} alt="Check" className="mx-auto mb-4 w-16 h-16" />
+          <h2 className="text-2xl font-semibold mb-2">
+            Account created successfully
           </h2>
-          <p className="text-center">Your account has been created.</p>
-          <button
-            onClick={() => navigate("/")}
-            className="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-          >
-            Go to Home
-          </button>
+
         </div>
       </div>
     );
   }
 
   return (
-    <div className="relative h-screen w-screen flex md:flex-row flex-col">
+
+    <div className="relative   flex md:flex-row flex-col overflow-hidden">
       {/* Green Background (Desktop) */}
-      <div className="bg-green-600 w-1/2 hidden md:block relative">
-        <div className="absolute top-10 left-10">
-          <img src="./images/logo.svg" alt="CrestTech Hub" className="w-48" />
-        </div>
+      <div className="bg-[#00A665] w-[40%] hidden md:block relative">
+        {/* logo group */}
+
+        <div className="mr-12 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-4">
+          <img src={whiteLogo} alt="" />
+
         {/* Motion Images */}
         <motion.img
           src={topLeft}
           alt="topLeft"
-          className="absolute top-10 left-1/4"
-          animate={reverseControls}
+
+          className="absolute -top-8 left-0 w-[250px]"
+          animate={{
+            y: [0, -20, 0], // Moves up and down
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+
         />
         <motion.img
           src={bottomLeft}
           alt="bottomLeft"
-          className="absolute bottom-10 left-1/4"
-          animate={reverseControls}
+
+          className="absolute bottom-0 left-0"
+          animate={{
+            y: [0, 20, 0], // Moves down and up
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+
+        <motion.img
+          src={topRight}
+          alt="topRight"
+          className="absolute -top-8 right-0"
+          animate={{
+            y: [0, -20, 0], // Moves down and up
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+
         />
         <motion.img
           src={topRight}
           alt="topRight"
           className="absolute top-10 right-1/4"
           animate={controls}
+
         />
         <motion.img
           src={bottomRight}
           alt="bottomRight"
-          className="absolute bottom-10 right-1/4"
-          animate={controls}
+
+          className="absolute bottom-0 right-0"
+          animate={{
+            y: [0, 20, 0], // Moves down and up
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+
         />
       </div>
 
       {/* Signup Form */}
-      <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center items-center">
-        <button
-          onClick={handleClose}
-          className="absolute top-4 right-4 md:hidden"
-        >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
+
+      <div className="w-full md:w-[60%] p-8 md:p-16 flex flex-col justify-center items-center">
         <div className="w-full max-w-md">
-          <h2 className="text-3xl font-semibold mb-2">Sign Up</h2>
-          <p className="text-sm text-gray-600 mb-6">
-            Let's get you all set up so you can access your personal account.
-          </p>
+          <div className="flex justify-between items-center md:float-right">
+            <img src={greenLogo} alt="" className="block md:hidden" />
+            <button onClick={handleClose} className="">
+              <IoCloseSharp className="w-8 h-8 p-1 border border-[#757373]  text-[#757373] rounded-full" />
+            </button>
+          </div>
+
+          <div className="text-center mt-8">
+            <h2 className="text-[24px] md:text-[35px] text-[#1E1E1E] font-bold mb-2">
+              Sign Up
+            </h2>
+            <p className="text-[14px] md:text-[16px] text-[#6D737A] mb-6">
+              Let's get you all set up so you can access your personal account.
+            </p>
+          </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="name"
-              >
-                Full Name
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="name"
-                type="text"
-                placeholder="Enter Your Full Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-              {errors.name && (
-                <p className="text-red-500 text-xs italic">{errors.name}</p>
-              )}
+            <div className="flex flex-col md:flex-row space-x-4">
+              <div className="mb-4 w-full">
+                <label
+                  className="text-[#1E1E1E] text-[14px] md:text-[16px] "
+                  htmlFor="name"
+                >
+                  Full Name
+                </label>
+                <input
+                  className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                  id="name"
+                  type="text"
+                  placeholder="Enter Your Full Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm">{errors.name}</p>
+                )}
+              </div>
+              <div className="mb-4 w-full">
+                <label
+                  className="block text-[#1E1E1E] text-[14px] md:text-[16px]"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
+                <input
+                  className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                  id="email"
+                  type="email"
+                  placeholder="Enter Your Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm">{errors.email}</p>
+                )}
+              </div>
             </div>
             <div className="mb-4">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="email"
-              >
-                Email
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email"
-                type="email"
-                placeholder="Enter Your Email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && (
-                <p className="text-red-500 text-xs italic">{errors.email}</p>
-              )}
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block text-[#1E1E1E] text-[14px] md:text-[16px] "
+
                 htmlFor="phone"
               >
                 Phone Number
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+
+                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+
                 id="phone"
                 type="tel"
                 placeholder="Enter Your Phone Number"
@@ -231,18 +292,24 @@ const Signup = () => {
                 onChange={handleChange}
               />
               {errors.phone && (
-                <p className="text-red-500 text-xs italic">{errors.phone}</p>
+
+                <p className="text-red-500 text-sm">{errors.phone}</p>
+
               )}
             </div>
             <div className="mb-4">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+
+                className="block text-[#1E1E1E] text-[14px] md:text-[16px]"
+
                 htmlFor="password"
               >
                 Password
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+
+                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+
                 id="password"
                 type="password"
                 placeholder="Enter Your Password"
@@ -250,9 +317,11 @@ const Signup = () => {
                 value={formData.password}
                 onChange={handleChange}
               />
-              {errors.password && (
-                <p className="text-red-500 text-xs italic">{errors.password}</p>
-              )}
+
+              {/* {errors.password && (
+                <p className="text-red-500 text-sm">{errors.password}</p>
+              )} */}
+
             </div>
             <div className="flex items-center justify-between mb-6">
               <label className="flex items-center">
@@ -263,63 +332,45 @@ const Signup = () => {
                   checked={formData.rememberMe}
                   onChange={handleChange}
                 />
-                <span className="ml-2 text-sm text-gray-600">Remember me</span>
+
+                <span className="ml-2 text-sm text-[#1E1E1E] text-14px] md:text-[16px]">
+                  Remember me
+                </span>
               </label>
-              <a href="#" className="text-sm text-green-600 hover:underline">
+              <a
+                href="#"
+                className="text-[14px] md:text-[16px] text-[#00A665] hover:underline"
+              >
+
                 Forgot Password
               </a>
             </div>
             <button
-              className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+
+              className="bg-[#009E65]text-white py-6 md:px-6 md:py-4 text-white text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:bg-white hover:border-2 hover:border-[#009E65] w-full   rounded-[15px] cursor-pointer"
+
               type="submit"
             >
               Create Account
             </button>
           </form>
 
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
+          <div className="mt-6 text-center ">
+            <p className="text-[14px] md:text-[16px] text-[#1E1E1E] font-medium">
               Already have an Account?{" "}
-              <a href="#" className="text-green-600 hover:underline">
+              <a
+                href="#"
+                className="text-[#00A665] font-medium hover:underline"
+              >
                 Login
               </a>
             </p>
-            <p className="mt-4 text-sm text-gray-600">Or login with</p>
-            <div className="flex justify-center mt-4 space-x-4">
-              <a href="#" className="text-blue-500">
-                <svg
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2C6.477 2 2 6.477 2 12c0 5.006 3.22 9.213 7.625 10.653v-7.703H6.69v-2.95h2.935V8.557c0-2.894 1.777-4.48 4.314-4.48 1.254 0 2.324.09 2.635.127v3.025h-1.808c-1.416 0-1.693.675-1.693 1.66v2.18h3.456l-.56 2.95h-2.895v7.703A10.007 10.007 0 0022 12c0-5.523-4.477-10-10-10z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </a>
-              <a href="#" className="text-red-500">
-                <svg
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M11.998 2.316C7.94 2.316 4.636 5.62 4.636 9.678c0 3.19 1.89 5.89 4.545 6.816-.002.69-.002 1.306 0 1.996.31 0 .565.114.76.24.44.346.71.867.71 1.405 0 .85-.07 1.565-.11 2.41-.004.007-.004.014-.006.02-.33.05-.66.08-.98.08-4.056 0-7.36-3.304-7.36-7.36 0-4.056 3.304-7.36 7.36-7.36 2.08 0 3.86.804 5.176 2.09l3.522-3.35c-.917-.83-2.112-1.316-3.378-1.316z" />
-                </svg>
-              </a>
-              <a href="#" className="text-gray-900">
-                <svg
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 1.995c-5.523 0-10 4.477-10 10 0 2.112.65 4.04 1.77 5.676v-3.953h-2.28v-2.203h2.28V9.99c0-2.26 1.383-3.492 3.38-3.492 1.006 0 1.9.183 1.9 1.99v2.214h-1.065c-1.095 0-1.308.517-1.308 1.257v1.658h2.235l-.36 2.203h-1.875V22c5.523 0 10-4.477-10-10 0-5.523-4.477-10-10-10z" />
-                </svg>
-              </a>
+            <p className="mt-4 text-[16px] text-[#1E1E1E]">Or login with</p>
+            <div className="flex justify-center mt-4 space-x-6 ">
+              <FaFacebookF className="bg-[#1877F2] w-6 h-6 p-0.5 rounded-full text-white" />
+              <FcGoogle className="w-6 h-6" />
+              <FaApple className="w-6 h-6" />
+
             </div>
           </div>
         </div>
