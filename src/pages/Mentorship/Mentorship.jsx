@@ -45,6 +45,13 @@ const Mentorship = () => {
   return (
     <div className="mt-36">
       <div className="flex flex-col lg:flex-row items-center justify-between w-full px-6 lg:px-16 py-12 bg-white rounded-lg">
+        <Link
+          to="/"
+          className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
+        >
+          <IoArrowBackOutline />
+          <h1 className="text-[16px]">Back</h1>
+        </Link>
         <img src={mentorshipHero} alt="" />
         <div className="flex-1 bg-[#FAFAFA] h-[389px] p-12 rounded-tr-[25px] rounded-br-[25px] relative">
           <img
