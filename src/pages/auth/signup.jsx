@@ -5,7 +5,6 @@ import topLeft from "../../images/topLeft.png";
 import bottomLeft from "../../images/bottomLeft.png";
 import topRight from "../../images/topRight.png";
 import bottomRight from "../../images/bottomRight.png";
-
 import logo from "../..//images/logo.png";
 import whiteLogo from "../../images/whiteLogo.png";
 import greenLogo from "../../images/greenLogo.png";
@@ -76,8 +75,6 @@ const Signup = () => {
     }, 1000); // Simulate a 1-second submission delay
   };
 
-  // Framer Motion Animations
-
   useEffect(() => {
     if (isSubmitted) {
       const redirectTimeout = setTimeout(() => {
@@ -121,12 +118,11 @@ const Signup = () => {
   }
 
   return (
-    <div className="relative   flex md:flex-row flex-col overflow-hidden">
+    <div className="relative h-screen  flex md:flex-row flex-col md:overflow-hidden">
       {/* Green Background (Desktop) */}
 
       <div className="bg-[#00A665] h-screen w-[40%] hidden md:block relative">
         <div className="mr-12 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-4">
-
           <img src={whiteLogo} alt="" />
         </div>
         {/* Motion Images */}
@@ -325,12 +321,9 @@ const Signup = () => {
           <div className="mt-6 text-center ">
             <p className="text-[14px] md:text-[16px] text-[#1E1E1E] font-medium">
               Already have an Account?{" "}
-
               <Link
                 to="/login"
                 className="text-[#00A665] font-medium hover:underline"
-
-
               >
                 Login
               </Link>
