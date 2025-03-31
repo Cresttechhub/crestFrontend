@@ -1,5 +1,5 @@
 import React from "react";
-import about_img from "../../images/about_img.svg";
+import aboutImg from "../../images/about_img.svg";
 import leaders from "../../images/amarachi.png";
 import { FaUserCheck } from "react-icons/fa";
 import { RiBuilding2Line, RiUserCommunityFill } from "react-icons/ri";
@@ -91,7 +91,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="w-full">
             <img
-              src={about_img}
+              src={aboutImg}
               alt="About Crest Tech Hub"
               className="w-[667px] h-[447px] rounded-[25px] object-cover"
             />
