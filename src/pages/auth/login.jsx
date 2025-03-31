@@ -201,7 +201,9 @@ const Login = () => {
               </label>
               <a
                 href="#"
+
                 className="text-[14px] md:text-[16px] font-medium text-[#00A665] hover:underline"
+
               >
                 Forgot Password
               </a>
