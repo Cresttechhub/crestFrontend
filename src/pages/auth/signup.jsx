@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion, useAnimation } from "framer-motion";
+import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import topLeft from "../../images/topLeft.png";
 import bottomLeft from "../../images/bottomLeft.png";
 import topRight from "../../images/topRight.png";
@@ -75,8 +75,6 @@ const Signup = () => {
     }, 1000); // Simulate a 1-second submission delay
   };
 
-  // Framer Motion Animations
-
   useEffect(() => {
     if (isSubmitted) {
       const redirectTimeout = setTimeout(() => {
@@ -123,8 +121,6 @@ const Signup = () => {
     <div className="relative   flex md:flex-row flex-col overflow-hidden">
       {/* Green Background (Desktop) */}
       <div className="bg-[#00A665] w-[40%] hidden md:block relative">
-        {/* logo group */}
-
         <div className="mr-12 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-4">
           <img src={whiteLogo} alt="" />
         </div>
@@ -286,9 +282,9 @@ const Signup = () => {
                 value={formData.password}
                 onChange={handleChange}
               />
-              {/* {errors.password && (
+              {errors.password && (
                 <p className="text-red-500 text-sm">{errors.password}</p>
-              )} */}
+              )}
             </div>
             <div className="flex items-center justify-between mb-6">
               <label className="flex items-center">
@@ -321,12 +317,12 @@ const Signup = () => {
           <div className="mt-6 text-center ">
             <p className="text-[14px] md:text-[16px] text-[#1E1E1E] font-medium">
               Already have an Account?{" "}
-              <a
-                href="#"
+              <Link
+                to="/login"
                 className="text-[#00A665] font-medium hover:underline"
               >
                 Login
-              </a>
+              </Link>
             </p>
             <p className="mt-4 text-[16px] text-[#1E1E1E]">Or login with</p>
             <div className="flex justify-center mt-4 space-x-6 ">
