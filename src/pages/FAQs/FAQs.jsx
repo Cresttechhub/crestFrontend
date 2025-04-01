@@ -51,7 +51,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-16 px-4 mt-36 mb-16 text-center">
+    <div className="max-w-3xl mx-auto md:py-16 md:px-4 p-8 mt-36 mb-16 text-center">
       <Link
         to="/"
         className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
@@ -59,14 +59,14 @@ export default function FAQ() {
         <IoArrowBackOutline />
         <h1 className="text-[16px]">Back</h1>
       </Link>
-      <h2 className="text-[30px] text-[#1E1E1E] font-bold mb-20">
+      <h2 className="text-[30px] text-[#1E1E1E] font-bold mb-10 md:mb-20">
         Frequently Asked Questions
       </h2>
       <div className="space-y-4 text-left">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className=" pb-2 cursor-pointer text-[#6D737A] text-[16px]"
+            className="pb-2 cursor-pointer text-[#6D737A] text-[16px]"
             onClick={() => toggleFAQ(index)}
           >
             <div className="flex justify-between items-center py-3">
@@ -80,10 +80,11 @@ export default function FAQ() {
             </div>
             {openIndex === index && (
               <motion.p
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="bg-[#f3f0f0] rounded-[15px] p-6 mt-4"
+                initial={{ opacity: 0, maxHeight: 0 }}
+                animate={{ opacity: 1, maxHeight: "1000px" }}
+                exit={{ opacity: 0, maxHeight: 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-[#f3f0f0] rounded-[15px] p-6 mt-4 overflow-hidden"
               >
                 {faq.answer}
               </motion.p>
@@ -91,8 +92,8 @@ export default function FAQ() {
           </div>
         ))}
       </div>
-      <Link to="/contact">
-        <button className="mt-16 px-6 py-3 text-[16px] font-medium border border-[#00A665] text-[#00A665] rounded-[15px] hover:border-2 transition">
+      <Link to="/contact" className="">
+        <button className="w-full md:w-[300px] mt-16 px-6 py-3 text-[16px] font-medium border border-[#00A665] text-[#00A665] rounded-[15px] hover:border-2 transition">
           Still Have Questions? Contact Us
         </button>
       </Link>

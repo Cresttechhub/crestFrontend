@@ -4,12 +4,10 @@ import { FaUserCheck } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { IoMdBook } from "react-icons/io";
 import { MdOutlineHandshake } from "react-icons/md";
-import { IoArrowBackOutline } from "react-icons/io5";
 import How from "../../components/How/How";
 import Mentors from "../../components/Mentors/Mentors";
 import mentorHero from "../../images/mentorship-hero.svg";
 import thinGreen1 from "../../images/thinGreen1.svg";
-import { transform } from "framer-motion";
 
 const features = [
   {
@@ -62,7 +60,7 @@ const Mentorship = () => {
           <img
             src={thinGreen1}
             alt=""
-            className="absolute z-10 top-1/2 left-1/2 lg:left-[71%] transform -translate-x-1/2 -translate-y-1/2"
+            className="absolute z-10 top-1/2 left-[55%] lg:left-[71%] transform -translate-x-1/2 -translate-y-1/2"
           />
           <h1 className="text-3xl lg:text-[44px] font-bold text-[#1E1E1E]">
             Guided by Experts. <br /> Mentored for{" "}

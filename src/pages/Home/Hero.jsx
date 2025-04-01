@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import image1 from "../../images/Ellipse 1.svg";
 import image2 from "../../images/Ellipse 2.svg";
 import image3 from "../../images/Ellipse 3.svg";
@@ -105,10 +106,13 @@ const Hero = () => {
           affordably!
         </p>
         <div className="flex items-center  text-[14px] md:text-[16px] mt-12 md:mt-6">
-          <button className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center md:w-full">
+          <Link
+            to="/enroll"
+            className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center md:w-full"
+          >
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
-          </button>
+          </Link>
           <div className="ml-4 hidden md:flex items-center border border-[#737373] rounded-[15px] px-8 py-2 text-[#6D737A] text-[14px] w-full">
             <input
               type="text"
