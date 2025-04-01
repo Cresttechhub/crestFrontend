@@ -99,6 +99,7 @@ const About = () => {
             />
           </div>
           <div className="w-full flex flex-col justify-start mt-6">
+
             <Link
               to="/"
               className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"

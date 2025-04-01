@@ -51,7 +51,9 @@ export default function FAQ() {
   };
 
   return (
+
     <div className="max-w-3xl mx-auto md:py-16 md:px-4 p-8 mt-36 mb-16 text-center">
+
       <Link
         to="/"
         className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
@@ -59,7 +61,9 @@ export default function FAQ() {
         <IoArrowBackOutline />
         <h1 className="text-[16px]">Back</h1>
       </Link>
+
       <h2 className="text-[30px] text-[#1E1E1E] font-bold mb-10 md:mb-20">
+
         Frequently Asked Questions
       </h2>
       <div className="space-y-4 text-left">

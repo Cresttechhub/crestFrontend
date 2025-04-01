@@ -106,10 +106,12 @@ const Hero = () => {
           affordably!
         </p>
         <div className="flex items-center  text-[14px] md:text-[16px] mt-12 md:mt-6">
+
           <Link
             to="/enroll"
             className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center md:w-full"
           >
+
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
           </Link>

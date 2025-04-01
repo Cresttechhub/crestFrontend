@@ -45,6 +45,7 @@ const Mentorship = () => {
   };
   return (
     <div className="mt-36">
+
       <Link
         to="/"
         className="p-8 md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
@@ -57,6 +58,7 @@ const Mentorship = () => {
           className="flex-1 bg-[#FAFAFA] p-12 relative order-0 md:order-2 flex flex-col h-full 
       rounded-tl-[15px] rounded-tr-[15px] lg:rounded-tr-[15px] lg:rounded-br-[15px] lg:rounded-tl-none lg:rounded-bl-none"
         >
+
           <img
             src={thinGreen1}
             alt=""
