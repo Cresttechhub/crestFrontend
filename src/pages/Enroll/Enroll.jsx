@@ -97,13 +97,14 @@ const Enroll = () => {
           onSubmit={handleSubmit}
           className="space-y-6 mt-8 md:mt-0 md:py-8 w-full h-full"
         >
-          <h2 className="text-[28px] font-bold text-[#1E1E1E] -mt-8 md:mt-0">
+          <h2 className="text-[18px] md:text-[28px] font-bold text-[#1E1E1E] -mt-8 md:mt-0">
             Enroll Now
           </h2>
           <div className="">
-
-            <label htmlFor="" className="text-[#1E1E1E] text-[16px]">
-
+            <label
+              htmlFor=""
+              className="text-[14px] md:text-[16px] text-[#1E1E1E]"
+            >
               Full Name
             </label>
             <input
@@ -113,15 +114,17 @@ const Enroll = () => {
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
-              className="mt-4 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+              className="mt-4 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
             />
             {errors.name && (
               <p className="text-red-500 text-sm">{errors.name}</p>
             )}
           </div>
           <div className="">
-
-            <label htmlFor="" className="text-[#1E1E1E] text-[16px]">
+            <label
+              htmlFor=""
+              className="text-[14px] md:text-[16px] text-[#1E1E1E]"
+            >
               Email
             </label>
 
@@ -132,15 +135,17 @@ const Enroll = () => {
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
-              className="mt-4 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+              className="mt-4 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
             />
             {errors.email && (
               <p className="text-red-500 text-sm">{errors.email}</p>
             )}
           </div>
           <div className="">
-
-            <label htmlFor="" className="text-[#1E1E1E] text-[16px]">
+            <label
+              htmlFor=""
+              className="text-[14px] md:text-[16px] text-[#1E1E1E]"
+            >
               Phone Number
             </label>
 
@@ -151,19 +156,20 @@ const Enroll = () => {
               onChange={(e) =>
                 setFormData({ ...formData, phone: e.target.value })
               }
-              className="mt-4 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+              className="mt-4 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
             />
             {errors.phone && (
               <p className="text-red-500 text-sm">{errors.phone}</p>
             )}
           </div>
           <div className="relative">
-
-            <label className="block mb-2 text-[#1E1E1E]">Programs</label>
+            <label className="block mb-2 text-[14px] md:text-[16px] text-[#1E1E1E]">
+              Programs
+            </label>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="w-full p-3 border border-[#1E1E1E] rounded-[15px] flex justify-between items-center focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+              className="w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] flex justify-between items-center focus:outline-none focus:ring focus:ring-[#1E1E1E]"
             >
               {formData.program || "Select a program"}
               <IoChevronDownOutline className="text-[#1E1E1E]" />
@@ -194,7 +200,7 @@ const Enroll = () => {
           <button
             disabled={isSubmitting || isSubmitted}
             type="submit"
-            className={`w-full mt-8 text-white p-3 rounded-[15px] text-[16px] transition ${
+            className={`w-full text-[14px] md:text-[16px] mt-8 text-white p-3 rounded-[15px] transition ${
               isSubmitted ? "bg-[#1cf3a4]" : "bg-[#009E65]"
             }`}
           >

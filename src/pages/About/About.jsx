@@ -184,8 +184,12 @@ const About = () => {
               <p className="text-[#6D737A] mt-2 text-[14px] md:text-[16px]">
                 {impact.description}
               </p>
-              {index < values.length - 1 && (
-                <div className="hidden md:block absolute top-0 bottom-0 right-0 border border-[#6D737A] opacity-20"></div>
+              {index < impacts.length - 1 && (
+                <div
+                  className={`border-r border-[#6D737A] opacity-20 absolute top-0 bottom-0 right-0 ${
+                    index % 2 === 0 ? "block" : "hidden md:block"
+                  }`}
+                ></div>
               )}
             </div>
           ))}
@@ -209,7 +213,11 @@ const About = () => {
                 {value.description}
               </p>
               {index < values.length - 1 && (
-                <div className="hidden md:block absolute top-0 bottom-0 right-0 border border-[#6D737A] opacity-20"></div>
+                <div
+                  className={`border-r border-[#6D737A] opacity-20 absolute top-0 bottom-0 right-0 ${
+                    index % 2 === 0 ? "block" : "hidden md:block"
+                  }`}
+                ></div>
               )}
             </div>
           ))}

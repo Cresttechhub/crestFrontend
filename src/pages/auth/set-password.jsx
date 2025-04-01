@@ -222,7 +222,7 @@ const ResetPassword = () => {
                 id="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 placeholder="Enter Your Password"
               />
               <span
@@ -251,7 +251,7 @@ const ResetPassword = () => {
                 id="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 placeholder="Re-enter Your Password"
               />
               <span
@@ -284,7 +284,7 @@ const ResetPassword = () => {
                 Sign Up
               </Link>
             </p>
-            <p className="mt-4 text-[16px] text-[#1E1E1E] mb-10">
+            <p className="mt-4 text-[14px] md:text-[16px] text-[#1E1E1E] mb-10">
               Or login with
             </p>
             <div className="flex justify-center mt-4 space-x-16 ">

@@ -153,7 +153,7 @@ const forgetPassword = () => {
                 Email
               </label>
               <input
-                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="email"
                 type="email"
                 placeholder="Enter Your Email"
@@ -173,7 +173,7 @@ const forgetPassword = () => {
             </button>
           </form>
           <div className="text-center mt-8">
-            <p className="mt-4 text-[16px] text-[#1E1E1E] mb-10">
+            <p className="mt-4 text-[14px] md:text-[16px] text-[#1E1E1E] mb-10">
               Or login with
             </p>
             <div className="flex justify-center mt-4 space-x-16 ">

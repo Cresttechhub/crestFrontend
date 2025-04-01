@@ -124,8 +124,8 @@ export default function Mentors() {
   };
 
   return (
-    <div className="mt-16 w-full px-24 flex flex-col items-center">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-12 w-full">
+    <div className=" flex flex-col items-center">
+      <div className="mt-8 md:mt-16 grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-12 w-full">
         {mentors.map((mentor, index) => (
           <div
             key={index}
@@ -136,20 +136,20 @@ export default function Mentors() {
               alt={mentor.name}
               className="w-[340px] h-[305px] rounded-[20px] object-cover bg-[#F6F6F8]"
             />
-            <h3 className="text-[20px] text-[#1E1E1E] font-semibold text-left w-full">
+            <h3 className="text-[16px] md:text-[20px] text-[#1E1E1E] font-semibold text-left w-full">
               {mentor.name}
             </h3>
-            <p className="text-[16px] text-[#00A665]  font-normal text-left w-full">
+            <p className="text-[14px] md:text-[16px] text-[#00A665]  font-normal text-left w-full">
               {mentor.role}
             </p>
-            <p className="text-[16px] text-[#6D737A] font-normal text-left w-full">
+            <p className="text-[14px] md:text-[16px] text-[#6D737A] font-normal text-left w-full">
               {mentor.description}
             </p>
             <div className="flex flex-wrap gap-2">
               {mentor.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="bg-[#E7F8F1] text-[#00A665] font-normal px-3 py-1 text-[14px] rounded-full"
+                  className="bg-[#E7F8F1] text-[#00A665] font-normal px-3 py-1 text-[12px] md:text-[14px] rounded-full"
                 >
                   {tag}
                 </span>
@@ -161,7 +161,7 @@ export default function Mentors() {
       {!showMore && (
         <button
           onClick={handleViewMore}
-          className="mt-12 px-6 py-4 text-white text-[16px] hover:text-[#009E65] font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
+          className="mt-12 px-6 py-4 w-full md:w-[240px] text-white text-[14px] md:text-[16px] hover:text-[#009E65] font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
         >
           View More Team Member
         </button>

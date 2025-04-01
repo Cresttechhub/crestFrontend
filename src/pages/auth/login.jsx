@@ -146,7 +146,7 @@ const Login = () => {
                 Email
               </label>
               <input
-                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="email"
                 type="email"
                 placeholder="Enter Your Email"
@@ -171,7 +171,7 @@ const Login = () => {
                 id="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 placeholder="Enter Your Password"
               />
               <span
@@ -207,7 +207,6 @@ const Login = () => {
               <Link
                 to="/forgetpassword"
                 className="text-[14px] md:text-[16px] font-medium text-[#00A665] hover:underline"
-
               >
                 Forgot Password
               </Link>
@@ -229,7 +228,9 @@ const Login = () => {
                 Sign Up
               </Link>
             </p>
-            <p className="mt-4 text-[16px] text-[#1E1E1E]">Or login with</p>
+            <p className="mt-4 text-14px] md:text-[16px] text-[#1E1E1E]">
+              Or login with
+            </p>
             <div className="flex justify-center mt-4 space-x-16 ">
               <FaFacebookF className="bg-[#1877F2] w-6 h-6 p-0.5 rounded-full text-white" />
               <FcGoogle className="w-6 h-6" />
