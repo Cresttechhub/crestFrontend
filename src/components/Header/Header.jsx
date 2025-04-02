@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Icon from "../../images/mainIcon.svg";
+import Icon from "../../images/MainIcon.svg";
 import Button from "../Button/Button.jsx";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for mobile menu
 
