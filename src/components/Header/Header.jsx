@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Icon from "../../images/MainIcon.svg";
+// import Icon from "../../images/MainIcon.svg";
 import Button from "../Button/Button.jsx";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for mobile menu
 
@@ -11,7 +11,7 @@ function Header() {
     <header className="fixed top-0 left-0 w-full bg-white pb-10 z-50 backdrop-blur-md">
       <nav className="container mx-auto flex justify-between items-center px-4 py-3 border border-[#6D737A] rounded-[20px] mt-9 bg-white">
         <div className="flex items-center border-r border-[#6D737A] pr-3 ml-1">
-          <img src={Icon} alt="Icon" className="h-10" />
+          {/* <img src={Icon} alt="Icon" className="h-10" /> */}
           <span className="font-bold text-2xl">CrestTech Hub</span>
         </div>
 
