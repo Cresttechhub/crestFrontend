@@ -6,14 +6,13 @@ import Button from "../../components/Button/Button";
 import BlogImg1 from "../../images/BlogImg1.svg";
 import BlogImg2 from "../../images/BlogImg2.svg";
 import BlogImg3 from "../../images/BlogImg3.svg";
-
 const Blog = () => {
   return (
-    <div>
-      <h1 className="text-left sm:text-center pl-4 pt-3 text-sm text-[30px] text-[#1E1E1E] font-[700] mb-10">
+    <div className="mt-20">
+      <h1 className="text-left sm:text-center pl-4 pt-3 text-sm text-[30px] text-[#1E1E1E] font-[700] mb-12">
         Latest Blog Posts
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10">
         <div className="flex flex-col space-y-2 bg-white shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-lg overflow-hidden p-6 hover:shadow-[0px_4px_10px_rgba(0,0,0,0.1)] transition-shadow duration-300 group hover:cursor-pointer">
           <img
             src={BlogImg1}
@@ -35,7 +34,9 @@ const Blog = () => {
             developer needs t...
           </p>
           <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
-            <span className="text-[16px]">Read More</span>
+            <Link to="/blog/1">
+              <span className="text-[16px]">Read More</span>
+            </Link>
             <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
@@ -61,7 +62,9 @@ const Blog = () => {
             digital experiences.
           </p>
           <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
-            <span className="text-[16px]">Read More</span>
+            <Link to="/blog/1">
+              <span className="text-[16px]">Read More</span>
+            </Link>
             <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
@@ -87,19 +90,21 @@ const Blog = () => {
             build software
           </p>
           <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
-            <span className="text-[16px]">Read More</span>
+            <Link to="/blog/1">
+              <span className="text-[16px]">Read More</span>
+            </Link>
             <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
       </div>
 
-        <div className="flex justify-center items-center mt-20 px-6">
-          <Link to="/blogs" className="flex justify-center items-center">
-            <Button className="text-center rounded-2xl px-10 py-4 text-[16px] font-500 hover:text-[#7ffcce] border-black">
-              View More
-            </Button>
-          </Link>
-        </div>
+      <div className="flex justify-center items-center mt-20 px-6">
+        <Link to="/blogs" className="flex justify-center items-center">
+          <Button className="text-center rounded-2xl px-10 py-4 text-[16px] font-500 hover:text-[#7ffcce] border-black">
+            View All
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };

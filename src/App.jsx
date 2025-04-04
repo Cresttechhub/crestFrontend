@@ -15,6 +15,8 @@ import Signup from "./pages/auth/signup";
 import ForgetPassword from "./pages/auth/forget-password";
 import ResetPassword from "./pages/auth/set-password";
 import VerifyCode from "./pages/auth/verify-code";
+import Blog from "./components/Blog/Blog";
+import BlogDetail from "./components/Blog/BlogDetail";
 
 function App() {
   return (
@@ -126,6 +128,9 @@ function App() {
             </AuthLayout>
           }
         />
+
+        <Route path="/" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
       </Routes>
     </Router>
   );

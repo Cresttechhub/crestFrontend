@@ -7,7 +7,7 @@ import Partner3 from "../../images/Partner3.svg"
 
 const NewsLetter = () => {
   return (
-    <div>
+    <div className="mt-15">
       <div className="flex justify-around items-center px-24 -mb-7 h-[200px]">
         <div>
           <img src={Partner1} alt="Partners" className="bg-transparent filter invert w-76" />

@@ -14,8 +14,8 @@ const How = () => {
   }, []);
 
   return (
-    <div className="mb-20 p-8 md:p-16">
-      <h1 className="text-center text-[24px] md:text-[30px] text-[#1E1E1E] font-[700] mb-10">
+    <div className="-mt-0 md:p-16">
+      <h1 className="text-center text-[24px] md:text-[30px] text-[#1E1E1E] font-[700] mb-20">
         How It Works
       </h1>
       
