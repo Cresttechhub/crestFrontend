@@ -76,7 +76,7 @@ const Enroll = () => {
   };
 
   return (
-    <div className="mt-32 md:mt-56 md:px-16 md:py-6 p-8 flex flex-col">
+    <div className="mt-32 md:mt-56 md:px-24 md:py-6 p-8 flex flex-col">
       <Link
         to="/"
         className="flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"

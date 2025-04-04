@@ -76,8 +76,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="mt-32 md:mt-64 md:px-16 md:py-6 flex  flex-col p-8 md:flex-row md:items-center md:justify-between">
-      {/* Text Section */}
+    <div className="mt-32 md:mt-64 md:px-24 p-8 justify-between md:flex-row flex  flex-col">
       <div className="">
         <div className="text-[32px] md:text-[72px] text-[#1E1E1E] font-bold">
           Learn.
@@ -91,8 +90,8 @@ const Hero = () => {
               type: "spring",
               stiffness: 600,
               damping: 150,
-            }} // Added spring transition
-            className="text-green-600 inline-block" //added inline-block to allow vertical movement
+            }}
+            className="text-green-600 inline-block"
           >
             {words[index]}
           </motion.span>
@@ -106,16 +105,14 @@ const Hero = () => {
           affordably!
         </p>
         <div className="flex items-center  text-[14px] md:text-[16px] mt-12 md:mt-6">
-
           <Link
             to="/enroll"
-            className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center md:w-full"
+            className="bg-[#009E65] text-[16px] text-white py-5 px-8 rounded-[15px] flex items-center md:w-full"
           >
-
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
           </Link>
-          <div className="ml-4 hidden md:flex items-center border border-[#737373] rounded-[15px] px-8 py-2 text-[#6D737A] text-[14px] w-full">
+          <div className="ml-4 hidden md:flex items-center border border-[#737373] rounded-[15px] px-8 py-5 text-[#6D737A] text-[14px] w-full">
             <input
               type="text"
               placeholder="What do you want to learn?"
@@ -145,7 +142,7 @@ const Hero = () => {
 
         {/* Profile Images */}
 
-        <div className="absolute -right-20 md:-right-40 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute left-60 md:-right-40 transform -translate-x-1/2 -translate-y-1/2">
           <div className="bg-[#FFFFFF] rounded-[25px] shadow-lg p-4 flex flex-col items-center w-[400px]">
             <div className="flex relative w-full justify-center items-center">
               <AnimatePresence initial={false} custom={animationStage}>

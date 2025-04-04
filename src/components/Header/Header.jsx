@@ -8,11 +8,15 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white pb-10 z-50 backdrop-blur-md">
-      <nav className="container mx-auto flex justify-between items-center px-3 py-2 mt-9 bg-white">
+    <header className="fixed top-0 left-0 w-full bg-white pb-10 z-50 backdrop-blur-md px-24">
+      <nav className="container mx-auto flex justify-between items-center  mt-9 bg-white">
         <div className="flex items-center">
-          <img src={Icon} alt="Icon" className="h-8 md:h-10" /> {/* Reduced size */}
-          <span className="font-bold text-xl md:text-2xl">CrestTech Hub</span> {/* Reduced text size for mobile */}
+          <img src={Icon} alt="Icon" className="h-8 md:h-10" />{" "}
+          {/* Reduced size */}
+          <span className="font-bold text-xl md:text-2xl">
+            CrestTech Hub
+          </span>{" "}
+          {/* Reduced text size for mobile */}
         </div>
 
         <div className="hidden md:flex gap-7 items-center text-[#1E1E1E] text-[18px] font-[400]">

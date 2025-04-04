@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 
 const How = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const steps = ["Sign Up", "Join Live Classes", "Build Projects", "Get Certified"];
+  const steps = [
+    "Sign Up",
+    "Join Live Classes",
+    "Build Projects",
+    "Get Certified",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -14,11 +19,11 @@ const How = () => {
   }, []);
 
   return (
-    <div className="-mt-0 md:p-16">
+    <div className="-mt-0 md:px-24 py-16">
       <h1 className="text-center text-[24px] md:text-[30px] text-[#1E1E1E] font-[700] mb-20">
         How It Works
       </h1>
-      
+
       {/* Use grid to control layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-6">
         {steps.map((title, index) => {
@@ -31,8 +36,8 @@ const How = () => {
               key={index}
               initial={{ scale: 1, backgroundColor: "#009E65", x: 0 }}
               animate={{
-                scale: isActive ? 1.1 : 1, 
-                x: isLeft ? -10 : isRight ? 10 : 0, 
+                scale: isActive ? 1.1 : 1,
+                x: isLeft ? -10 : isRight ? 10 : 0,
                 backgroundColor: isActive ? "#005c39" : "#009E65",
               }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -43,7 +48,9 @@ const How = () => {
                   {index + 1}
                 </h1>
               </div>
-              <h2 className="text-[18px] md:text-[20px] font-[600] text-white">{title}</h2>
+              <h2 className="text-[18px] md:text-[20px] font-[600] text-white">
+                {title}
+              </h2>
               <p className="text-white font-[400] text-[14px] md:text-[16px] text-center">
                 {index === 0 && "Choose a program & register online"}
                 {index === 1 && "Learn from industry mentors"}

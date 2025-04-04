@@ -12,7 +12,7 @@ const Blog = () => {
       <h1 className="text-left sm:text-center pl-4 pt-3 text-sm text-[30px] text-[#1E1E1E] font-[700] mb-12">
         Latest Blog Posts
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:px-24">
         <div className="flex flex-col space-y-2 bg-white shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-lg overflow-hidden p-6 hover:shadow-[0px_4px_10px_rgba(0,0,0,0.1)] transition-shadow duration-300 group hover:cursor-pointer">
           <img
             src={BlogImg1}
