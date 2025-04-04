@@ -215,7 +215,7 @@ const Signup = () => {
                   Full Name
                 </label>
                 <input
-                  className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                  className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                   id="name"
                   type="text"
                   placeholder="Enter Your Full Name"
@@ -235,7 +235,7 @@ const Signup = () => {
                   Email
                 </label>
                 <input
-                  className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                  className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                   id="email"
                   type="email"
                   placeholder="Enter Your Email"
@@ -256,7 +256,7 @@ const Signup = () => {
                 Phone Number
               </label>
               <input
-                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="phone"
                 type="tel"
                 placeholder="Enter Your Phone Number"
@@ -276,7 +276,7 @@ const Signup = () => {
                 Password
               </label>
               <input
-                className="mt-2 w-full p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="password"
                 type="password"
                 placeholder="Enter Your Password"

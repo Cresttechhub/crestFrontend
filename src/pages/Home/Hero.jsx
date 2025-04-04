@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import image1 from "../../images/Ellipse 1.svg";
 import image2 from "../../images/Ellipse 2.svg";
 import image3 from "../../images/Ellipse 3.svg";
@@ -98,17 +99,22 @@ const Hero = () => {
           <h1>Innovate.</h1>
         </div>
 
-        <p className="mt-4 text-[16px] text-[#6D737A] min-w-[340px] md:max-w-[596px]">
+        <p className="mt-4 text-[14px] md:text-[16px] text-[#6D737A] min-w-[340px] md:max-w-[596px]">
           Gain in-demand tech skills online with expert mentorship, hands-on
           projects, and real-world training. Join live classes, build a
           portfolio, connect with industry experts, and access internships-all
           affordably!
         </p>
-        <div className="flex items-center mt-12 md:mt-6">
-          <button className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center md:w-full">
+        <div className="flex items-center  text-[14px] md:text-[16px] mt-12 md:mt-6">
+
+          <Link
+            to="/enroll"
+            className="bg-[#009E65] text-[16px] text-white py-2 px-8 rounded-[15px] flex items-center md:w-full"
+          >
+
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
-          </button>
+          </Link>
           <div className="ml-4 hidden md:flex items-center border border-[#737373] rounded-[15px] px-8 py-2 text-[#6D737A] text-[14px] w-full">
             <input
               type="text"
@@ -163,12 +169,10 @@ const Hero = () => {
               </AnimatePresence>
             </div>
             <div className="text-[#1E1E1E] flex items-center justify-center space-x-2 mt-4">
-
               <h1 className="text-[30px] md:text-[40px] font-medium">10K </h1>
               <span className="text-[14px] md:text-[16px]">
                 Learners & Counting!
               </span>
-
             </div>
           </div>
           <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
