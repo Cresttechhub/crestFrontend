@@ -5,14 +5,36 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="h-[450px] bg-[#15211F] text-white p-10">
-      <div className="container mx-auto flex justify-between gap-10 items-start h-3/4 pl-12 mt-2">
+    <div className="h-[450px] bg-[#15211F] text-white py-10">
+      <div className="container mx-auto flex justify-between gap-10 items-start h-3/4 px-24 mt-2">
         <div className=" flex flex-col leading-9">
           <h1 className="text-[20px] font-[500] ">CONNECT</h1>
           <div>
-            <p>1234 - Peru </p>
-            <p>La Llibertad 43210</p>
-            <p>123-456-789</p>
+            <p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Lagos+Nigeria"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Lagos - Nigeria
+              </a>
+            </p>
+            <p>
+              <a
+                href="mailto:cresttechhub@gmail.com"
+                className="hover:text-[#009E65]"
+              >
+                cresttechhub@gmail.com
+              </a>
+            </p>
+            <p>
+              <a
+                href="tel:+2348167809278"
+                className="hover:hover:text-[#009E65]"
+              >
+                +234 816 780 9278
+              </a>
+            </p>
           </div>
         </div>
         <div className=" flex flex-col leading-8">
@@ -49,21 +71,21 @@ const Footer = () => {
           <h1 className="text-[20px] font-[500] mb-3 ">Social</h1>
           <div className="flex gap-5 mt-2">
             <a
-              href="https://facebook.com"
+              href="https://facebook.com/profile.php?id=61559970860204"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaFacebookF className="text-white text-2xl hover:text-[#009E65] cursor-pointer w-[10px]" />
             </a>
             <a
-              href="https://twitter.com"
+              href=" https://x.com/cresttechhub "
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaTwitter className="text-white text-2xl hover:text-[#009E65] cursor-pointer w-[17px]" />
             </a>
             <a
-              href="https://instagram.com"
+              href=" https://instagram.com/cresttechhub"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -73,9 +95,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className=" flex justify-between items-center mt-12">
+      <div className=" flex justify-between items-center mt-12 px-24">
         <div className="flex items-center">
-          <img src={Icon} alt="Icon" className="h-10 pl-12" />{" "}
+          <img src={Icon} alt="Icon" className="h-10" />{" "}
           <span className="font-bold text-2xl">CrestTech Hub</span>
         </div>
         <p className="font-[400] text-[13px] ">

@@ -87,19 +87,18 @@ const leadershipTeam = [
 ];
 const About = () => {
   return (
-    <div className="mt-28 md:mt-36 ">
+    <div className="mt-28 md:mt-36 md:px-24 py-6 p-8 ">
       {/* about */}
-      <div className="md:px-16 md:py-6 p-8">
+      <div className="">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="hidden md:block w-full">
             <img
               src={aboutImg}
               alt="About Crest Tech Hub"
-              className="w-[667px] h-[447px] rounded-[25px] object-cover"
+              className="w-[650px] h-[470px] rounded-[25px] object-cover"
             />
           </div>
           <div className="w-full flex flex-col justify-start mt-6">
-
             <Link
               to="/"
               className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
@@ -132,14 +131,14 @@ const About = () => {
             <img
               src={aboutImg}
               alt="About Crest Tech Hub"
-              className="w-[667px] h-[447px] rounded-[25px] object-cover"
+              className="w-[550px] h-[447px] rounded-[25px] object-cover"
             />
           </div>
         </div>
       </div>
 
       {/* mission & vision */}
-      <div className="-mt-6 md:mt-10 md:px-30 md:py-6 p-8">
+      <div className="-mt-6 md:mt-10 md:px-10 md:py-6 p-8">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="w-full">
             <h1 className="text-[#1E1E1E] text-[18px] md:text-[20px] font-bold mb-8">
@@ -168,7 +167,7 @@ const About = () => {
         </div>
       </div>
       {/* impact */}
-      <div className="-mt-6 md:mt-10 md:px-30 md:py-6 p-8">
+      <div className="-mt-6 md:mt-10 md:px-10 md:py-6 p-8">
         <h2 className="text-[18px] md:text-[20px] text-[#1E1E1E] font-bold  md:text-center mb-12">
           Our impact
         </h2>
@@ -196,7 +195,7 @@ const About = () => {
         </div>
       </div>
       {/* core values */}
-      <div className="md:mt-10 md:px-30 md:py-6 p-8">
+      <div className="md:mt-10 md:px-10 md:py-6 p-8">
         <h2 className="text-[18px] md:text-[20px] text-[#1E1E1E] font-bold  md:text-center mb-12">
           Our Core Values
         </h2>
@@ -224,8 +223,8 @@ const About = () => {
         </div>
       </div>
       {/* leadership team */}
-      <div className="md:mt-10 md:px-16 md:py-6 p-8">
-        <h1 className="text-[#1E1E1E] text-[18px] md:text-[30px] font-bold mb-8 md:text-center">
+      <div className="md:mt-10 md:py-6 md:px-0  p-8">
+        <h1 className="text-[#1E1E1E] text-[18px] md:text-[30px] font-bold mb-10  md:text-center">
           Our Leadership Team
         </h1>
         <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-8">

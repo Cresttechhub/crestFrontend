@@ -73,16 +73,16 @@ const About = () => {
   };
 
   return (
-    <div className="md:px-16 md:py-6 p-8" ref={ref}>
-      <div className="flex flex-col md:flex-row justify-between">
+    <div className="md:px-24 md:py-6 p-8" ref={ref}>
+      <div className="flex flex-col md:flex-row justify-between md:gap-4">
         <div className="hidden md:block w-full">
           <img
             src={about_img}
             alt="about image"
-            className="w-[667px] h-[447px] rounded-[25px] object-cover"
+            className="w-[650px] h-[470px] rounded-[25px] object-cover"
           />
         </div>
-        <div className="w-full flex flex-col justify-start mt-6">
+        <div className="w-full flex flex-col justify-start ">
           <h1 className="text-[18px] md:text-[40px] text-[#1E1E1E] font-bold mb-8">
             About CrestTech Hub
           </h1>
