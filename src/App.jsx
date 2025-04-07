@@ -17,6 +17,9 @@ import ResetPassword from "./pages/auth/set-password";
 import VerifyCode from "./pages/auth/verify-code";
 import Blog from "./components/Blog/Blog";
 import BlogDetail from "./components/Blog/BlogDetail";
+import Path from "./pages/Path/Path";
+import Payment from "./pages/Payment/Payment";
+import Confirmation from "./pages/Confirmation/Confirmation";
 
 function App() {
   return (
@@ -83,6 +86,30 @@ function App() {
           element={
             <MainLayout>
               <Enroll />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/path"
+          element={
+            <MainLayout>
+              <Path />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/payment"
+          element={
+            <MainLayout>
+              <Payment />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/confirmation"
+          element={
+            <MainLayout>
+              <Confirmation />
             </MainLayout>
           }
         />
