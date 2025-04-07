@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { Switch, Label, Field } from "@headlessui/react";
+import { Switch } from "@headlessui/react";
 import { MdAccessTime } from "react-icons/md";
 import { SlPeople } from "react-icons/sl";
 import { FaRegCheckSquare } from "react-icons/fa";
@@ -9,6 +9,7 @@ import visa from "../../images/visa.svg";
 import master from "../../images/master.svg";
 import { motion } from "framer-motion";
 import { IoChevronDownOutline } from "react-icons/io5";
+import { usePayment } from "../../contexts/PaymentContext";
 
 const faqs = [
   {
@@ -49,49 +50,45 @@ const faqs = [
   },
 ];
 
-const ProgramCard = ({
-  title,
-  level,
-  description,
-  duration,
-  groupSize,
-  features,
-  price,
-}) => {
+const ProgramCard = ({ program }) => {
+  const { setSelectedProgram } = usePayment();
+
   return (
     <div
       className={`bg-white shadow-lg rounded-2xl p-6 w-full h-full ${
-        level === "Pro Level" ? "border-2 border-[#00A665]" : "border-none"
+        program.level === "Pro Level"
+          ? "border-2 border-[#00A665]"
+          : "border-none"
       }`}
     >
       <h3 className="font-semibold text-[16px] md:text-[20px] mb-12">
-        {title}
+        {program.title}
       </h3>
       <span
         className={` text-xs font-medium px-2 py-1 rounded-lg ${
-          level === "Beginner-friendly"
+          program.level === "Beginner-friendly"
             ? "bg-[#EDE7F6]  text-[#7A24FB]"
             : "bg-[#E3F2FD] text-[#0048FF]"
         }`}
       >
-        {level}
+        {program.level}
       </span>
       <p className="text-[#00A665] font-bold text-[24px] md:text-[36px] mt-4">
-        N{price}{" "}
+        N{program.price}{" "}
         <span className="text-[#6D737A] text-[16px] font-normal">/ Course</span>
       </p>
       <div className="text-[14px] md:text-[16px] text-[#6D737A] ">
-        <p className="mt-4">{description}</p>
+        <p className="mt-4">{program.description}</p>
         <p className="mt-4 flex items-center">
           <MdAccessTime className="mr-2" />
-          {duration}
+          {program.duration}
         </p>
         <p className="mt-4 flex items-center ">
           <SlPeople className="mr-2" />
-          {groupSize}
+          {program.groupSize}
         </p>
         <ul className="mt-4">
-          {features.map((feature, index) => (
+          {program.features.map((feature, index) => (
             <li key={index} className="flex items-center mt-4 text-[#6D737A]">
               <FaRegCheckSquare className="mr-2 text-[#00A665] rounded-md" />
               {feature}
@@ -101,9 +98,12 @@ const ProgramCard = ({
 
         <Link
           to="/payment"
+          onClick={() => {
+            setSelectedProgram(program);
+          }}
           className="block text-center bg-[#00A665] font-medium text-white text-14px] md:text-[16px] py-6 rounded-[15px] mt-4 hover:border-2 hover:border-[#00A665] hover:bg-white  hover:text-[#00A665]"
         >
-          Join Now
+          Enroll Now
         </Link>
       </div>
     </div>
@@ -112,17 +112,16 @@ const ProgramCard = ({
 
 const Path = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const { isMonthly, setIsMonthly } = usePayment();
+
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const [monthlyPayment, setMonthlyPayment] = useState(false);
-  const bootcampPrice = monthlyPayment ? "30,000" : "30,000";
-  const masterclassPrice = monthlyPayment ? "23,340" : "70,000";
-
   const programs = [
     {
-      price: bootcampPrice,
+      originalPrice: "30,000",
+      monthlyPrice: "30,000", // Bootcamp doesn't have monthly
       title: "4-Week Tech Bootcamp",
       level: "Beginner-friendly",
       description:
@@ -136,9 +135,11 @@ const Path = () => {
         "Immersive and hands-on mentorship",
         "Flexible and tailored to your needs",
       ],
+      price: "30,000", // Initial price
     },
     {
-      price: masterclassPrice,
+      originalPrice: "70,000",
+      monthlyPrice: "23,340",
       title: "3-Month Masterclass",
       level: "Pro Level",
       description:
@@ -152,8 +153,20 @@ const Path = () => {
         "Immersive and hands-on mentorship",
         "Flexible and tailored to your needs",
       ],
+      price: "70,000", // Initial price
     },
   ];
+
+  // Update the price in the programs array based on the toggle
+  const updatedPrograms = programs.map((program) => {
+    if (program.title === "3-Month Masterclass") {
+      return {
+        ...program,
+        price: isMonthly ? program.monthlyPrice : program.originalPrice,
+      };
+    }
+    return program;
+  });
 
   return (
     <div className="mt-36">
@@ -181,16 +194,16 @@ const Path = () => {
             One-time Payment
           </span>
           <Switch
-            checked={monthlyPayment}
-            onChange={setMonthlyPayment}
+            checked={isMonthly}
+            onChange={setIsMonthly}
             className={`${
-              monthlyPayment ? "bg-[#00A665]" : "bg-[#C7C7C7]"
+              isMonthly ? "bg-[#00A665]" : "bg-[#C7C7C7]"
             } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
           >
             <span className="sr-only">Enable monthly payment</span>
             <span
               className={`${
-                monthlyPayment ? "translate-x-6" : "translate-x-1"
+                isMonthly ? "translate-x-6" : "translate-x-1"
               } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
             />
           </Switch>
@@ -200,8 +213,8 @@ const Path = () => {
         </div>
       </div>
       <div className="mt-12 flex flex-col space-y-10 md:flex-row justify-between space-x-10 p-8 md:px-24 md:py-12">
-        {programs.map((program, index) => (
-          <ProgramCard key={index} {...program} />
+        {updatedPrograms.map((program, index) => (
+          <ProgramCard key={index} program={program} />
         ))}
       </div>
       <div className="text-center">
