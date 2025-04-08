@@ -45,7 +45,7 @@ const testimonials = [
     location: "Ibadan, Nigeria.",
     course: "UI/UX Design Preparatory Track",
     text: "The experience has been amazing and the lecture is fantastic, our mentor is so amazing and patient and I sincerely wish to learn more about this track.",
-    image: Pelumi, // No avatar for Pelumi
+    image: AvatarPlaceholder, // No avatar for Pelumi
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <div className="-mb-50">
+    <div className="md:mb-10 mb-20 ">
       {/* Top Bulb Section */}
       <div className="bg-[#E4FFF2] p-12">
         <p className="flex justify-center items-center space-x-2 text-[16px] font-[500]">
@@ -82,101 +82,78 @@ const Testimonial = () => {
       </div>
 
       {/* Testimonials Section */}
-      <div className="flex flex-col items-center py-16 px-6 relative">
-        <h2 className="text-[30px] font-[700] text-center mb-10 -mt-8">
+      <h2 className="text-[30px] font-[700] md:text-center mb-8 mt-10 md:px-0 px-5 ">
           What Our Techies Say
         </h2>
-
+      <div className="flex flex-col md:items-center items-left md:py-16 md:px-6 md:ml-0 p-12 relative">
         {/* Quote SVG */}
         <motion.div
           key={testimonials[activeIndex].id}
           initial={{ x: "100%", opacity: 0 }}
           animate={{ x: "0%", opacity: 1 }}
-          exit={{ x: "-100%", opacity: 0 }} // Exit smoothly
+          exit={{ x: "-100%", opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
           whileInView={{
-            x: [12, -12, 10, -10, 7, -7, 4, -4, 2, -2, 0], // Shaking effect
+            x: [12, -12, 10, -10, 7, -7, 4, -4, 2, -2, 0],
             transition: { duration: 1.5 },
           }}
         >
-          <img src={Quote} alt="Quote" className=" mt-15" />
+          <img src={Quote} alt="Quote" className="mt-10 md:mt-15 self-start md:self-center" />
         </motion.div>
 
-        <div className="relative w-[1200px] mt-0 overflow-hidden min-h-[600px]">
-          <AnimatePresence mode="sync">
-            {/* CURRENT TESTIMONIAL */}
-            <motion.div
-              key={testimonials[activeIndex].id}
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: "0%", opacity: 1 }}
-              exit={{ x: "-100%", opacity: 0 }} // Exit smoothly
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              whileInView={{
-                x: [12, -12, 10, -10, 7, -7, 4, -4, 2, -2, 0], // Shaking effect
-                transition: { duration: 1.5 },
-              }}
-              className="absolute bg-white p-10 w-full flex items-center justify-between"
-            >
-              {/* Left Side: Image, Course, and Location */}
-              <div className="w-1/3 flex flex-col items-center">
-                {testimonials[activeIndex].image ? (
-                  <img
-                    src={testimonials[activeIndex].image}
-                    alt={testimonials[activeIndex].name}
-                    className="w-24 h-24 rounded-md mb-4 object-cover" // Square image with border radius
-                  />
-                ) : (
-                  <div className="w-24 h-24 bg-gray-300 mb-4 rounded-md"></div> // Placeholder for Pelumi (no image)
-                )}
-                <p className="text-md font-bold w-72 text-center text-[#6D737A] ">
-                  {testimonials[activeIndex].course}
-                </p>
-                <p className="text-sm text-gray italic">
-                  {testimonials[activeIndex].location}
-                </p>
-              </div>
+        <div className="relative w-full md:w-[1200px] mt-0 overflow-hidden md:min-h-[600px] min-h-[auto]">
+        <AnimatePresence mode="sync">
+  <motion.div
+    key={testimonials[activeIndex].id}
+    initial={{ x: "100%", opacity: 0 }}
+    animate={{ x: "0%", opacity: 1 }}
+    exit={{ x: "-100%", opacity: 0 }}
+    transition={{ duration: 0.6, ease: "easeInOut" }}
+    className="w-full flex flex-col md:min-h-[600px]"
+  >
+    {/* Top Section: Avatar + Testimonial */}
+    <div className="flex flex-col md:flex-row md:items-center justify-between bg-white md:p-10">
+      <div className="w-full md:w-1/3 flex flex-col md:items-center mt-10 mb-6 md:mb-0">
+        <img
+          src={testimonials[activeIndex].image}
+          alt={testimonials[activeIndex].name}
+          className="w-24 h-24 rounded-md mb-4 object-cover"
+        />
+        <p className="text-md font-bold w-72 md:text-center text-[#6D737A]">
+          {testimonials[activeIndex].course}
+        </p>
+        <p className="text-sm text-gray italic">
+          {testimonials[activeIndex].location}
+        </p>
+      </div>
 
-              {/* Right Side: Testimonial Text */}
-              <div className="w-2/3">
-                <p className="text-[#6D737A] leading-relaxed font-[400] text-[16px] ">
-                  "{testimonials[activeIndex].text}"
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+      <div className="w-full md:w-2/3 mb-10 md:mb-0">
+        <p className="text-[#6D737A] leading-relaxed font-[400] text-[16px]">
+          "{testimonials[activeIndex].text}"
+        </p>
+      </div>
+    </div>
 
-          <motion.div
-            key={testimonials[activeIndex].id}
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: "0%", opacity: 1 }}
-            exit={{ x: "-100%", opacity: 0 }} // Exit smoothly
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            whileInView={{
-              x: [12, -12, 10, -10, 7, -7, 4, -4, 2, -2, 0], // Shaking effect
-              transition: { duration: 1.5 },
-            }}
-            className="absolute p-10 w-full flex items-center justify-between top-45"
-          >
-            {/*left side NAME */}
-            <div className="w-1/3 pr-6 flex flex-col items-center">
-              <p className="text-lg text-[39px] font-[500] text-center text-[#1E1E1E] ">
-                {testimonials[activeIndex].name}
-              </p>
-            </div>
-            {/* Right side LINE */}
-            <div className="w-2/3 pl-2">
-              <div className="w-full h-1 bg-[#009E65]"></div>
-            </div>
-          </motion.div>
+    {/* Name & Line Section */}
+    <div className="flex flex-row items-center md:justify-center md:mt-6 mt-4 md:spx-5">
+      <p className="text-[24px] md:text-[39px] font-[500] text-[#1E1E1E] md:text-center">
+        {testimonials[activeIndex].name}
+      </p>
+      <div className="w-full md:w-2/3 md:pl-4 mt-2 md:mt-0">
+        <div className="md:w-full w-50 h-1 bg-[#009E65]"></div>
+      </div>
+    </div>
+  </motion.div>
+</AnimatePresence>
+
         </div>
 
         {/* Bullet Navigation */}
-        <div className="absolute bottom-70 flex space-x-2 justify-center w-full ">
-          {testimonials.map((_, index) => (
+        <div className="md:mb-40 mt-6 flex space-x-2 justify-center md:absolute md:bottom-10 md:p-0 p-4 w-full">
+        {testimonials.map((_, index) => (
             <div
               key={index}
-              className={`w-4 h-4 rounded-full ${index === activeIndex ? "bg-[#009E65]" : "bg-gray-400"
-                }`}
+              className={`w-4 h-4 rounded-full ${index === activeIndex ? "bg-[#009E65]" : "bg-gray-400"}`}
             />
           ))}
         </div>
