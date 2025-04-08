@@ -76,7 +76,7 @@ const Enroll = () => {
   };
 
   return (
-    <div className="mt-32 md:mt-56 md:px-16 md:py-6 p-8 flex flex-col">
+    <div className="mt-32 md:mt-56 md:px-24 md:py-6 p-8 flex flex-col">
       <Link
         to="/"
         className="flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
@@ -160,40 +160,6 @@ const Enroll = () => {
             />
             {errors.phone && (
               <p className="text-red-500 text-sm">{errors.phone}</p>
-            )}
-          </div>
-          <div className="relative">
-            <label className="block mb-2 text-[14px] md:text-[16px] text-[#1E1E1E]">
-              Programs
-            </label>
-
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] flex justify-between items-center focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-            >
-              {formData.program || "Select a program"}
-              <IoChevronDownOutline className="text-[#1E1E1E]" />
-            </button>
-
-            {isOpen && (
-              <ul className="absolute w-full bg-white rounded-[15px] p-8 mt-4 shadow-lg z-10">
-                {programs.map((program) => (
-                  <li
-                    key={program}
-                    onClick={() => {
-                      setFormData({ ...formData, program });
-                      setIsOpen(false);
-                    }}
-                    className="px-2 py-3 hover:bg-[#009E65] hover:text-[white] hover:rounded-[15px] cursor-pointer"
-                  >
-                    {program}
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {errors.program && (
-              <p className="text-red-500 text-sm">{errors.program}</p>
             )}
           </div>
 

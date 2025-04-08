@@ -98,7 +98,7 @@ const Program = () => {
   ];
   return (
     <section className="pt-20">
-      <div className="bg-[#FAFAFA] md:px-16 md:py-6 p-8">
+      <div className="bg-[#FAFAFA] md:px-24 md:py-6 p-8">
         <h2 className="text-[18px] md:text-[30px] text-[#1E1E1E] font-bold md:text-center mb-12">
           Our Programs
         </h2>

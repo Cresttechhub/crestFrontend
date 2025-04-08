@@ -25,8 +25,8 @@ const features = [
 ];
 const Choice = () => {
   return (
-    <section className="py-10">
-      <div className="md:px-16 md:py-6 p-8">
+    <section className="md:py-10 md:px-24 p-8">
+      <div className="">
         <h2 className="text-[18px] md:text-[30px] text-[#1E1E1E] font-bold  text-center mb-12">
           Why Choose CrestTech Hub?
         </h2>

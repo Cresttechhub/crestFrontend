@@ -42,7 +42,7 @@ const Programs = () => {
   return (
     <div className="mt-28 md:mt-56">
       {/* hero */}
-      <div className="md:px-16 md:py-6 p-8 -mb-10 md:mb-0">
+      <div className="md:px-24 md:py-6 p-8 -mb-10 md:mb-0">
         <Link
           to="/"
           className="md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"

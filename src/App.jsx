@@ -18,6 +18,7 @@ import VerifyCode from "./pages/auth/verify-code";
 import Blog from "./components/Blog/Blog";
 import BlogDetail from "./components/Blog/BlogDetail";
 
+
 function App() {
   return (
     <Router>
@@ -83,6 +84,30 @@ function App() {
           element={
             <MainLayout>
               <Enroll />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/path"
+          element={
+            <MainLayout>
+              <Path />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/payment"
+          element={
+            <MainLayout>
+              <Payment />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/confirmation"
+          element={
+            <MainLayout>
+              <Confirmation />
             </MainLayout>
           }
         />

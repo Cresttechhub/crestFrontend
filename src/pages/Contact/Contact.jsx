@@ -53,7 +53,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="mt-36 md:px-16 md:py-6 p-4 flex flex-col">
+    <div className="mt-36 md:px-24 md:py-6 p-4 flex flex-col">
       <div className="w-full flex flex-col md:flex-row md:justify-between md:space-x-8">
         <Link
           to="/"

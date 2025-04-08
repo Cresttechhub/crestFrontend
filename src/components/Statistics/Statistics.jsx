@@ -37,7 +37,7 @@ const Statistics = () => {
   };
 
   return (
-    <div className="mt-12 md:mt-0 md:px-16 md:py-36 p-8" ref={ref}>
+    <div className="mt-12 md:mt-0 md:px-24 md:py-36 p-8" ref={ref}>
       <div className="bg-[#1E1E1E] text-white rounded-[25px] container mx-auto flex flex-col md:flex-row justify-around items-center pt-20 pb-20">
         <motion.div
           className="text-center"
@@ -79,7 +79,6 @@ const Statistics = () => {
           </motion.h2>
 
           <p className="text-[14px] md:text-[16px]   mt-2">
-
             Hours of Live & Self-Paced Learning
           </p>
         </motion.div>
