@@ -21,6 +21,7 @@ import Path from "./pages/Path/Path";
 import Payment from "./pages/Payment/Payment";
 import Confirmation from "./pages/Confirmation/Confirmation";
 
+
 function App() {
   return (
     <Router>
