@@ -8,11 +8,11 @@ import BlogImg2 from "../../images/BlogImg2.svg";
 import BlogImg3 from "../../images/BlogImg3.svg";
 const Blog = () => {
   return (
-    <div className="mt-20">
-      <h1 className="text-left sm:text-center pl-4 pt-3 text-sm text-[30px] text-[#1E1E1E] font-[700] mb-12">
+    <div className="md:mt-20 mt-4 md:p-0 p-3">
+      <h1 className="text-left md:text-center  pl-4 pt-3 text-sm md:text-[30px] text-[18px] text-[#1E1E1E] font-[700] md:mb-12">
         Latest Blog Posts
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:px-24">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:px-10 p-2">
         <div className="flex flex-col space-y-2 bg-white shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-lg overflow-hidden p-6 hover:shadow-[0px_4px_10px_rgba(0,0,0,0.1)] transition-shadow duration-300 group hover:cursor-pointer">
           <img
             src={BlogImg1}
@@ -33,11 +33,11 @@ const Blog = () => {
             Learn the essential tools and technologies that every aspiring web
             developer needs t...
           </p>
-          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
+          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65] text-[#1E1E1E] ">
             <Link to="/blog/1">
-              <span className="text-[16px]">Read More</span>
+              <span className="md:text-[16px] text-[14px] ">Read More</span>
             </Link>
-            <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
+            <FaLongArrowAltRight className="text-xl ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
 
@@ -61,11 +61,11 @@ const Blog = () => {
             Discover the latest design trends that are shaping the future of
             digital experiences.
           </p>
-          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
+          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65] text-[#1E1E1E] ">
             <Link to="/blog/1">
-              <span className="text-[16px]">Read More</span>
+              <span className="md:text-[16px] text-[14px] ">Read More</span>
             </Link>
-            <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
+            <FaLongArrowAltRight className="text-xl ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
 
@@ -89,18 +89,18 @@ const Blog = () => {
             Explore how artificial intelligence is revolutionizing the way we
             build software
           </p>
-          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
+          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65] text-[#1E1E1E] ">
             <Link to="/blog/1">
-              <span className="text-[16px]">Read More</span>
+              <span className="md:text-[16px] text-[14px] ">Read More</span>
             </Link>
-            <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
+            <FaLongArrowAltRight className="text-xl ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center items-center mt-20 px-6">
+      <div className="flex justify-center items-center md:mt-20 mt-7 md:px-6">
         <Link to="/blogs" className="flex justify-center items-center">
-          <Button className="text-center rounded-2xl px-10 py-4 text-[16px] font-500 hover:text-[#7ffcce] border-black">
+          <Button className="text-center rounded-2xl md:px-10 md:py-4 px-35 text-[16px] font-500 hover:text-[#7ffcce] md:border-none border border-black">
             View All
           </Button>
         </Link>

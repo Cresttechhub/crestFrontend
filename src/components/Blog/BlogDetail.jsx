@@ -66,24 +66,24 @@ const BlogDetail = () => {
   return (
     <div className="">
       <Header />
-      <div className="mt-40 px-15">
+      <div className="mt-40 md:px-15 px-5">
         {/* Back Button */}
         <button
           onClick={goBack}
-          className="flex items-center space-x-2 py-8 m-2 cursor-pointer"
+          className="flex items-center space-x-2 pb-4 m-1 cursor-pointer"
         >
-          <FaArrowLeft className="text-lg " />
-          <span className="font-[400] text-[16px] text-[#1E1E1E] leading-[130%] ">
+          <FaArrowLeft className="text-lg md:text-[#1E1E1E] text-[#757373] " />
+          <span className="font-[400] text-[16px] md:text-[#1E1E1E] text-[#757373] leading-[130%] ">
             Back
           </span>
         </button>
 
         {/* Blog Content */}
-        <div className="">
-          <img src={blog.image} alt="Blog" className="max-w-full h-auto " />
+        <div className=" ">
+          <img src={blog.image} alt="Blog" className="w-full object-cover md:h-120 rounded-2xl " />
         </div>
 
-        <div className="flex items-center text-[#6D737A] text-[14px] space-x-5 py-16 font-[400]">
+        <div className="flex items-center text-[#6D737A] text-[14px] space-x-5 md:py-16 py-6 font-[400]">
           <div className="flex items-center space-x-1">
             <FaRegCalendar className="text-lg" />
             <span> {blog.date} </span>
@@ -96,13 +96,13 @@ const BlogDetail = () => {
           <span> {blog.reader} </span>
         </div>
 
-        <h1 className="text-[#1E1E1E] text-[20px] font-[600] ">{blog.title}</h1>
+        <h1 className="text-[#1E1E1E] text-[20px] font-[600] w-[80%] ">{blog.title}</h1>
 
         <div className="mt-12">
           <h2 className="font-[600] text-[20px] text-[#1E1E1E] leading-normal ">
             Introduction
           </h2>
-          <p className="text-[#6D737A] text-[16px] font-[400] leading-normal py-3">
+          <p className="text-[#6D737A] text-[16px] font-[400] leading-normal py-3 md:w-[80%] w-[95%] ">
             Web development continues to evolve, and in 2025, it's more
             accessible than ever! Whether you're an absolute beginner or someone
             looking to switch careers, this guide will help you understand the
@@ -140,10 +140,10 @@ const BlogDetail = () => {
         </div>
 
         <div className="mt-9">
-          <h2 className="font-[600] text-[20px] text-[#1E1E1E] leading-normal ">
+          <h2 className="font-[600] text-[20px] text-[#1E1E1E] leading-normal w-[80%] ">
             Essential Skills & Technologies in 2025
           </h2>
-          <ul className="list-disc pl-8 mt-3 font-[400] text-[16px] text-[#6D737A] ">
+          <ul className="list-disc pl-8 mt-3 font-[400] text-[16px] text-[#6D737A] w-[95%] ">
             <li>To become a web developer, you need to master:</li>
             <li>HTML, CSS and JavaScript - The foundation of web pages.</li>
             <li>
@@ -163,7 +163,7 @@ const BlogDetail = () => {
           <h2 className="font-[600] text-[20px] text-[#1E1E1E] leading-normal ">
             The Future of Web Development
           </h2>
-          <ul className="list-disc pl-8 mt-3 font-[400] text-[16px] text-[#6D737A] ">
+          <ul className="list-disc pl-8 mt-3 font-[400] text-[16px] text-[#6D737A] w-[95%] ">
             <li>
               AI & Automation - AI-powered coding tools like GitHub Copilot.
             </li>
@@ -182,7 +182,7 @@ const BlogDetail = () => {
           <h2 className="font-[600] text-[20px] text-[#1E1E1E] leading-normal ">
             Conclusion
           </h2>
-          <ul className="list-disc pl-8 mt-3 font-[400] text-[16px] text-[#6D737A] ">
+          <ul className="list-disc pl-8 mt-3 font-[400] text-[16px] text-[#6D737A] md:w-[84%] w-[95%] ">
             <li>
               Web development in 2025 is filled with opportunities. If you're
               ready to start, take your first step today by enrolling in a
@@ -196,11 +196,11 @@ const BlogDetail = () => {
           </ul>
         </div>
 
-        <div className="px-24 py-24">
+        <div className="md:px-24 md:py-24 md:mt-0 mt-10 ">
           <h2 className="text-[20px] font-[700] leading-[170%] text-[#1E1E1E]">
             Add A Comment
           </h2>
-          <p className="text-[16px] font-[400]">
+          <p className="text-[16px] font-[400] w-[75%] md:text-[#1E1E1E] text-[#7C7C7C] ">
             Your email address will not be published. Required fields are marked
             *
           </p>
@@ -252,7 +252,7 @@ const BlogDetail = () => {
               <button
                 type="submit"
                 className={`
-            min-w-52 p-5 py-4 px-1 mt-2 rounded-[15px] text-white text-[16px] font-[500] leading-[170%]
+            min-w-52 md:p-5 py-4 md:pr-0 pr-40 md:pl-0 pl-40 px-1 mt-2 rounded-[15px] text-white text-[16px] font-[500] leading-[170%]
             transition duration-300 ease-in-out
             ${
               status === "idle"
