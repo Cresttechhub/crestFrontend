@@ -33,11 +33,11 @@ const Blog = () => {
             Learn the essential tools and technologies that every aspiring web
             developer needs t...
           </p>
-          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
+          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65] text-[#1E1E1E] ">
             <Link to="/blog/1">
-              <span className="text-[16px]">Read More</span>
+              <span className="md:text-[16px] text-[14px] ">Read More</span>
             </Link>
-            <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
+            <FaLongArrowAltRight className="text-xl ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
 
@@ -61,11 +61,11 @@ const Blog = () => {
             Discover the latest design trends that are shaping the future of
             digital experiences.
           </p>
-          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
+          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65] text-[#1E1E1E] ">
             <Link to="/blog/1">
-              <span className="text-[16px]">Read More</span>
+              <span className="md:text-[16px] text-[14px] ">Read More</span>
             </Link>
-            <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
+            <FaLongArrowAltRight className="text-xl ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
 
@@ -89,11 +89,11 @@ const Blog = () => {
             Explore how artificial intelligence is revolutionizing the way we
             build software
           </p>
-          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65]">
+          <div className="flex items-center font-semibold cursor-pointer hover:text-[#009E65] text-[#1E1E1E] ">
             <Link to="/blog/1">
-              <span className="text-[16px]">Read More</span>
+              <span className="md:text-[16px] text-[14px] ">Read More</span>
             </Link>
-            <FaLongArrowAltRight className="text-xl text-[black] ml-2 mt-1 hover:text-[#009E65]" />
+            <FaLongArrowAltRight className="text-xl ml-2 mt-1 hover:text-[#009E65]" />
           </div>
         </div>
       </div>

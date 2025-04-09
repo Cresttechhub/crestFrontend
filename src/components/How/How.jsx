@@ -29,11 +29,11 @@ const How = () => {
 
   return (
     <div className="-mt-0 md:px-24 py-16 md:p-0 p-5">
-      <h1 className="md:text-center text-[18px] md:text-[30px] text-[#1E1E1E] font-[700] md:mb-20 mb-7">
+      <h1 className="md:px-0 px-2 md:text-center text-[18px] md:text-[30px] text-[#1E1E1E] font-[700] md:mb-20 mb-7">
         How It Works
       </h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:px-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 md:gap-6 gap-3 md:px-6 px-2">
         {steps.map((title, index) => {
           const isActive = index === activeIndex;
           const isLeft = index < activeIndex;
@@ -49,7 +49,7 @@ const How = () => {
                 backgroundColor: isActive ? "#005c39" : "#009E65",
               }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="flex flex-col space-y-2 rounded-2xl overflow-hidden p-6 md:p-10 md:items-center h-full"
+              className="flex flex-col space-y-2 rounded-2xl overflow-hidden p-10 md:items-center h-full"
             >
               <div className="bg-white -mt-2 w-14 md:w-16 mx-auto rounded-lg py-2">
                 <h1 className="font-[600] text-[#00A665] text-[16px] md:text-[18px] text-center">
