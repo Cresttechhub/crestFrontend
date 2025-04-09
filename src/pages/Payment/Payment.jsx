@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IoArrowBackOutline, IoChevronDownOutline } from "react-icons/io5";
+import { IoArrowBackOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import visa from "../../images/visa.svg";
 import master from "../../images/master.svg";
@@ -25,13 +25,13 @@ const Payment = () => {
   const programs = ["4-Week Tech Bootcamp", "3-Month Masterclass"];
 
   useEffect(() => {
-    setStep(2); // Set the step to 2 when the PaymentPage loads
+    setStep(2);
   }, [setStep]);
 
   if (!selectedProgram) {
     return (
       <div className="mt-36 p-8 lg:px-24 lg:py-12">
-        <Link to="/plan" className="flex items-center text-[#1E1E1E] mb-6">
+        <Link to="/path" className="flex items-center text-[#1E1E1E] mb-6">
           <IoArrowBackOutline className="mr-2" /> Back to Choose Program
         </Link>
         <p className="text-14px md:text-[16px] text-gray-600">
@@ -66,13 +66,31 @@ const Payment = () => {
     setErrors(newErrors);
     valid = Object.keys(newErrors).length === 0;
 
+    //   if (valid) {
+    //     setIsSubmitting(true);
+    //     setTimeout(() => {
+    //       setIsSubmitting(false);
+    //       setIsSubmitted(true);
+    //       setTimeout(() => {
+    //         navigate("/confirmation");
+    //       }, 2000);
+    //     }, 2000);
+    //   }
+    // };
+
     if (valid) {
       setIsSubmitting(true);
       setTimeout(() => {
         setIsSubmitting(false);
         setIsSubmitted(true);
         setTimeout(() => {
-          navigate("/confirmation");
+          navigate("/confirmation", {
+            state: {
+              displayedPrice: displayedPrice,
+              isMonthly: isMonthly,
+              selectedProgram: selectedProgram,
+            },
+          });
         }, 2000);
       }, 2000);
     }
