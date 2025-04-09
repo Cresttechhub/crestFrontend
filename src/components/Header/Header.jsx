@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Icon from "../../images/mainIcon.svg";
+import Icon from "../../images/MainIcon.svg";
 import Button from "../Button/Button.jsx";
 import { FaBars, FaRegTimesCircle } from "react-icons/fa";
 
