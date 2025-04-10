@@ -49,7 +49,7 @@ const How = () => {
                 backgroundColor: isActive ? "#005c39" : "#009E65",
               }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="flex flex-col space-y-2 rounded-2xl overflow-hidden p-10 md:items-center h-full"
+              className="flex flex-col space-y-2 rounded-2xl overflow-hidden p-10 md:items-center min-h-[100px]"
             >
               <div className="bg-white -mt-2 w-14 md:w-16 mx-auto rounded-lg py-2">
                 <h1 className="font-[600] text-[#00A665] text-[16px] md:text-[18px] text-center">
