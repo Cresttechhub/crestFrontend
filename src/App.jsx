@@ -20,11 +20,7 @@ import BlogDetail from "./components/Blog/BlogDetail";
 import Path from "./pages/Path/Path";
 import Payment from "./pages/Payment/Payment";
 import Confirmation from "./pages/Confirmation/Confirmation";
-<<<<<<< Updated upstream
 
-import PaymentSuccess from "./pages/Payment/PaymentSuccess";
-=======
->>>>>>> Stashed changes
 
 function App() {
   return (

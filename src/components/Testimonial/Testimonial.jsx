@@ -101,7 +101,7 @@ const Testimonial = () => {
           <img src={Quote} alt="Quote" className="mt-10 md:mt-15 self-start md:self-center" />
         </motion.div>
 
-        <div className="relative w-full md:w-[1200px] mt-0 overflow-hidden md:min-h-[600px] min-h-[auto]">
+        <div className="relative w-full mt-0 overflow-hidden md:min-h-[600px] min-h-[auto]">
           <AnimatePresence mode="sync">
             <motion.div
               key={testimonials[activeIndex].id}

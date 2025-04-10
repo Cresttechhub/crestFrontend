@@ -42,9 +42,9 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white z-50 flex justify-center">
-      <div className="w-full overflow-hidden px-24 py-8">
-        <nav className=" w-full flex flex-wrap justify-between items-center py-1 border-b md:border-none border-[#D6D6D6] bg-white md:rounded-[20px]">
-          <div className="flex items-center min-w-0 flex-shrink">
+      <div className="w-full overflow-hidden md:px-24 md:py-8">
+        <nav className=" w-full flex flex-wrap justify-between items-center py-1 border-b md:border-none border-[#D6D6D6] md:mt-0 mt-6 bg-white md:rounded-[20px]">
+          <div className="flex items-center min-w-0 flex-shrink md:m-0 m-2">
             <img src={Icon} alt="Icon" className="h-10" />
             <span className="font-bold text-2xl">CrestTech Hub</span>
           </div>
@@ -180,7 +180,7 @@ function Header() {
               <Link to="/signup" onClick={() => setMenuOpen(false)}>
                 <Button
                   size="lg"
-                  className="pl-33 pt-2 pb-2 pr-34 bg-[#009E65] text-white hover:bg-white hover:text-[#009E65] hover:border-[#009E65] mt-2"
+                  className="pl-28 pt-2 pb-2 pr-28 bg-[#009E65] text-white hover:bg-white hover:text-[#009E65] hover:border-[#009E65] mt-2"
                 >
                   Sign Up
                 </Button>

@@ -9,7 +9,7 @@ import Button from "../../components/Button/Button";
 
 const Tracks = () => {
   return (
-    <div className="bg-[#FAFAFA] py-16 px-24">
+    <div className="bg-[#FAFAFA] px-5 py-16 md:px-24">
       <h1 className="md:text-center text-[18px] md:text-[34px] text-[#1E1E1E] font-bold mb-12">
         Specialized Learning Tracks
       </h1>
