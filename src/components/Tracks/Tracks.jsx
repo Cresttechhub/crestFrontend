@@ -9,7 +9,7 @@ import Button from "../../components/Button/Button";
 
 const Tracks = () => {
   return (
-    <div className="bg-[#FAFAFA] py-16 px-4">
+    <div className="bg-[#FAFAFA] py-16 px-24">
       <h1 className="md:text-center text-[18px] md:text-[34px] text-[#1E1E1E] font-bold mb-12">
         Specialized Learning Tracks
       </h1>
@@ -17,7 +17,7 @@ const Tracks = () => {
       {/* Responsive cards container */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-8">
         {/* Software Development Card */}
-        <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg w-full md:w-[600px] min-h-[300px]">
+        <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg w-full md:w-[600px] min-h-[350px]">
           <div className="bg-[#E4FFF2] border border-[#009E65] flex justify-center items-center rounded-md w-16 h-12">
             <img src={Code} alt="Code" />
           </div>
@@ -39,7 +39,7 @@ const Tracks = () => {
         </div>
 
         {/* UI/UX Design Card */}
-        <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg w-full md:w-[600px] min-h-[300px]">
+        <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg w-full md:w-[600px] min-h-[350px]">
           <div className="bg-[#E4FFF2] border border-[#009E65] flex justify-center items-center rounded-md w-16 h-12">
             <img src={Ink} alt="Ink" />
           </div>
