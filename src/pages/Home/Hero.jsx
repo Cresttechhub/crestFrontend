@@ -105,16 +105,14 @@ const Hero = () => {
           affordably!
         </p>
         <div className="flex items-center  text-[14px] md:text-[16px] mt-12 md:mt-6">
-
           <Link
-            to="/enroll"
+            to="/path"
             className="bg-[#009E65] text-[16px] text-white py-5 px-8 rounded-[15px] flex items-center md:w-full"
           >
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
           </Link>
           <div className="ml-4 hidden md:flex items-center border border-[#737373] rounded-[15px] px-8 py-5 text-[#6D737A] text-[14px] w-full">
-
             <input
               type="text"
               placeholder="What do you want to learn?"
@@ -144,7 +142,7 @@ const Hero = () => {
 
         {/* Profile Images */}
 
-        <div className="absolute left-60 md:-right-40 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute left-60 md:-right-15 transform -translate-x-1/2 -translate-y-1/2">
           <div className="bg-[#FFFFFF] rounded-[25px] shadow-lg p-4 flex flex-col items-center w-[400px]">
             <div className="flex relative w-full justify-center items-center">
               <AnimatePresence initial={false} custom={animationStage}>
