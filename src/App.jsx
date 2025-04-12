@@ -21,7 +21,6 @@ import Path from "./pages/Path/Path";
 import Payment from "./pages/Payment/Payment";
 import Confirmation from "./pages/Confirmation/Confirmation";
 
-
 function App() {
   return (
     <Router>
@@ -109,13 +108,10 @@ function App() {
         <Route
           path="/confirmation"
           element={
-            <MainLayout>
               <Confirmation />
-            </MainLayout>
           }
         />
 
-        {/* Auth Routes */}
         <Route
           path="/signup"
           element={
@@ -165,3 +161,5 @@ function App() {
 }
 
 export default App;
+
+

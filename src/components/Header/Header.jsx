@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+
 import Icon from "../../images/MainIcon.svg";
+
 import Button from "../Button/Button.jsx";
 import { FaBars, FaRegTimesCircle } from "react-icons/fa";
 
@@ -42,54 +44,56 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white z-50 flex justify-center">
-      <nav className="container mx-auto flex justify-between items-center px-4 md:py-3 py-1 border-b md:border-none border-[#D6D6D6] mt-9 bg-white md:rounded-[20px] md:pb-10">
-        <div className="flex items-center pr-3 ml-1">
-          <img src={Icon} alt="Icon" className="h-10" />
-          <span className="font-bold text-2xl">CrestTech Hub</span>
-        </div>
+      <div className="w-full overflow-hidden md:px-24 md:py-8">
+        <nav className=" w-full flex flex-wrap justify-between items-center py-1 border-b md:border-none border-[#D6D6D6] md:mt-0 mt-6 bg-white md:rounded-[20px]">
+          <div className="flex items-center min-w-0 flex-shrink md:m-0 m-2">
+            <img src={Icon} alt="Icon" className="h-10" />
+            <span className="font-bold text-2xl">CrestTech Hub</span>
+          </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-7 items-center text-[#1E1E1E] text-[18px] font-[400]">
-          {navLinks.map(({ path, label }) => (
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex gap-5 items-center text-[#1E1E1E] text-[18px] font-[400]">
+            {navLinks.map(({ path, label }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`cursor-pointer hover:text-[#009E65] ${
+                  location.pathname === path ? "text-[#009E65] font-bold" : ""
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="hidden md:flex gap-7 items-center text-[18px] text-[#1E1E1E]">
             <Link
-              key={path}
-              to={path}
-              className={`cursor-pointer hover:text-[#009E65] ${
-                location.pathname === path ? "text-[#009E65] font-bold" : ""
+              to="/login"
+              className={`hover:text-[#009E65] ${
+                location.pathname === "/login" ? "text-[#009E65] font-bold" : ""
               }`}
             >
-              {label}
+              Login
             </Link>
-          ))}
-        </div>
+            <Link to="/signup">
+              <Button
+                size="lg"
+                className="border border-[#009E65] hover:bg-white hover:text-[#009E65] hover:border-[#009E65]"
+              >
+                Sign Up
+              </Button>
+            </Link>
+          </div>
 
-        <div className="hidden md:flex gap-7 items-center text-[18px] text-[#1E1E1E]">
-          <Link
-            to="/login"
-            className={`hover:text-[#009E65] ${
-              location.pathname === "/login" ? "text-[#009E65] font-bold" : ""
-            }`}
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setMenuOpen(true)}
           >
-            Login
-          </Link>
-          <Link to="/signup">
-            <Button
-              size="lg"
-              className="border border-[#009E65] hover:bg-white hover:text-[#009E65] hover:border-[#009E65]"
-            >
-              Sign Up
-            </Button>
-          </Link>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={() => setMenuOpen(true)}
-        >
-          <FaBars />
-        </button>
-      </nav>
+            <FaBars />
+          </button>
+        </nav>
+      </div>
 
       {/* Overlay and Mobile Menu */}
       <>
@@ -178,7 +182,7 @@ function Header() {
               <Link to="/signup" onClick={() => setMenuOpen(false)}>
                 <Button
                   size="lg"
-                  className="pl-33 pt-2 pb-2 pr-34 bg-[#009E65] text-white hover:bg-white hover:text-[#009E65] hover:border-[#009E65] mt-2"
+                  className="pl-28 pt-2 pb-2 pr-28 bg-[#009E65] text-white hover:bg-white hover:text-[#009E65] hover:border-[#009E65] mt-2"
                 >
                   Sign Up
                 </Button>

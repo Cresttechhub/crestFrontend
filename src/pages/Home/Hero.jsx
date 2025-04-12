@@ -12,6 +12,7 @@ import homeHero from "../../images/home-hero.svg";
 import flight from "../../images/flight.svg";
 import { IoSearch } from "react-icons/io5";
 
+
 const words = ["Build.", "Grow.", "Create."];
 
 const images = [image1, image2, image3, image4, image5];
