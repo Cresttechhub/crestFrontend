@@ -23,7 +23,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
-  const { login } = useAuth(); //Access the login function from context
+  const { mutate: loginUser, isPending } = useLogin();
 
   const validateForm = () => {
     let newErrors = {};
@@ -55,6 +55,18 @@ const Login = () => {
       login(); //Mark the user as logged in
       navigate("/");
     }
+    if (!validateForm()) return;
+
+    loginUser(formData, {
+      onSuccess: (data) => {
+        localStorage.setItem("token", data.token);
+        navigate("/");
+      },
+      onError: (error) => {
+        const message = error?.response?.data?.message || error.message;
+        setErrors({ form: message });
+      },
+    });
   };
 
   return (
