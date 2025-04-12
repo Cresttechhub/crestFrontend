@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 import { motion } from "framer-motion";
 import topLeft from "../../images/topLeft.png";
 import bottomLeft from "../../images/bottomLeft.png";
@@ -22,7 +23,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
-  const { mutate: loginUser, isPending } = useLogin();
+  const { login } = useAuth(); //Access the login function from context
 
   const validateForm = () => {
     let newErrors = {};
@@ -50,18 +51,10 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
-
-    loginUser(formData, {
-      onSuccess: (data) => {
-        localStorage.setItem("token", data.token);
-        navigate("/");
-      },
-      onError: (error) => {
-        const message = error?.response?.data?.message || error.message;
-        setErrors({ form: message });
-      },
-    });
+    if (validateForm()) {
+      login(); //Mark the user as logged in
+      navigate("/");
+    }
   };
 
   return (
