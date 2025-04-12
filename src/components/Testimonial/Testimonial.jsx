@@ -145,18 +145,41 @@ const Testimonial = () => {
               </div>
             </motion.div>
           </AnimatePresence>
-
         </div>
 
         {/* Bullet Navigation */}
-        <div className="md:mb-40 mt-6 flex space-x-2 justify-center md:absolute md:bottom-10 md:p-0 p-4 w-full">
+        <div className="hidden md:flex md:mb-40 mt-6 space-x-2 justify-center md:absolute md:bottom-10 md:p-0 p-4 w-full">
           {testimonials.map((_, index) => (
-            <div
+            <button
               key={index}
-              className={`w-4 h-4 rounded-full ${index === activeIndex ? "bg-[#009E65]" : "bg-gray-400"}`}
+              onClick={() => setActiveIndex(index)}
+              className={`w-4 h-4 rounded-full transition-colors duration-300 ${index === activeIndex ? "bg-[#009E65]" : "bg-gray-400"
+                } cursor-pointer`}
+              aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
         </div>
+
+        {/* Subtle arrow nav – only on mobile */}
+        {/* Subtle arrow nav for mobile only */}
+        <div className="flex md:hidden justify-between items-center mt-6 px-6">
+          <button
+            onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+            className="bg-gray-500 text-gray-800 text-3xl rounded-full px-2 -py-0 hover:bg-gray-400 transition-all duration-300"
+            aria-label="Previous testimonial"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)}
+            className=" bg-gray-500 text-gray-800 rounded-full text-3xl px-2 -py-0 hover:bg-gray-400 transition-all duration-300"
+            aria-label="Next testimonial"
+          >
+            &gt;
+          </button>
+        </div>
+
+
       </div>
     </div>
   );
