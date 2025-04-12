@@ -79,9 +79,23 @@ const Contact = () => {
             love to hear from you. Send us a message and we'll respond as soon
             as possible.
           </p>
-          <div className="mt-16 text-[16px] md:text-[20px]">
-            <p>Phone: +1 (555) 123-4567</p>
-            <p>Email: info@gmail.coom</p>
+          <div className="mt-16 md:text-[20px] text-[16px]">
+            <p>
+              {" "}
+              Email:
+              <a
+                href="mailto:cresttechhub@gmail.com"
+                className="ml-8 break-all"
+              >
+                cresttechhub@gmail.com
+              </a>
+              <p>
+                Phone:
+                <a href="tel:+2348167809278" className="ml-8 ">
+                  +234 816 780 9278
+                </a>
+              </p>
+            </p>
           </div>
           <h2 className="mt-10 text-[16px] md:text-[20px] font-[600px] mb-4">
             Social Media

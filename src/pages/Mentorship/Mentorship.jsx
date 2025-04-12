@@ -46,7 +46,6 @@ const Mentorship = () => {
   };
   return (
     <div className="mt-36">
-
       <Link
         to="/"
         className="p-8 md:hidden flex font-bold items-center space-x-2 text-[#1E1E1E] mb-8"
@@ -56,13 +55,10 @@ const Mentorship = () => {
       </Link>
 
       <div className="-mt-20 md:-mt-0 flex flex-col lg:flex-row items-stretch justify-between w-full p-8 lg:px-24 py-12 bg-white">
-
         <div
           className="flex-1 bg-[#FAFAFA] p-12 relative order-0 md:order-2 flex flex-col h-full 
       rounded-tl-[15px] rounded-tr-[15px] lg:rounded-tr-[15px] lg:rounded-br-[15px] lg:rounded-tl-none lg:rounded-bl-none"
         >
-
-
           <img
             src={thinGreen1}
             alt=""
@@ -81,7 +77,7 @@ const Mentorship = () => {
             onClick={scrollToMentors}
             className="mt-12 px-6 py-3 md:w-[213px] bg-[#009E65] text-white font-medium text-[16px] hover:text-[#009E65] hover:font-medium hover:border-2 hover:border-[#009E65] hover:bg-white rounded-[15px] cursor-pointer"
           >
-            Meet Your Team
+            Meet Our Team
           </button>
         </div>
         <div
@@ -99,7 +95,6 @@ const Mentorship = () => {
       {/* why mentorship matters */}
 
       <div className="md:px-24 md:py-6 p-8">
-
         <h2 className="text-[18px] md:text-[30px] text-[#1E1E1E] font-bold  md:text-center mb-12">
           Why Mentorship Matters?
         </h2>
@@ -131,9 +126,8 @@ const Mentorship = () => {
       {/* mentors */}
 
       <div ref={mentorsRef} className="-mt-4 md:mt-6 md:px-24 md:py-6 p-8">
-
         <h2 className="text-[18px] md:text-3xl md:text-center  text-[#1E1E1E] font-bold">
-          Meet Our Team
+          Book a Mentor
           <Mentors />
         </h2>
       </div>
