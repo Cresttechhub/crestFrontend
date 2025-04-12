@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext.jsx";
 
 import Icon from "../../images/MainIcon.svg";
 
@@ -8,7 +9,16 @@ import { FaBars, FaRegTimesCircle } from "react-icons/fa";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // Track dropdown visibility
+  const profileRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { isLoggedIn, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -21,6 +31,21 @@ function Header() {
   ];
 
   useEffect(() => {
+    const handleClickOutside = (event) =>{
+      if(profileRef.current && 
+        !profileRef.current.contains(event.target)
+      ){
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return()=>{
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [])
+
+  useEffect(()=>{
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setMenuOpen(false);
@@ -44,70 +69,103 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white z-50 flex justify-center">
-      <nav className="container mx-auto flex justify-between items-center px-4 md:py-3 py-1 border-b md:border-none border-[#D6D6D6] mt-9 bg-white md:rounded-[20px] md:pb-10">
-        <div className="flex items-center pr-3 ml-1">
-          <img src={Icon} alt="Icon" className="h-10" />
-          <span className="font-bold text-2xl">CrestTech Hub</span>
-        </div>
+      <div className="w-full overflow-visible md:px-24 md:py-8">
+        <nav className="w-full flex flex-wrap justify-between items-center py-1 border-b md:border-none border-[#D6D6D6] md:mt-0 mt-6 bg-white md:rounded-[20px]">
+          <div className="flex items-center min-w-0 flex-shrink md:m-0 m-2">
+            <img src={Icon} alt="Icon" className="h-10" />
+            <span className="font-bold text-2xl">CrestTech Hub</span>
+          </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-7 items-center text-[#1E1E1E] text-[18px] font-[400]">
-          {navLinks.map(({ path, label }) => (
-            <Link
-              key={path}
-              to={path}
-              className={`cursor-pointer hover:text-[#009E65] ${
-                location.pathname === path ? "text-[#009E65] font-bold" : ""
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex gap-5 items-center text-[#1E1E1E] text-[18px] font-[400]">
+            {navLinks.map(({ path, label }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`cursor-pointer hover:text-[#009E65] ${location.pathname === path ? "text-[#009E65] font-bold" : ""}`}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
 
-        <div className="hidden md:flex gap-7 items-center text-[18px] text-[#1E1E1E]">
-          <Link
-            to="/login"
-            className={`hover:text-[#009E65] ${
-              location.pathname === "/login" ? "text-[#009E65] font-bold" : ""
-            }`}
+          <div className="hidden md:flex gap-7 items-center text-[18px] text-[#1E1E1E]">
+            {isLoggedIn ? (
+              <div className="relative" ref={profileRef}>
+                <div
+                  className="flex items-center gap-2 cursor-pointer"
+                  onClick={() => setDropdownOpen(!dropdownOpen)} // Toggle dropdown on click for the whole section
+                  style={{ cursor: dropdownOpen ? "default" : "pointer" }} // Adjust cursor style based on dropdown state
+                >
+                  <div className="flex items-center pr-3 space-x-1">
+                    <p className="bg-[#9747FF] font-[400] text-[23px] text-white rounded-full w-8 h-8 flex items-center justify-center"> K</p>
+                    <span className="text-[14px] font-[600] text-[#1E1E1E]">KashMoniee@...</span>
+                  </div>
+                  {/* Dropdown Icon */}
+                  <svg
+                    className="w-4 h-4 cursor-pointer"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    style={{ cursor: dropdownOpen ? "default" : "pointer" }} // Adjust cursor style for the icon
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+
+                {/* Dropdown menu */}
+                {dropdownOpen && (
+                  <div className="absolute right-0 w-32 top-full bg-white rounded-2xl shadow-md z-10 mt-4">
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full p-2 text-center px-3 py-3 text-lg text-red-500 font-[600] "
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className={`hover:text-[#009E65] ${location.pathname === "/login" ? "text-[#009E65] font-bold" : ""}`}
+                >
+                  Login
+                </Link>
+                <Link to="/signup">
+                  <Button
+                    size="lg"
+                    className="border border-[#009E65] hover:bg-white hover:text-[#009E65] hover:border-[#009E65]"
+                  >
+                    Sign Up
+                  </Button>
+                </Link>
+              </>
+            )}
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setMenuOpen(true)}
           >
-            Login
-          </Link>
-          <Link to="/signup">
-            <Button
-              size="lg"
-              className="border border-[#009E65] hover:bg-white hover:text-[#009E65] hover:border-[#009E65]"
-            >
-              Sign Up
-            </Button>
-          </Link>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={() => setMenuOpen(true)}
-        >
-          <FaBars />
-        </button>
-      </nav>
+            <FaBars />
+          </button>
+        </nav>
+      </div>
 
       {/* Overlay and Mobile Menu */}
       <>
         {/* Overlay */}
         <div
-          className={`fixed inset-0 bg-black/30 z-30 transition-opacity duration-300 ${
-            menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+          className={`fixed inset-0 bg-black/30 z-30 transition-opacity duration-300 ${menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
           onClick={() => setMenuOpen(false)}
         ></div>
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden fixed top-0 right-0 h-full w-full z-50 transition-transform duration-500 ease-in-out transform rounded-2xl shadow-xl ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`md:hidden fixed top-0 right-0 h-full w-full z-50 transition-transform duration-500 ease-in-out transform rounded-2xl shadow-xl ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
           style={{
             width: "100%",
             paddingLeft: "5%",
@@ -116,7 +174,7 @@ function Header() {
           }}
         >
           <div className="bg-[#15211F] py-0.5 rounded-t-2xl">
-            <div className="px-5 py-8 flex items-center justify-between ">
+            <div className="px-5 py-8 flex items-center justify-between">
               <div className="flex items-center gap-1">
                 <img src={Icon} alt="Icon" className="h-8" />
                 <span className="text-white font-semibold">CrestTech Hub</span>
@@ -158,9 +216,7 @@ function Header() {
                 <Link
                   key={path}
                   to={path}
-                  className={`hover:text-[#009E65] ${
-                    location.pathname === path ? "text-[#009E65] font-bold" : ""
-                  }`}
+                  className={`hover:text-[#009E65] ${location.pathname === path ? "text-[#009E65] font-bold" : ""}`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {label}
@@ -168,11 +224,7 @@ function Header() {
               ))}
               <Link
                 to="/login"
-                className={`hover:text-[#009E65] ${
-                  location.pathname === "/login"
-                    ? "text-[#009E65] font-bold"
-                    : ""
-                }`}
+                className={`hover:text-[#009E65] ${location.pathname === "/login" ? "text-[#009E65] font-bold" : ""}`}
                 onClick={() => setMenuOpen(false)}
               >
                 Login
@@ -180,7 +232,7 @@ function Header() {
               <Link to="/signup" onClick={() => setMenuOpen(false)}>
                 <Button
                   size="lg"
-                  className="pl-33 pt-2 pb-2 pr-34 bg-[#009E65] text-white hover:bg-white hover:text-[#009E65] hover:border-[#009E65] mt-2"
+                  className="pl-28 pt-2 pb-2 pr-28 bg-[#009E65] text-white hover:bg-white hover:text-[#009E65] hover:border-[#009E65] mt-2"
                 >
                   Sign Up
                 </Button>
