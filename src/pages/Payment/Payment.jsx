@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-
 import { IoArrowBackOutline } from "react-icons/io5";
-
 import { Link, useNavigate } from "react-router-dom";
+import { Switch } from "@headlessui/react";
 import visa from "../../images/visa.svg";
 import master from "../../images/master.svg";
 import { MdAccessTime } from "react-icons/md";
@@ -23,21 +22,18 @@ const Payment = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { Monthly, setIsMonthly } = usePayment();
 
   const programs = ["4-Week Tech Bootcamp", "3-Month Masterclass"];
 
   useEffect(() => {
-
     setStep(2);
-
   }, [setStep]);
 
   if (!selectedProgram) {
     return (
       <div className="mt-36 p-8 lg:px-24 lg:py-12">
-
         <Link to="/path" className="flex items-center text-[#1E1E1E] mb-6">
-
           <IoArrowBackOutline className="mr-2" /> Back to Choose Program
         </Link>
         <p className="text-14px md:text-[16px] text-gray-600">
@@ -72,27 +68,12 @@ const Payment = () => {
     setErrors(newErrors);
     valid = Object.keys(newErrors).length === 0;
 
-
-    //   if (valid) {
-    //     setIsSubmitting(true);
-    //     setTimeout(() => {
-    //       setIsSubmitting(false);
-    //       setIsSubmitted(true);
-    //       setTimeout(() => {
-    //         navigate("/confirmation");
-    //       }, 2000);
-    //     }, 2000);
-    //   }
-    // };
-
-
     if (valid) {
       setIsSubmitting(true);
       setTimeout(() => {
         setIsSubmitting(false);
         setIsSubmitted(true);
         setTimeout(() => {
-
           navigate("/confirmation", {
             state: {
               displayedPrice: displayedPrice,
@@ -100,7 +81,6 @@ const Payment = () => {
               selectedProgram: selectedProgram,
             },
           });
-
         }, 2000);
       }, 2000);
     }
@@ -108,7 +88,7 @@ const Payment = () => {
 
   return (
     <div className="mt-36">
-      <div className="p-8 lg:px-80 lg:pt-12 lg:pb-6">
+      <div className="p-8 pb-2 lg:px-80 lg:pt-12 lg:pb-8">
         {" "}
         <Link to="/path" className="mb-6 flex items-center text-[#1E1E1E]">
           <IoArrowBackOutline className="mr-2" /> Back
@@ -174,6 +154,28 @@ const Payment = () => {
             </p>
           </div>
         </div>
+      </div>
+      <div className="p-8 text-center space-x-6">
+        <span className="text-[14px] md-text-[16px] text-[#6D737A]">
+          One-time Payment
+        </span>
+        <Switch
+          checked={isMonthly}
+          onChange={setIsMonthly}
+          className={`${
+            isMonthly ? "bg-[#00A665]" : "bg-[#C7C7C7]"
+          } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
+        >
+          <span className="sr-only">Enable monthly payment</span>
+          <span
+            className={`${
+              isMonthly ? "translate-x-6" : "translate-x-1"
+            } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+          />
+        </Switch>
+        <span className="text-[14px] md-text-[16px] text-[#6D737A]">
+          Monthly Payment
+        </span>
       </div>
       <div className=" p-8 lg:px-88">
         <h2 className="text-[18px] md:text-[24px] font-bold mb-4">

@@ -12,8 +12,10 @@ import check from "../../images/check.png";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebookF } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
+import useSignup from "../../components/hooks/useSignUp";
 
 const Signup = () => {
+  const signupMutation = useSignup();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -60,19 +62,23 @@ const Signup = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      console.log("Form submitted:", formData); // Log the submitted data
-      // You can add logic here to send the form data to your backend
-    }, 1000); // Simulate a 1-second submission delay
+    signupMutation.mutate(formData, {
+      onSuccess: () => {
+        setIsSubmitting(false); // Ensure submission state is reset
+        navigate("/login"); // Immediate redirection after success
+      },
+      onError: (err) => {
+        const serverError = err.response?.data?.message || "Signup failed";
+        setErrors({ api: serverError });
+        setIsSubmitting(false);
+      },
+    });
   };
 
   useEffect(() => {
@@ -115,6 +121,11 @@ const Signup = () => {
         </div>
       </div>
     );
+  }
+
+  console.log("API Base URL:", import.meta.env.VITE_BASE_URL);
+  {
+    errors.api && <p className="text-red-500 text-sm">{errors.api}</p>;
   }
 
   return (
@@ -223,8 +234,8 @@ const Signup = () => {
                   value={formData.name}
                   onChange={handleChange}
                 />
-                {errors.name && (
-                  <p className="text-red-500 text-sm">{errors.name}</p>
+                {errors.form && (
+                  <p className="text-red-500 text-sm mb-4">{errors.form}</p>
                 )}
               </div>
               <div className="mb-4 w-full">
@@ -243,8 +254,8 @@ const Signup = () => {
                   value={formData.email}
                   onChange={handleChange}
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-sm">{errors.email}</p>
+                {errors.form && (
+                  <p className="text-red-500 text-sm mb-4">{errors.form}</p>
                 )}
               </div>
             </div>
@@ -264,8 +275,8 @@ const Signup = () => {
                 value={formData.phone}
                 onChange={handleChange}
               />
-              {errors.phone && (
-                <p className="text-red-500 text-sm">{errors.phone}</p>
+              {errors.form && (
+                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
               )}
             </div>
             <div className="mb-4">
@@ -285,8 +296,8 @@ const Signup = () => {
                 onChange={handleChange}
               />
 
-              {errors.password && (
-                <p className="text-red-500 text-sm">{errors.password}</p>
+              {errors.form && (
+                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
               )}
             </div>
             <div className="flex items-center justify-between mb-6">

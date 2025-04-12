@@ -15,7 +15,7 @@ const About = () => {
   useEffect(() => {
     if (inView) {
       const text1 =
-        `Founded in 2020, Crest Tech Hub emerged from a vision to bridge the gap between traditional education and the rapidly evolving tech industry. We recognized the need for practical, industry-aligned training that prepares students for real-world challenges.`.split(
+        `Founded in 2024, Crest Tech Hub emerged from a vision to bridge the gap between traditional education and the rapidly evolving tech industry. We recognized the need for practical, industry-aligned training that prepares students for real-world challenges.`.split(
           " "
         );
 

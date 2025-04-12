@@ -161,9 +161,9 @@ export default function Mentors() {
       {!showMore && (
         <button
           onClick={handleViewMore}
-          className="mt-12 px-6 py-4 w-full md:w-[240px] text-white text-[14px] md:text-[16px] hover:text-[#009E65] font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
+          className="mt-12 px-6 py-4 w-full text-nowrap md:w-[240px] text-white text-[14px] md:text-[16px] hover:text-[#009E65] font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
         >
-          View More Team Member
+          View More Team Members
         </button>
       )}
     </div>

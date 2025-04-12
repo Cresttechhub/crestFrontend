@@ -112,7 +112,7 @@ const About = () => {
             </h1>
             <div className="text-[#6D737A] text-[14px] md:text-[16px] leading-[36px]">
               <p>
-                Founded in 2020, Crest Tech Hub emerged from a vision to bridge
+                Founded in 2024, Crest Tech Hub emerged from a vision to bridge
                 the gap between traditional education and the rapidly evolving
                 tech industry. We recognized the need for practical,
                 industry-aligned training that prepares students for real-world
@@ -225,7 +225,7 @@ const About = () => {
       {/* leadership team */}
       <div className="md:mt-10 md:py-6 md:px-0  p-8">
         <h1 className="text-[#1E1E1E] text-[18px] md:text-[30px] font-bold mb-10  md:text-center">
-          Our Leadership Team
+          Executive Team
         </h1>
         <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {leadershipTeam.map((leader, index) => (
