@@ -10,6 +10,7 @@ import whiteLogo from "../../images/whiteLogo.png";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebookF, FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
+import { useLogin } from "../../components/hooks/useLogin";
 
 const Login = () => {
   const [errors, setErrors] = useState({});
@@ -21,6 +22,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
+  const { mutate: loginUser, isPending } = useLogin();
 
   const validateForm = () => {
     let newErrors = {};
@@ -46,12 +48,20 @@ const Login = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      navigate("/");
-    }
+    if (!validateForm()) return;
+
+    loginUser(formData, {
+      onSuccess: (data) => {
+        localStorage.setItem("token", data.token);
+        navigate("/");
+      },
+      onError: (error) => {
+        const message = error?.response?.data?.message || error.message;
+        setErrors({ form: message });
+      },
+    });
   };
 
   return (
@@ -154,8 +164,8 @@ const Login = () => {
                 value={formData.email}
                 onChange={handleChange}
               />
-              {errors.email && (
-                <p className="text-red-500 text-sm">{errors.email}</p>
+              {errors.form && (
+                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
               )}
             </div>
             <div className="mb-4 relative">
@@ -186,8 +196,8 @@ const Login = () => {
                 {showPassword ? <FaEye /> : <FaEyeSlash />}
               </span>
 
-              {errors.password && (
-                <p className="text-red-500 text-sm">{errors.password}</p>
+              {errors.form && (
+                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
               )}
             </div>
             <div className="flex items-center justify-between mb-6">
@@ -211,11 +221,36 @@ const Login = () => {
                 Forgot Password
               </Link>
             </div>
+
             <button
-              className="bg-[#009E65]text-white py-6 md:px-6 md:py-4 text-white text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:bg-white hover:border-2 hover:border-[#009E65] w-full   rounded-[15px] cursor-pointer"
+              className="bg-[#009E65] text-white py-6 md:px-6 md:py-4 text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium hover:bg-white hover:border-2 hover:border-[#009E65] w-full rounded-[15px] cursor-pointer flex justify-center items-center gap-2"
               type="submit"
+              disabled={isPending}
             >
-              Login
+              {isPending ? (
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
           <div className="mt-6 text-center ">

@@ -171,9 +171,7 @@ const Path = () => {
   return (
     <div className="mt-36">
       <div className="p-8 lg:px-24 lg:py-12">
-
         <div className="flex font-medium justify-between items-center px-4 py-6 md:py-[20px] md:px-[50px] bg-[#E5F6F0] text-[#00A665] text-[14px] md:text-[16px] rounded-[20px]  ">
-
           <h1>Welcome, KashMooniee Choose your learning path below.</h1>
           <Link to="/" className="flex justify-between space-x-4 items-center ">
             <IoArrowBackOutline className=" text-[20px]" />
@@ -237,7 +235,6 @@ const Path = () => {
         </h2>
 
         <div className="space-y-4 text-left px-8 md:px-80">
-
           {faqs.map((faq, index) => (
             <div
               key={index}

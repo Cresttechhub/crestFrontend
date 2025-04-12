@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { usePayment } from "../../contexts/PaymentContext";
 import { MdAccessTime } from "react-icons/md";
 import { SlPeople } from "react-icons/sl";
 import { FaRegCheckSquare } from "react-icons/fa";
@@ -12,6 +14,24 @@ const ProgramCard = ({
   features,
   price,
 }) => {
+  const navigate = useNavigate();
+  const { setSelectedProgram } = usePayment();
+
+  const handleJoin = () => {
+    const programData = {
+      title,
+      level,
+      description,
+      duration,
+      groupSize,
+      features,
+      originalPrice: price,
+      monthlyPrice: title === "3-Month Masterclass" ? "23,340" : null,
+    };
+
+    setSelectedProgram(programData);
+    navigate("/payment");
+  };
   return (
     <div className="bg-white shadow-lg rounded-2xl p-6 w-full h-full">
       <div className="flex justify-between">
@@ -50,12 +70,12 @@ const ProgramCard = ({
             / Course
           </span>
         </p>
-        <a
-          href="/path"
-          className="block text-center bg-[#00A665] font-medium text-white text-14px] md:text-[16px] py-6 rounded-[15px] mt-4 hover:border-2 hover:border-[#00A665] hover:bg-white  hover:text-[#00A665]"
+        <button
+          onClick={handleJoin}
+          className="block w-full text-center bg-[#00A665] font-medium text-white text-14px] md:text-[16px] py-6 rounded-[15px] mt-4 hover:border-2 hover:border-[#00A665] hover:bg-white  hover:text-[#00A665]"
         >
           Join Now
-        </a>
+        </button>
       </div>
     </div>
   );
