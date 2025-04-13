@@ -133,8 +133,6 @@ const Testimonial = () => {
                   </p>
                 </div>
               </div>
-<<<<<<< HEAD
-=======
 
               {/* Name & Line Section */}
               <div className="flex flex-row items-center md:justify-center md:mt-6 mt-4 md:spx-5">
@@ -147,7 +145,6 @@ const Testimonial = () => {
               </div>
             </motion.div>
           </AnimatePresence>
->>>>>>> ff8cd9006bcf5002b61e986cefc6e5b53b3d0b13
 
               {/* Name & Line Section */}
               <div className="flex flex-row items-center md:justify-center md:mt-6 mt-4 md:spx-5">

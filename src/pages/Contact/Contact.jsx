@@ -144,7 +144,7 @@ const Contact = () => {
             </label>
             <input
               type="text"
-              placeholder="Full name"
+              placeholder="John Doe"
               value={formData.name}
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
@@ -164,7 +164,7 @@ const Contact = () => {
             </label>
             <input
               type="email"
-              placeholder="Email"
+              placeholder="you@gmail.com"
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })

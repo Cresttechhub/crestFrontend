@@ -238,7 +238,7 @@ const Signup = () => {
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="name"
                 type="text"
-                placeholder="Full Name"
+                placeholder="John Doe"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -258,7 +258,7 @@ const Signup = () => {
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="email"
                 type="email"
-                placeholder="Email"
+                placeholder="you@gmail.com"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
