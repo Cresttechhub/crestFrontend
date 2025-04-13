@@ -133,6 +133,21 @@ const Testimonial = () => {
                   </p>
                 </div>
               </div>
+<<<<<<< HEAD
+=======
+
+              {/* Name & Line Section */}
+              <div className="flex flex-row items-center md:justify-center md:mt-6 mt-4 md:spx-5">
+                <p className="text-[24px] md:text-[39px] font-[500] text-[#1E1E1E] md:text-center">
+                  {testimonials[activeIndex].name}
+                </p>
+                <div className="w-full md:w-2/3 md:pl-10 mt-2 md:mt-0">
+                  <div className="md:w-full w-50 h-1 bg-[#009E65]"></div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+>>>>>>> ff8cd9006bcf5002b61e986cefc6e5b53b3d0b13
 
               {/* Name & Line Section */}
               <div className="flex flex-row items-center md:justify-center md:mt-6 mt-4 md:spx-5">
@@ -148,9 +163,15 @@ const Testimonial = () => {
         </div>
 
         {/* Bullet Navigation */}
+<<<<<<< HEAD
         <div className="hidden md:flex md:mb-40 mt-6 space-x-2 justify-center md:absolute md:bottom-10 md:p-0 p-4 w-full">
           {testimonials.map((_, index) => (
             <button
+=======
+        <div className="md:mb-40 mt-6 flex space-x-2 justify-center md:absolute md:bottom-10 md:p-0 p-4 w-full">
+          {testimonials.map((_, index) => (
+            <div
+>>>>>>> ff8cd9006bcf5002b61e986cefc6e5b53b3d0b13
               key={index}
               onClick={() => setActiveIndex(index)}
               className={`w-4 h-4 rounded-full transition-colors duration-300 ${index === activeIndex ? "bg-[#009E65]" : "bg-gray-400"

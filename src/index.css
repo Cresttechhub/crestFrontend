@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+/* Custom styles for PhoneInput */
+.custom-phone-input .form-control {
+  width: 100% !important;
+  margin-top: 8px !important;
+  padding: 24px !important;
+  border-radius: 15px !important;
+  padding-left: 3.5rem !important;
+}

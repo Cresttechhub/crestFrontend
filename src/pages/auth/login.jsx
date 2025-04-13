@@ -35,8 +35,15 @@ const Login = () => {
 
     if (!formData.password) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+    } else if (
+      formData.password.length < 8 ||
+      !/[A-Z]/.test(formData.password) ||
+      !/[a-z]/.test(formData.password) ||
+      !/[0-9]/.test(formData.password) ||
+      !/[^a-zA-Z0-9]/.test(formData.password)
+    ) {
+      newErrors.password =
+        "Password must be at least 8 characters and include uppercase, lowercase, a special character, and a digit.";
     }
 
     setErrors(newErrors);
@@ -164,7 +171,7 @@ const Login = () => {
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="email"
                 type="email"
-                placeholder="Enter Your Email"
+                placeholder="Email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -187,7 +194,7 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                placeholder="Enter Your Password"
+                placeholder="Password"
               />
               <span
                 className="absolute right-3 top-12 cursor-pointer text-xl"

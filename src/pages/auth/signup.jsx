@@ -13,6 +13,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebookF } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import useSignup from "../../components/hooks/useSignUp";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Signup = () => {
   const signupMutation = useSignup();
@@ -50,13 +52,18 @@ const Signup = () => {
     }
     if (!formData.phone) {
       newErrors.phone = "Phone Number is required";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = "Invalid phone number";
     }
     if (!formData.password) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+    } else if (
+      formData.password.length < 8 ||
+      !/[A-Z]/.test(formData.password) ||
+      !/[a-z]/.test(formData.password) ||
+      !/[0-9]/.test(formData.password) ||
+      !/[^a-zA-Z0-9]/.test(formData.password)
+    ) {
+      newErrors.password =
+        "Password must be at least 8 characters and include uppercase, lowercase, a special character, and a digit.";
     }
 
     setErrors(newErrors);
@@ -79,6 +86,9 @@ const Signup = () => {
         setIsSubmitting(false);
       },
     });
+  };
+  const handlePhoneChange = (phone) => {
+    setFormData((prevData) => ({ ...prevData, phone }));
   };
 
   useEffect(() => {
@@ -198,7 +208,7 @@ const Signup = () => {
 
       {/* Signup Form */}
 
-      <div className="w-full md:w-[60%] p-8 md:p-16 flex flex-col justify-center items-center">
+      <div className="w-full md:w-[60%] p-8 md:p-16 mt-18 flex flex-col justify-center items-center">
         <div className="w-full max-w-md">
           <div className="flex justify-between items-center md:float-right">
             <img src={greenLogo} alt="" className="block md:hidden" />
@@ -217,47 +227,45 @@ const Signup = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-col md:flex-row space-x-4">
-              <div className="mb-4 w-full">
-                <label
-                  className="text-[#1E1E1E] text-[14px] md:text-[16px] "
-                  htmlFor="name"
-                >
-                  Full Name
-                </label>
-                <input
-                  className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                  id="name"
-                  type="text"
-                  placeholder="Enter Your Full Name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-                {errors.form && (
-                  <p className="text-red-500 text-sm mb-4">{errors.form}</p>
-                )}
-              </div>
-              <div className="mb-4 w-full">
-                <label
-                  className="block text-[#1E1E1E] text-[14px] md:text-[16px]"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                  id="email"
-                  type="email"
-                  placeholder="Enter Your Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.form && (
-                  <p className="text-red-500 text-sm mb-4">{errors.form}</p>
-                )}
-              </div>
+            <div className="mb-4">
+              <label
+                className="text-[#1E1E1E] text-[14px] md:text-[16px] "
+                htmlFor="name"
+              >
+                Full Name
+              </label>
+              <input
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                id="name"
+                type="text"
+                placeholder="Full Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              {errors.form && (
+                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+              )}
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-[#1E1E1E] text-[14px] md:text-[16px]"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                id="email"
+                type="email"
+                placeholder="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.form && (
+                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+              )}
             </div>
             <div className="mb-4">
               <label
@@ -266,18 +274,15 @@ const Signup = () => {
               >
                 Phone Number
               </label>
-              <input
-                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                id="phone"
-                type="tel"
-                placeholder="Enter Your Phone Number"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-              {errors.form && (
-                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
-              )}
+              <div className="relative custom-phone-input">
+                <PhoneInput
+                  country={"ng"}
+                  placeholder="Phone number"
+                  inputClass={`mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]`}
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                />
+              </div>
             </div>
             <div className="mb-4">
               <label
@@ -290,7 +295,7 @@ const Signup = () => {
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="password"
                 type="password"
-                placeholder="Enter Your Password"
+                placeholder=" Password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
