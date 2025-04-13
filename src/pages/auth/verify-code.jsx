@@ -42,7 +42,7 @@ const VerifyCode = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      navigate("/resetpassword");
+      navigate("/login");
     }
   };
   return (
