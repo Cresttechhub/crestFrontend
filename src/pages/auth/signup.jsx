@@ -20,9 +20,9 @@ const Signup = () => {
   const signupMutation = useSignup();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
     password: "",
     rememberMe: false,
   });
@@ -44,14 +44,14 @@ const Signup = () => {
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.name) newErrors.name = "Full Name is required";
+    if (!formData.fullName) newErrors.fullName = "Full Name is required";
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
-    if (!formData.phone) {
-      newErrors.phone = "Phone Number is required";
+    if (!formData.phoneNumber) {
+      newErrors.phoneNumber = "Phone Number is required";
     }
     if (!formData.password) {
       newErrors.password = "Password is required";
@@ -71,16 +71,21 @@ const Signup = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    // if (!validateForm()) return;
 
     setIsSubmitting(true);
+    console.log(formData);
 
     signupMutation.mutate(formData, {
       onSuccess: () => {
+        console.log("Signup successful!", formData); // Log the response data
         setIsSubmitting(false); // Ensure submission state is reset
-        navigate("/login"); // Immediate redirection after success
+        navigate("/verify-code"); // Immediate redirection after success
       },
+
       onError: (err) => {
+        console.error("Signup Error:", err); // Log the full error
+        console.error("Error Response:", err.response); // Log the response
         const serverError = err.response?.data?.message || "Signup failed";
         setErrors({ api: serverError });
         setIsSubmitting(false);
@@ -91,15 +96,15 @@ const Signup = () => {
     setFormData((prevData) => ({ ...prevData, phone }));
   };
 
-  useEffect(() => {
-    if (isSubmitted) {
-      const redirectTimeout = setTimeout(() => {
-        navigate("/login"); // Redirect to login page
-      }, 3000); // Redirect after 3 seconds
+  // useEffect(() => {
+  //   if (isSubmitted) {
+  //     const redirectTimeout = setTimeout(() => {
+  //       navigate("/login"); // Redirect to login page
+  //     }, 3000); // Redirect after 3 seconds
 
-      return () => clearTimeout(redirectTimeout); // Clear timeout if component unmounts
-    }
-  }, [isSubmitted, navigate]);
+  //     return () => clearTimeout(redirectTimeout); // Clear timeout if component unmounts
+  //   }
+  // }, [isSubmitted, navigate]);
 
   if (isSubmitting) {
     return (
@@ -230,17 +235,17 @@ const Signup = () => {
             <div className="mb-4">
               <label
                 className="text-[#1E1E1E] text-[14px] md:text-[16px] "
-                htmlFor="name"
+                htmlFor="fullName"
               >
                 Full Name
               </label>
               <input
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                id="name"
+                id="fullName"
                 type="text"
                 placeholder="John Doe"
-                name="name"
-                value={formData.name}
+                name="fullName"
+                value={formData.fullName}
                 onChange={handleChange}
               />
               {errors.form && (
@@ -270,19 +275,26 @@ const Signup = () => {
             <div className="mb-4">
               <label
                 className="block text-[#1E1E1E] text-[14px] md:text-[16px] "
-                htmlFor="phone"
+                htmlFor="phoneNumber"
               >
                 Phone Number
               </label>
-              <div className="relative custom-phone-input">
+              {/* <div className="relative custom-phone-input">
                 <PhoneInput
                   country={"ng"}
                   placeholder="Phone number"
                   inputClass={`mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]`}
-                  value={formData.phone}
+                  value={formData.phoneNumber}
                   onChange={handlePhoneChange}
                 />
-              </div>
+              </div> */}
+              <input
+                type="number"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+              />
             </div>
             <div className="mb-4">
               <label
