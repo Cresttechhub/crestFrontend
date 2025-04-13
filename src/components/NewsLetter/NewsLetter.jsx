@@ -37,7 +37,7 @@ const NewsLetter = () => {
           <h2 className="text-[24px] md:text-[31px] font-bold mb-1">Stay in the loop</h2>
           <p className="text-[14px] md:text-[18px]">
             Subscribe to receive the latest news and updates about <br className="hidden md:block" />
-            Crest Tech Hub. We promise not to spam you!
+            CrestTech Hub. We promise not to spam you!
           </p>
         </div>
 

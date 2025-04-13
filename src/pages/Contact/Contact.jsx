@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import map from "../../images/map.svg";
 import { IoArrowBackOutline } from "react-icons/io5";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,15 +27,15 @@ const Contact = () => {
     }
     if (!formData.phone) {
       newErrors.phone = "Phone Number is required";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = "Invalid phone number";
     }
     if (!formData.message) newErrors.message = "Message is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+  const handlePhoneChange = (phone) => {
+    setFormData((prevData) => ({ ...prevData, phone }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -79,17 +81,53 @@ const Contact = () => {
             love to hear from you. Send us a message and we'll respond as soon
             as possible.
           </p>
-          <div className="mt-16 text-[16px] md:text-[20px]">
-            <p>Phone: +1 (555) 123-4567</p>
-            <p>Email: info@gmail.coom</p>
+          <div className="mt-16 md:text-[20px] text-[16px]">
+            <p>
+              {" "}
+              Email:
+              <a
+                href="mailto:helllo@cresttech.org"
+                className="ml-8 hover:text-[#3DEA9E] "
+              >
+                hello@cresttech.org
+              </a>
+              <p>
+                Phone:
+                <a
+                  href="tel:+2348167809278"
+                  className="ml-8 hover:text-[#3DEA9E]"
+                >
+                  +234 816 780 9278
+                </a>
+              </p>
+            </p>
           </div>
           <h2 className="mt-10 text-[16px] md:text-[20px] font-[600px] mb-4">
-            Social Media
+            Social
           </h2>
           <div className="flex space-x-4 items-center text-[#3DEA9E]">
-            <FaFacebookF />
-            <FaTwitter />
-            <FaInstagram />
+            <a
+              href="https://facebook.com/profile.php?id=61559970860204"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF className=" hover:text-[#ffffff] cursor-pointer" />
+            </a>
+
+            <a
+              href="https://x.com/cresttechhub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter className=" hover:text-[#ffffff] cursor-pointer" />
+            </a>
+            <a
+              href="https://instagram.com/cresttechhub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className=" hover:text-[#ffffff] cursor-pointer" />
+            </a>
           </div>
         </div>
         {/* form */}
@@ -106,7 +144,7 @@ const Contact = () => {
             </label>
             <input
               type="text"
-              placeholder="Enter your full name"
+              placeholder="John Doe"
               value={formData.name}
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
@@ -126,7 +164,7 @@ const Contact = () => {
             </label>
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="you@gmail.com"
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
@@ -144,18 +182,15 @@ const Contact = () => {
             >
               Phone Number
             </label>
-            <input
-              type="number"
-              placeholder="Enter your phone number"
-              value={formData.phone}
-              onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
-              }
-              className="mt-4 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-            />
-            {errors.phone && (
-              <p className="text-red-500 text-sm">{errors.phone}</p>
-            )}
+            <div className="relative custom-phone-input">
+              <PhoneInput
+                country={"ng"}
+                placeholder="Phone number"
+                inputClass={`mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]`}
+                value={formData.phone}
+                onChange={handlePhoneChange}
+              />
+            </div>
           </div>
           <div className="">
             <label
