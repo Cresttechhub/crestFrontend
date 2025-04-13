@@ -160,15 +160,9 @@ const Testimonial = () => {
         </div>
 
         {/* Bullet Navigation */}
-<<<<<<< HEAD
         <div className="hidden md:flex md:mb-40 mt-6 space-x-2 justify-center md:absolute md:bottom-10 md:p-0 p-4 w-full">
           {testimonials.map((_, index) => (
             <button
-=======
-        <div className="md:mb-40 mt-6 flex space-x-2 justify-center md:absolute md:bottom-10 md:p-0 p-4 w-full">
-          {testimonials.map((_, index) => (
-            <div
->>>>>>> ff8cd9006bcf5002b61e986cefc6e5b53b3d0b13
               key={index}
               onClick={() => setActiveIndex(index)}
               className={`w-4 h-4 rounded-full transition-colors duration-300 ${index === activeIndex ? "bg-[#009E65]" : "bg-gray-400"
@@ -177,8 +171,6 @@ const Testimonial = () => {
             />
           ))}
         </div>
-
-        {/* Subtle arrow nav – only on mobile */}
         {/* Subtle arrow nav for mobile only */}
         <div className="flex md:hidden justify-between items-center mt-6 px-6">
           <button
