@@ -14,8 +14,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebookF } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import useSignup from "../../components/hooks/useSignUp";
-//import PhoneInput from "react-phone-input-2";
-//import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Signup = () => {
   const signupMutation = useSignup();
