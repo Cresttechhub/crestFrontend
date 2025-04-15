@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import aboutImg from "../../images/about_img.svg";
-import leaders from "../../images/amarachi.png";
+import wakilat from "../../images/wakilat.png";
+import soliu from "../../images/soliu.png";
+import daniel from "../../images/daniel.png";
+import ismail from "../../images/Ismail.png";
+import fatima from "../../images/fatima.png";
+import muqtadir from "../../images/muqtadir.png";
 import { FaUserCheck } from "react-icons/fa";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { RiBuilding2Line, RiUserCommunityFill } from "react-icons/ri";
@@ -9,7 +14,7 @@ import { LuGraduationCap } from "react-icons/lu";
 import { MdLightbulbOutline } from "react-icons/md";
 import { CiGlobe } from "react-icons/ci";
 import { TiSocialFacebook } from "react-icons/ti";
-import { FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const impacts = [
   {
@@ -53,36 +58,53 @@ const values = [
 
 const leadershipTeam = [
   {
-    name: "Alexander Kate",
+    name: "Wakilat Kikelomo Zakariyau",
     position: "Chief Executive Officer",
-    image: leaders,
-    facebook: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
-    twitter: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
-    instagram: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
+    image: wakilat,
+    facebook: "https://www.facebook.com/teepee.adebayo/",
+    twitter: "https://x.com/dainty_zawak",
+    instagram: "https://instagram.com/dainty_zawak",
+    linkedin: "https://www.linkedin.com/in/wakilat-kikelomo-zakariyau",
   },
   {
-    name: "Alexander Kate",
-    position: "Chief Executive Officer",
-    image: leaders,
-    facebook: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
-    twitter: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
-    instagram: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
+    name: "Soliu Opeyemi Zakariyau",
+    position: "Co-Founder",
+    image: soliu,
+    facebook: "",
+    twitter: "",
+    instagram: "",
   },
   {
-    name: "Alexander Kate",
-    position: "Chief Executive Officer",
-    image: leaders,
-    facebook: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
-    twitter: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
-    instagram: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
+    name: "Fatimah Adebimpe",
+    position: "Head of Administration",
+    image: fatima,
+    twitter: "https://x.com/confudus?s=21&t=Izt36R2dpbi-i_0JRCVriQ",
+    linkedin: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
   },
   {
-    name: "Alexander Kate",
-    position: "Chief Executive Officer",
-    image: leaders,
-    facebook: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
-    twitter: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
-    instagram: "https://www.linkedin.com/in/fatimah-adebimpe-441b10145",
+    name: "Ismail Tijani",
+    position: "Director of Engineering",
+    image: ismail,
+    facebook: "",
+    twitter: "https://x.com/Son_Of_Tijani",
+    instagram: "",
+    linkedin: "https://www.linkedin.com/in/tijani-ismail",
+  },
+  {
+    name: "Amakeme Onyekachi Daniel",
+    position: "Creative Director",
+    image: daniel,
+    facebook: "",
+    twitter: "",
+    instagram: "",
+  },
+  {
+    name: "Abdulmuqtadir Yunus",
+    position: "Curriculum Director",
+    image: muqtadir,
+    facebook: "https://web.facebook.com/yunus.abdulmuqtadir.56",
+    twitter: "https://x.com/MuqtadirYunus",
+    linkedin: "http://www.linkedin.com/in/abdulmuqtadir-yunus",
   },
 ];
 const About = () => {
@@ -108,11 +130,11 @@ const About = () => {
             </Link>
 
             <h1 className="text-[18px] md:text-[30px] text-[#1E1E1E] font-bold mb-8">
-              About Crest Tech Hub
+              About CrestTech Hub
             </h1>
             <div className="text-[#6D737A] text-[14px] md:text-[16px] leading-[36px]">
               <p>
-                Founded in 2024, Crest Tech Hub emerged from a vision to bridge
+                Founded in 2024, CrestTech Hub emerged from a vision to bridge
                 the gap between traditional education and the rapidly evolving
                 tech industry. We recognized the need for practical,
                 industry-aligned training that prepares students for real-world
@@ -227,7 +249,7 @@ const About = () => {
         <h1 className="text-[#1E1E1E] text-[18px] md:text-[30px] font-bold mb-10  md:text-center">
           Executive Team
         </h1>
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-16">
           {leadershipTeam.map((leader, index) => (
             <div key={index} className="flex flex-col space-y-3 items-center">
               <img
@@ -251,7 +273,7 @@ const About = () => {
                   <TiSocialFacebook />
                 </a>
                 <a
-                  href={leader.facebook}
+                  href={leader.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xl"
@@ -259,12 +281,20 @@ const About = () => {
                   <FaTwitter />
                 </a>
                 <a
-                  href={leader.facebook}
+                  href={leader.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xl"
                 >
                   <FaInstagram />
+                </a>
+                <a
+                  href={leader.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl"
+                >
+                  <FaLinkedinIn />
                 </a>
               </div>
             </div>

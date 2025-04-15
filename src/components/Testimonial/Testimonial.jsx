@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import Bulb from "../../images/Bulb.svg";
 import Quote from "../../images/Quote.svg";
 import { motion, AnimatePresence } from "framer-motion";
-
 import AvatarPlaceholder from "../../images/AvatarPlaceholder.svg";
-import Pelumi from "../../images/Pelumi.jpg"
 
 const testimonials = [
   {
@@ -145,18 +143,6 @@ const Testimonial = () => {
               </div>
             </motion.div>
           </AnimatePresence>
-
-              {/* Name & Line Section */}
-              <div className="flex flex-row items-center md:justify-center md:mt-6 mt-4 md:spx-5">
-                <p className="text-[24px] md:text-[39px] font-[500] text-[#1E1E1E] md:text-center">
-                  {testimonials[activeIndex].name}
-                </p>
-                <div className="w-full md:w-2/3 md:pl-10 mt-2 md:mt-0">
-                  <div className="md:w-full w-50 h-1 bg-[#009E65]"></div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
         </div>
 
         {/* Bullet Navigation */}
@@ -188,8 +174,6 @@ const Testimonial = () => {
             &gt;
           </button>
         </div>
-
-
       </div>
     </div>
   );

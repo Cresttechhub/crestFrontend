@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -78,33 +79,24 @@ const Signup = () => {
 
     signupMutation.mutate(formData, {
       onSuccess: () => {
-        console.log("Signup successful!", formData); // Log the response data
-        setIsSubmitting(false); // Ensure submission state is reset
-        navigate("/verify-code"); // Immediate redirection after success
+
+        console.log("Signup successful!", formData);
+        setIsSubmitting(false);
+        navigate("/verifycode", { state: { email: formData.email } });
       },
 
       onError: (err) => {
-        console.error("Signup Error:", err); // Log the full error
-        console.error("Error Response:", err.response); // Log the response
+        console.error("Signup Error:", err);
+        console.error("Error Response:", err.response);
+
         const serverError = err.response?.data?.message || "Signup failed";
         setErrors({ api: serverError });
         setIsSubmitting(false);
       },
     });
   };
-  const handlePhoneChange = (phone) => {
-    setFormData((prevData) => ({ ...prevData, phone }));
-  };
 
-  // useEffect(() => {
-  //   if (isSubmitted) {
-  //     const redirectTimeout = setTimeout(() => {
-  //       navigate("/login"); // Redirect to login page
-  //     }, 3000); // Redirect after 3 seconds
 
-  //     return () => clearTimeout(redirectTimeout); // Clear timeout if component unmounts
-  //   }
-  // }, [isSubmitted, navigate]);
 
   if (isSubmitting) {
     return (
@@ -279,22 +271,23 @@ const Signup = () => {
               >
                 Phone Number
               </label>
-              {/* <div className="relative custom-phone-input">
+
+              <div className="relative custom-phone-input">
+               
                 <PhoneInput
                   country={"ng"}
                   placeholder="Phone number"
-                  inputClass={`mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]`}
+                  inputClass="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                   value={formData.phoneNumber}
-                  onChange={handlePhoneChange}
+                  onChange={(value) =>
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      phoneNumber: value,
+                    }))
+                  }
                 />
-              </div> */}
-              <input
-                type="number"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-              />
+              </div>
+             
             </div>
             <div className="mb-4">
               <label

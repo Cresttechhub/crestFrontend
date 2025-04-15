@@ -1,58 +1,42 @@
 import { useState } from "react";
 import wakilat from "../../images/wakilat.png";
 import soliu from "../../images/soliu.png";
-import fatima from "../../images/fatima.png";
-import amarachi from "../../images/amarachi.png";
-import bassey from "../../images/bassey.png";
 import daniel from "../../images/daniel.png";
+import ismail from "../../images/Ismail.png";
+import fatima from "../../images/fatima.png";
+import muqtadir from "../../images/muqtadir.png";
 
 const initialMentors = [
-  {
-    name: "Wakilat Kikelomo Zakariyau",
-    role: "CEO & Founder",
-    description:
-      "Education technology innovator, creating technology-driven solutions to empower students and educators.",
-    tags: ["EdTech", "Innovation"],
-    image: wakilat,
-  },
-  {
-    name: "Soliu Opeyemi Sakariyau",
-    role: "Co-Founder",
-    description: "Tech entrepreneur with innovative solutions.",
-    tags: ["Tech Innovation", "Software Development"],
-    image: soliu,
-  },
+  // {
+  //   name: "Soliu Opeyemi Sakariyau",
+  //   role: "Co-Founder",
+  //   description: "Tech entrepreneur with innovative solutions.",
+  //   tags: ["Tech Innovation", "Software Development"],
+  //   image: soliu,
+  // },
   {
     name: "Fatimah Adebimpe",
-    role: "Product Manager",
+    role: "Frontend Development Mentor",
     description:
-      "Head of Administration, skilled in operational management and software development.",
-    tags: ["Operations Management", "Software Dev"],
+      "Passionate frontend developer expert driving modern web solutions with cutting-edge tech and best practices",
+    tags: ["Frontend", "Web Development"],
     image: fatima,
   },
-  {
-    name: "Amakeme Onyekachi Daniel",
-    role: "Creative Director",
-    description:
-      "Leads branding, UX, marketing, and design innovation in tech products.",
-    tags: ["Design Excellence", "Digital Creativity"],
-    image: daniel,
-  },
-  {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
-  },
-  {
-    name: "Mannaseh Bassey",
-    role: "WordPress Development Mentor",
-    description:
-      "WordPress Development mentor, seasoned technical analyst and IT trainer.",
-    tags: ["WordPress", "IT Training"],
-    image: bassey,
-  },
+  // {
+  //   name: "Ismail Tijani",
+  //   role: "Director of Engineering",
+  //   description: "Software development & project management",
+  //   tags: ["SoftwareDev", "ProjMgmt"],
+  //   image: ismail,
+  // },
+  // {
+  //   name: "Amakeme Onyekachi Daniel",
+  //   role: "Creative Director",
+  //   description:
+  //     "Leads branding, UX, marketing, and design innovation in tech products.",
+  //   tags: ["Design Excellence", "Digital Creativity"],
+  //   image: daniel,
+  // },
 ];
 
 const additionalMentors = [
@@ -61,56 +45,56 @@ const additionalMentors = [
     role: "UI/UX Mentor",
     description: "Skilled in UX research, User research and Design thinking.",
     tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
+    image: "",
+  },
+  {
+    name: "K",
+    role: "UI/UX Mentor",
+    description: "Skilled in UX research, User research and Design thinking.",
+    tags: ["UX Research", "Design Thinking"],
+    image: "",
   },
   {
     name: "Klever Hoset",
     role: "UI/UX Mentor",
     description: "Skilled in UX research, User research and Design thinking.",
     tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
+    image: "",
   },
   {
     name: "Klever Hoset",
     role: "UI/UX Mentor",
     description: "Skilled in UX research, User research and Design thinking.",
     tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
+    image: "",
   },
   {
     name: "Klever Hoset",
     role: "UI/UX Mentor",
     description: "Skilled in UX research, User research and Design thinking.",
     tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
+    image: "",
   },
   {
     name: "Klever Hoset",
     role: "UI/UX Mentor",
     description: "Skilled in UX research, User research and Design thinking.",
     tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
+    image: "",
   },
   {
     name: "Klever Hoset",
     role: "UI/UX Mentor",
     description: "Skilled in UX research, User research and Design thinking.",
     tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
+    image: "",
   },
   {
     name: "Klever Hoset",
     role: "UI/UX Mentor",
     description: "Skilled in UX research, User research and Design thinking.",
     tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
-  },
-  {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: amarachi,
+    image: "",
   },
 ];
 
@@ -163,7 +147,7 @@ export default function Mentors() {
           onClick={handleViewMore}
           className="mt-12 px-6 py-4 w-full text-nowrap md:w-[240px] text-white text-[14px] md:text-[16px] hover:text-[#009E65] font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
         >
-          View More Team Members
+          View More Mentors
         </button>
       )}
     </div>

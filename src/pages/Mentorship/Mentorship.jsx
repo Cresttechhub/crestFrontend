@@ -77,7 +77,7 @@ const Mentorship = () => {
             onClick={scrollToMentors}
             className="mt-12 px-6 py-3 md:w-[213px] bg-[#009E65] text-white font-medium text-[16px] hover:text-[#009E65] hover:font-medium hover:border-2 hover:border-[#009E65] hover:bg-white rounded-[15px] cursor-pointer"
           >
-            Meet Our Team
+            Meet Our Mentors
           </button>
         </div>
         <div

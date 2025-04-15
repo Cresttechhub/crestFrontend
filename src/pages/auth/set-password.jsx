@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import topLeft from "../../images/topLeft.png";
 import bottomLeft from "../../images/bottomLeft.png";
@@ -12,8 +12,12 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebookF, FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
+import { useResetPassword } from "../../components/hooks/useResetPassword";
 
 const ResetPassword = () => {
+  const { mutate, isLoading, isError, error } = useResetPassword();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get("token");
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     password: "",
@@ -59,23 +63,33 @@ const ResetPassword = () => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      console.log("Form submitted:", formData); // Log the submitted data
-      // You can add logic here to send the form data to your backend
-    }, 1000); // Simulate a 1-second submission delay
+    mutate(
+      {
+        resetToken: token,
+        newPassword: formData.password,
+        confirmPassword: formData.confirmPassword,
+      },
+      {
+        onSuccess: () => {
+          setIsSubmitted(true);
+        },
+        onError: (err) => {
+          // Optional: show backend error
+          if (err?.response?.data?.message) {
+            setErrors({ general: err.response.data.message });
+          }
+        },
+      }
+    );
   };
 
   useEffect(() => {
     if (isSubmitted) {
       const redirectTimeout = setTimeout(() => {
-        navigate("/login"); // Redirect to login page
-      }, 3000); // Redirect after 3 seconds
+        navigate("/login");
+      }, 3000);
 
-      return () => clearTimeout(redirectTimeout); // Clear timeout if component unmounts
+      return () => clearTimeout(redirectTimeout);
     }
   }, [isSubmitted, navigate]);
 

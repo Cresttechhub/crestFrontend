@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import topLeft from "../../images/topLeft.png";
 import bottomLeft from "../../images/bottomLeft.png";
@@ -9,13 +10,19 @@ import greenLogo from "../../images/greenLogo.png";
 import whiteLogo from "../../images/whiteLogo.png";
 import { IoCloseSharp } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
+import useVerifyOtp from "../../components/hooks/useVerifyOtp";
 
 const VerifyCode = () => {
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState("");
   const [formData, setFormData] = useState({
     code: "",
   });
   const navigate = useNavigate();
+  const { mutate, isLoading, isError, error } = useVerifyOtp();
+
+  const location = useLocation();
+  const email = location.state?.email;
 
   const validateForm = () => {
     let newErrors = {};
@@ -42,9 +49,34 @@ const VerifyCode = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      navigate("/login");
+
+      if (!email) {
+        setErrors({ code: "Missing email from previous step." });
+        return;
+      }
+
+      mutate(
+        {
+          email: email,
+          otp: formData.code,
+        },
+        {
+          onSuccess: () => {
+            navigate("/resetpassword");
+          },
+          onError: (err) => {
+            
+            setServerError(
+              "Verification failed. Check the code and try again."
+            );
+            console.error("OTP verification failed", err);
+          },
+        }
+      );
+
     }
   };
+
   return (
     <div className="relative   flex md:flex-row flex-col overflow-hidden">
       {/* Green Background (Desktop) */}
@@ -160,6 +192,9 @@ const VerifyCode = () => {
               />
               {errors.code && (
                 <p className="text-red-500 text-sm">{errors.code}</p>
+              )}
+              {serverError && (
+                <p className="text-red-500 text-sm mt-2">{serverError}</p>
               )}
             </div>
             <button
