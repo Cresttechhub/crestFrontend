@@ -4,7 +4,6 @@ import Quote from "../../images/Quote.svg";
 import { motion, AnimatePresence } from "framer-motion";
 
 import AvatarPlaceholder from "../../images/AvatarPlaceholder.svg";
-import Pelumi from "../../images/Pelumi.jpg"
 
 const testimonials = [
   {
