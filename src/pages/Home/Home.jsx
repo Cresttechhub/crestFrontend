@@ -5,7 +5,7 @@ import About from "../../components/About/About";
 import Program from "../../components/Program/Program";
 import Choice from "../../components/Choice/Choice";
 import Tracks from "../../components/Tracks/Tracks";
-
+import Testimonial from "../../components/Testimonial/Testimonial";
 import How from "../../components/How/How";
 import Blog from "../../components/Blog/Blog";
 
@@ -18,6 +18,7 @@ const Home = () => {
       <Program />
       <Choice />
       <Tracks />
+      <Testimonial />
       <How />
       <Blog />
     </div>
