@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Bulb from "../../images/Bulb.svg";
 import Quote from "../../images/Quote.svg";
 import { motion, AnimatePresence } from "framer-motion";
-
 import AvatarPlaceholder from "../../images/AvatarPlaceholder.svg";
 
 const testimonials = [
@@ -175,8 +174,6 @@ const Testimonial = () => {
             &gt;
           </button>
         </div>
-
-
       </div>
     </div>
   );
