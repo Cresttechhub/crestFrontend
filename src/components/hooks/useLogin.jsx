@@ -10,16 +10,5 @@ const loginUser = async (userData) => {
 export const useLogin = () => {
   return useMutation({
     mutationFn: loginUser,
-    onSuccess: (data) => {
-      console.log("Login successful:", data);
-      localStorage.setItem("token", data.token);
-      navigate("/");
-    },
-    onError: (error) => {
-      console.error(
-        "Login failed:",
-        error?.response?.data?.message || error.message
-      );
-    },
   });
 };

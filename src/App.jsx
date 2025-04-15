@@ -21,6 +21,7 @@ import BlogDetail from "./components/Blog/BlogDetail";
 import Path from "./pages/Path/Path";
 import Payment from "./pages/Payment/Payment";
 import Confirmation from "./pages/Confirmation/Confirmation";
+import ResetToken from "./pages/auth/reset-token";
 
 function App() {
   return (
@@ -107,12 +108,7 @@ function App() {
               </MainLayout>
             }
           />
-          <Route
-            path="/confirmation"
-            element={
-              <Confirmation />
-            }
-          />
+          <Route path="/confirmation" element={<Confirmation />} />
 
           <Route
             path="/signup"
@@ -147,6 +143,14 @@ function App() {
             }
           />
           <Route
+            path="/resettoken"
+            element={
+              <AuthLayout>
+                <VerifyCode />
+              </AuthLayout>
+            }
+          />
+          <Route
             path="/verifycode"
             element={
               <AuthLayout>
@@ -157,7 +161,6 @@ function App() {
 
           <Route path="/" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
-          
         </Routes>
       </Router>
     </AuthProvider>
@@ -165,5 +168,3 @@ function App() {
 }
 
 export default App;
-
-

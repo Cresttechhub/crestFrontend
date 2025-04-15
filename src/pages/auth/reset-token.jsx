@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import topLeft from "../../images/topLeft.png";
 import bottomLeft from "../../images/bottomLeft.png";
@@ -7,26 +8,28 @@ import topRight from "../../images/topRight.png";
 import bottomRight from "../../images/bottomRight.png";
 import greenLogo from "../../images/greenLogo.png";
 import whiteLogo from "../../images/whiteLogo.png";
-import { FcGoogle } from "react-icons/fc";
-import { FaApple, FaFacebookF, FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
-import { useForgetPassword } from "../../components/hooks/useForgetPassword";
+import { useResetToken } from "../../components/hooks/useResetToken";
 
-const ForgetPassword = () => {
-  const { mutate, isLoading, isError, error } = useForgetPassword();
+const ResetToken = () => {
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState("");
   const [formData, setFormData] = useState({
-    email: "",
+    code: "",
   });
   const navigate = useNavigate();
+  const { mutate, isLoading, isError, error } = useResetToken();
+
+  const location = useLocation();
+  const email = location.state?.email;
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+    if (!formData.code) {
+      newErrors.code = "Code is required";
+    } else if (!/^\d+$/.test(formData.code)) {
+      newErrors.code = "Code must contain only numbers";
     }
 
     setErrors(newErrors);
@@ -41,21 +44,43 @@ const ForgetPassword = () => {
   };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+    setServerError(""); // optional
   };
+  setServerError(
+    error?.response?.data?.message ||
+      "Verification failed. Check the code and try again."
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      if (!email) {
+        setErrors({ code: "Missing email from previous step." });
+        return;
+      }
+
       mutate(
-        { email: formData.email },
+        {
+          email: email,
+          otp: formData.code,
+        },
         {
           onSuccess: () => {
-            navigate("/resettoken");
+            navigate("/resetpassword");
+          },
+          onError: (err) => {
+            // handle specific error from backend if needed
+            setServerError(
+              "Verification failed. Check the code and try again."
+            );
+            console.error("OTP verification failed", err);
           },
         }
       );
     }
   };
+
   return (
     <div className="relative   flex md:flex-row flex-col overflow-hidden">
       {/* Green Background (Desktop) */}
@@ -146,60 +171,51 @@ const ForgetPassword = () => {
             </div>
 
             <h2 className="text-center text-[24px] md:text-[35px] text-[#1E1E1E] font-bold mb-2">
-              Forget Your Password?
+              Verify Code
             </h2>
             <p className="text-center text-[14px] md:text-[16px] text-[#6D737A] mb-6">
-              Don’t worry, happens to all of us. <br className="md:hidden" />{" "}
-              Enter your email below to recover your password.
+              An authentication code has been sent to your email.
             </p>
           </div>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label
                 className="block text-[#1E1E1E] text-[14px] md:text-[16px]"
-                htmlFor="email"
+                htmlFor="code"
               >
-                Email
+                Code
               </label>
               <input
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                id="email"
-                type="email"
-                placeholder="you@gmail.com"
-                name="email"
-                value={formData.email}
+                id="code"
+                type="text"
+                placeholder="Enter Code"
+                name="code"
+                value={formData.code}
                 onChange={handleChange}
               />
-              {errors.email && (
-                <p className="text-red-500 text-sm">{errors.email}</p>
+              {errors.code && (
+                <p className="text-red-500 text-sm">{errors.code}</p>
               )}
             </div>
             <button
-              className="mt-8 bg-[#009E65]text-white py-6 md:px-6 md:py-4 text-white text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:bg-white hover:border-2 hover:border-[#009E65] w-full   rounded-[15px] cursor-pointer"
               type="submit"
+              className="mt-8 bg-[#009E65] text-white py-6 md:px-6 md:py-4 text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium hover:bg-white hover:border-2 hover:border-[#009E65] w-full rounded-[15px] cursor-pointer"
             >
-              Submit
+              Verify
             </button>
-            {isLoading && (
-              <p className="text-center text-sm text-gray-600 mt-2">
-                Sending request...
-              </p>
-            )}
-            {isError && (
-              <p className="text-center text-sm text-red-500 mt-2">
-                {error?.response?.data?.message || "Something went wrong"}
-              </p>
-            )}
           </form>
-          <div className="text-center mt-8">
-            <p className="mt-4 text-[14px] md:text-[16px] text-[#1E1E1E] mb-10">
-              Or login with
+          <div className="text-center mt-10">
+            <p className="text-[14px] md:text-[16px] text-[#1E1E1E] font-medium">
+              Didn't receive a code?{" "}
+              <Link
+                to="/forgotpassword"
+                state={{ email }}
+                className="text-[#00A665] font-medium hover:underline"
+              >
+                Resend
+              </Link>
             </p>
-            <div className="flex justify-center mt-4 space-x-16 ">
-              <FaFacebookF className="bg-[#1877F2] w-6 h-6 p-0.5 rounded-full text-white" />
-              <FcGoogle className="w-6 h-6" />
-              <FaApple className="w-6 h-6" />
-            </div>
           </div>
         </div>
       </div>
@@ -207,4 +223,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPassword;
+export default ResetToken;

@@ -15,6 +15,7 @@ import { useLogin } from "../../components/hooks/useLogin";
 
 const Login = () => {
   const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -58,16 +59,18 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      login(); //Mark the user as logged in
-      navigate("/");
-    }
+
     if (!validateForm()) return;
 
     loginUser(formData, {
       onSuccess: (data) => {
+        setSuccess(true);
         localStorage.setItem("token", data.token);
-        navigate("/");
+
+        // Delay for checkmark to show
+        setTimeout(() => {
+          navigate("/path");
+        }, 1200);
       },
       onError: (error) => {
         const message = error?.response?.data?.message || error.message;
@@ -235,31 +238,35 @@ const Login = () => {
             </div>
 
             <button
-              className="bg-[#009E65] text-white py-6 md:px-6 md:py-4 text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium hover:bg-white hover:border-2 hover:border-[#009E65] w-full rounded-[15px] cursor-pointer flex justify-center items-center gap-2"
+              className={`bg-[#009E65] text-white py-6 md:px-6 md:py-4 text-[14px] md:text-[16px] w-full rounded-[15px] cursor-pointer flex justify-center items-center gap-2 transition-all duration-300 ${
+                isPending || success
+                  ? "opacity-70 cursor-not-allowed"
+                  : "hover:text-[#009E65] hover:font-medium hover:bg-white hover:border-2 hover:border-[#009E65]"
+              }`}
               type="submit"
-              disabled={isPending}
+              disabled={isPending || success}
             >
               {isPending ? (
-                <svg
-                  className="animate-spin h-5 w-5 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
+                <>
+                  <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <span className="ml-2">Logging in...</span>
+                </>
+              ) : success ? (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-white"
+                    viewBox="0 0 20 20"
                     fill="currentColor"
-                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                  ></path>
-                </svg>
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="ml-2">Success</span>
+                </>
               ) : (
                 "Login"
               )}
