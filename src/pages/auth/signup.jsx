@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -13,14 +14,16 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebookF } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import useSignup from "../../components/hooks/useSignUp";
+//import PhoneInput from "react-phone-input-2";
+//import "react-phone-input-2/lib/style.css";
 
 const Signup = () => {
   const signupMutation = useSignup();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
     password: "",
     rememberMe: false,
   });
@@ -42,21 +45,26 @@ const Signup = () => {
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.name) newErrors.name = "Full Name is required";
+    if (!formData.fullName) newErrors.fullName = "Full Name is required";
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
-    if (!formData.phone) {
-      newErrors.phone = "Phone Number is required";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = "Invalid phone number";
+    if (!formData.phoneNumber) {
+      newErrors.phoneNumber = "Phone Number is required";
     }
     if (!formData.password) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+    } else if (
+      formData.password.length < 8 ||
+      !/[A-Z]/.test(formData.password) ||
+      !/[a-z]/.test(formData.password) ||
+      !/[0-9]/.test(formData.password) ||
+      !/[^a-zA-Z0-9]/.test(formData.password)
+    ) {
+      newErrors.password =
+        "Password must be at least 8 characters and include uppercase, lowercase, a special character, and a digit.";
     }
 
     setErrors(newErrors);
@@ -64,32 +72,40 @@ const Signup = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    // if (!validateForm()) return;
 
     setIsSubmitting(true);
+    console.log(formData);
 
     signupMutation.mutate(formData, {
       onSuccess: () => {
+        console.log("Signup successful!", formData); // Log the response data
         setIsSubmitting(false); // Ensure submission state is reset
-        navigate("/login"); // Immediate redirection after success
+        navigate("/verify-code"); // Immediate redirection after success
       },
+
       onError: (err) => {
+        console.error("Signup Error:", err); // Log the full error
+        console.error("Error Response:", err.response); // Log the response
         const serverError = err.response?.data?.message || "Signup failed";
         setErrors({ api: serverError });
         setIsSubmitting(false);
       },
     });
   };
+  const handlePhoneChange = (phone) => {
+    setFormData((prevData) => ({ ...prevData, phone }));
+  };
 
-  useEffect(() => {
-    if (isSubmitted) {
-      const redirectTimeout = setTimeout(() => {
-        navigate("/login"); // Redirect to login page
-      }, 3000); // Redirect after 3 seconds
+  // useEffect(() => {
+  //   if (isSubmitted) {
+  //     const redirectTimeout = setTimeout(() => {
+  //       navigate("/login"); // Redirect to login page
+  //     }, 3000); // Redirect after 3 seconds
 
-      return () => clearTimeout(redirectTimeout); // Clear timeout if component unmounts
-    }
-  }, [isSubmitted, navigate]);
+  //     return () => clearTimeout(redirectTimeout); // Clear timeout if component unmounts
+  //   }
+  // }, [isSubmitted, navigate]);
 
   if (isSubmitting) {
     return (
@@ -198,7 +214,7 @@ const Signup = () => {
 
       {/* Signup Form */}
 
-      <div className="w-full md:w-[60%] p-8 md:p-16 flex flex-col justify-center items-center">
+      <div className="w-full md:w-[60%] p-8 md:p-16 mt-18 flex flex-col justify-center items-center">
         <div className="w-full max-w-md">
           <div className="flex justify-between items-center md:float-right">
             <img src={greenLogo} alt="" className="block md:hidden" />
@@ -217,67 +233,69 @@ const Signup = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-col md:flex-row space-x-4">
-              <div className="mb-4 w-full">
-                <label
-                  className="text-[#1E1E1E] text-[14px] md:text-[16px] "
-                  htmlFor="name"
-                >
-                  Full Name
-                </label>
-                <input
-                  className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                  id="name"
-                  type="text"
-                  placeholder="Enter Your Full Name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-                {errors.form && (
-                  <p className="text-red-500 text-sm mb-4">{errors.form}</p>
-                )}
-              </div>
-              <div className="mb-4 w-full">
-                <label
-                  className="block text-[#1E1E1E] text-[14px] md:text-[16px]"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                  id="email"
-                  type="email"
-                  placeholder="Enter Your Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.form && (
-                  <p className="text-red-500 text-sm mb-4">{errors.form}</p>
-                )}
-              </div>
-            </div>
             <div className="mb-4">
               <label
-                className="block text-[#1E1E1E] text-[14px] md:text-[16px] "
-                htmlFor="phone"
+                className="text-[#1E1E1E] text-[14px] md:text-[16px] "
+                htmlFor="fullName"
               >
-                Phone Number
+                Full Name
               </label>
               <input
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-                id="phone"
-                type="tel"
-                placeholder="Enter Your Phone Number"
-                name="phone"
-                value={formData.phone}
+                id="fullName"
+                type="text"
+                placeholder="John Doe"
+                name="fullName"
+                value={formData.fullName}
                 onChange={handleChange}
               />
               {errors.form && (
                 <p className="text-red-500 text-sm mb-4">{errors.form}</p>
               )}
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-[#1E1E1E] text-[14px] md:text-[16px]"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+                id="email"
+                type="email"
+                placeholder="you@gmail.com"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.form && (
+                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+              )}
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-[#1E1E1E] text-[14px] md:text-[16px] "
+                htmlFor="phoneNumber"
+              >
+                Phone Number
+              </label>
+              {/* <div className="relative custom-phone-input">
+                <PhoneInput
+                  country={"ng"}
+                  placeholder="Phone number"
+                  inputClass={`mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]`}
+                  value={formData.phoneNumber}
+                  onChange={handlePhoneChange}
+                />
+              </div> */}
+              <input
+                type="number"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
+              />
             </div>
             <div className="mb-4">
               <label
@@ -290,7 +308,7 @@ const Signup = () => {
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="password"
                 type="password"
-                placeholder="Enter Your Password"
+                placeholder=" Password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}

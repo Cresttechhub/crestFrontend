@@ -159,8 +159,6 @@ const Testimonial = () => {
             />
           ))}
         </div>
-
-        {/* Subtle arrow nav – only on mobile */}
         {/* Subtle arrow nav for mobile only */}
         <div className="flex md:hidden justify-between items-center mt-6 px-6">
           <button
