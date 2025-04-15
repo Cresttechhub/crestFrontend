@@ -72,13 +72,14 @@ const Signup = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    // if (!validateForm()) return;
 
     setIsSubmitting(true);
     console.log(formData);
 
     signupMutation.mutate(formData, {
       onSuccess: () => {
+
         console.log("Signup successful!", formData);
         setIsSubmitting(false);
         navigate("/verifycode", { state: { email: formData.email } });
@@ -87,15 +88,15 @@ const Signup = () => {
       onError: (err) => {
         console.error("Signup Error:", err);
         console.error("Error Response:", err.response);
+
         const serverError = err.response?.data?.message || "Signup failed";
         setErrors({ api: serverError });
         setIsSubmitting(false);
       },
     });
   };
-  // const handlePhoneChange = (phone) => {
-  //   setFormData((prevData) => ({ ...prevData, phone }));
-  // };
+
+
 
   if (isSubmitting) {
     return (
@@ -270,14 +271,9 @@ const Signup = () => {
               >
                 Phone Number
               </label>
+
               <div className="relative custom-phone-input">
-                {/* <PhoneInput
-                  country={"ng"}
-                  placeholder="Phone number"
-                  inputClass={`mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]`}
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                /> */}
+               
                 <PhoneInput
                   country={"ng"}
                   placeholder="Phone number"
@@ -291,13 +287,7 @@ const Signup = () => {
                   }
                 />
               </div>
-              {/* <input
-                type="number"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
-              /> */}
+             
             </div>
             <div className="mb-4">
               <label

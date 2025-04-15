@@ -49,6 +49,7 @@ const VerifyCode = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+
       if (!email) {
         setErrors({ code: "Missing email from previous step." });
         return;
@@ -64,7 +65,7 @@ const VerifyCode = () => {
             navigate("/resetpassword");
           },
           onError: (err) => {
-            // handle specific error from backend if needed
+            
             setServerError(
               "Verification failed. Check the code and try again."
             );
@@ -72,6 +73,7 @@ const VerifyCode = () => {
           },
         }
       );
+
     }
   };
 
