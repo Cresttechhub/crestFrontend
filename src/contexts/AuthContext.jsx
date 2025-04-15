@@ -5,27 +5,31 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setIsLoggedIn(true); //
+      setUser(JSON.parse(storedUser));
+      setIsLoggedIn(true);
     }
   }, []);
 
-  const login = () => {
-    localStorage.setItem('user', JSON.stringify({})); // To store actual user info
+  const login = (userData) => {
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
     setIsLoggedIn(true);
   };
 
   const logout = () => {
     localStorage.removeItem('user');
+    setUser(null);
     setIsLoggedIn(false);
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

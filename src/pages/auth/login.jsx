@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
 import { motion } from "framer-motion";
 import topLeft from "../../images/topLeft.png";
 import bottomLeft from "../../images/bottomLeft.png";
@@ -59,7 +58,9 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if (validateForm()) {
+      navigate("/");
+    }
     if (!validateForm()) return;
 
     loginUser(formData, {

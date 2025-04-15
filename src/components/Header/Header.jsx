@@ -13,7 +13,7 @@ function Header() {
   const profileRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, logout, user } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -92,39 +92,32 @@ function Header() {
           <div className="hidden md:flex gap-7 items-center text-[18px] text-[#1E1E1E]">
             {isLoggedIn ? (
               <div className="relative" ref={profileRef}>
-                <div
-                  className="flex items-center gap-2 cursor-pointer"
-                  onClick={() => setDropdownOpen(!dropdownOpen)} // Toggle dropdown on click for the whole section
-                  style={{ cursor: dropdownOpen ? "default" : "pointer" }} // Adjust cursor style based on dropdown state
-                >
-                  <div className="flex items-center pr-3 space-x-1">
-                    <p className="bg-[#9747FF] font-[400] text-[23px] text-white rounded-full w-8 h-8 flex items-center justify-center"> K</p>
-                    <span className="text-[14px] font-[600] text-[#1E1E1E]">KashMoniee@...</span>
-                  </div>
-                  {/* Dropdown Icon */}
-                  <svg
-                    className="w-4 h-4 cursor-pointer"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    style={{ cursor: dropdownOpen ? "default" : "pointer" }} // Adjust cursor style for the icon
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
+              <div
+                className="flex items-center gap-2 cursor-pointer"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              >
+                <div className="flex items-center pr-3 space-x-1">
+                  <p className="bg-[#9747FF] font-[400] text-[23px] text-white rounded-full w-8 h-8 flex items-center justify-center">
+                  {user?.initials || 'N/A'} {/* Display first letter of the user's name */}
+                  </p>
+                  <span className="text-[14px] font-[600] text-[#1E1E1E]">
+                    {user?.email?.slice(0, 10)}...
+                  </span>
                 </div>
-
-                {/* Dropdown menu */}
-                {dropdownOpen && (
-                  <div className="absolute right-0 w-32 top-full bg-white rounded-2xl shadow-md z-10 mt-4">
-                    <button
-                      onClick={handleLogout}
-                      className="block w-full p-2 text-center px-3 py-3 text-lg text-red-500 font-[600] "
-                    >
-                      Logout
-                    </button>
-                  </div>
-                )}
               </div>
+
+              {/* Dropdown menu */}
+              {dropdownOpen && (
+                <div className="absolute right-0 w-32 top-full bg-white rounded-2xl shadow-md z-10 mt-4">
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full p-2 text-center px-3 py-3 text-lg text-red-500 font-[600]"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
             ) : (
               <>
                 <Link
