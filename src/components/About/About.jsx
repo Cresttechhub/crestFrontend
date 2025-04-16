@@ -5,6 +5,7 @@ import about_img from "../../images/about_img.svg";
 const About = () => {
   const navigate = useNavigate();
 
+
   const handleButtonClick = () => {
     navigate("/about");
   };
