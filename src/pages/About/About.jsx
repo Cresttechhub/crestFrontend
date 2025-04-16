@@ -67,12 +67,13 @@ const leadershipTeam = [
     linkedin: "https://www.linkedin.com/in/wakilat-kikelomo-zakariyau",
   },
   {
-    name: "Soliu Opeyemi Zakariyau",
+    name: "Soliu Opeyemi Sakariyau",
     position: "Co-Founder",
     image: soliu,
     facebook: "",
-    twitter: "",
+    twitter: "https://x.com/Iam_RAYMOS?t=IyEIQV_ZhnpWqDiQV5giHA&s=09",
     instagram: "",
+    linkedin: "https://www.linkedin.com/in/soliu-sakariyau",
   },
   {
     name: "Fatimah Adebimpe",
