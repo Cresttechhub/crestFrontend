@@ -25,16 +25,19 @@ const Tracks = () => {
             Software Development
           </h2>
           <p className="mt-3 mb-6 text-[16px] font-[400] text-[#6D737A] leading-[1.7]">
-            Master both Frontend & Backend development with modern technologies and frameworks.
+            Master both Frontend & Backend development with modern technologies
+            and frameworks.
           </p>
           <p className="flex items-center space-x-2 mb-4 text-[16px] font-[400] text-[#6D737A]">
-            <img src={Checkbox} alt="checkbox" /> <span>HTML, CSS, JavaScript</span>
+            <img src={Checkbox} alt="checkbox" />{" "}
+            <span>HTML, CSS, JavaScript</span>
           </p>
           <p className="flex items-center space-x-2 mb-4 text-[16px] font-[400] text-[#6D737A] ">
             <img src={Checkbox} alt="checkbox" /> <span>React and Node.js</span>
           </p>
           <p className="flex items-center space-x-2 text-[16px] font-[400] text-[#6D737A]">
-            <img src={Checkbox} alt="checkbox" /> <span>Database Management</span>
+            <img src={Checkbox} alt="checkbox" />{" "}
+            <span>Database Management</span>
           </p>
         </div>
 
@@ -47,13 +50,16 @@ const Tracks = () => {
             UI/UX Design
           </h2>
           <p className="mt-3 mb-6 text-[16px] font-[400] text-[#6D737A] leading-[1.7] ">
-            Create beautiful and functional user interfaces with modern design principles.
+            Create beautiful and functional user interfaces with modern design
+            principles.
           </p>
           <p className="flex items-center space-x-2 mb-4 text-[16px] font-[400] text-[#6D737A]">
-            <img src={Checkbox} alt="checkbox" /> <span>Design Fundamentals</span>
+            <img src={Checkbox} alt="checkbox" />{" "}
+            <span>Design Fundamentals</span>
           </p>
           <p className="flex items-center space-x-2 mb-4 text-[16px] font-[400] text-[#6D737A]">
-            <img src={Checkbox} alt="checkbox" /> <span>Figma and Adobe XD</span>
+            <img src={Checkbox} alt="checkbox" />{" "}
+            <span>Figma and Adobe XD</span>
           </p>
           <p className="flex items-center space-x-2 text-[16px] font-[400] text-[#6D737A]">
             <img src={Checkbox} alt="checkbox" /> <span>User Research</span>
@@ -63,10 +69,10 @@ const Tracks = () => {
 
       {/* Enroll Button */}
       <div className="flex justify-center items-center mt-12">
-        <Link to="/enroll">
-        <Button className="rounded-2xl md:px-12 md:py-4 px-30 font-[500] text-[20px] border border-[#009E65] md:hover:bg-white md:hover:text-[#009E65]">
-          Enroll Now
-        </Button>
+        <Link to="/path">
+          <Button className="rounded-2xl md:px-12 md:py-4 px-30 font-[500] text-[20px] border border-[#009E65] md:hover:bg-white md:hover:text-[#009E65]">
+            Enroll Now
+          </Button>
         </Link>
       </div>
     </div>
