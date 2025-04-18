@@ -127,8 +127,7 @@ const Mentorship = () => {
 
       <div ref={mentorsRef} className="-mt-4 md:mt-6 md:px-24 md:py-6 p-8">
         <h2 className="text-[18px] md:text-3xl md:text-center  text-[#1E1E1E] font-bold">
-          Book a Mentor
-          <Mentors />
+          Guiding You to Success: Our Mentors <Mentors />
         </h2>
       </div>
       {/* How */}
