@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import sofiyat from "../../images/sofiyat.png";
 import bassey from "../../images/bassey.png";
 import florence from "../../images/florence.png";
@@ -14,6 +15,7 @@ const initialMentors = [
     tags: ["FrontendMentor", "TechLeadership"],
     image: sofiyat,
   },
+
   {
     name: "Fatimah Adebimpe",
     role: "Frontend Development Mentor",
@@ -22,6 +24,7 @@ const initialMentors = [
     tags: ["Frontend", "Web Development"],
     image: fatima,
   },
+
   {
     name: "Florence Egwu",
     role: "UI/UX Design Lead",
@@ -43,10 +46,12 @@ const initialMentors = [
     tags: ["WordPress", "IT Training"],
     image: bassey,
   },
+
 ];
 
 const additionalMentors = [
   {
+
     name: "",
     role: "",
     description: "",

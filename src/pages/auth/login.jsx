@@ -58,9 +58,11 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (validateForm()) {
       navigate("/");
     }
+
     if (!validateForm()) return;
 
     loginUser(formData, {
