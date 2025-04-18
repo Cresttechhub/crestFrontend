@@ -70,9 +70,10 @@ const ProgramCard = ({
             / Course
           </span>
         </p>
+
         <button
           onClick={handleJoin}
-          className="block w-full text-center bg-[#00A665] font-medium text-white text-14px] md:text-[16px] py-6 rounded-[15px] mt-4 hover:border-2 hover:border-[#00A665] hover:bg-white  hover:text-[#00A665]"
+          className="block w-full text-center bg-[#00A665] font-medium text-white text-14px] md:text-[16px] py-4 rounded-[15px] mt-4 hover:border-2 hover:border-[#00A665] hover:bg-white  hover:text-[#00A665]"
         >
           Join Now
         </button>
