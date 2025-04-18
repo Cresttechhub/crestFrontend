@@ -11,7 +11,7 @@ const About = () => {
 
   return (
     <div className="md:px-24 md:py-6 p-8">
-      <div className="flex flex-col md:flex-row justify-between md:gap-4">
+      <div className="flex flex-col md:flex-row justify-between">
         <div className="hidden md:block w-full">
           <img
             src={about_img}

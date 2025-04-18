@@ -12,7 +12,6 @@ import homeHero from "../../images/home-hero.svg";
 import flight from "../../images/flight.svg";
 import { IoSearch } from "react-icons/io5";
 
-
 const words = ["Build.", "Grow.", "Create."];
 
 const images = [image1, image2, image3, image4, image5];
@@ -107,7 +106,7 @@ const Hero = () => {
         </p>
         <div className="flex items-center  text-[14px] md:text-[16px] mt-12 md:mt-6">
           <Link
-            to="/path"
+            to="/signup"
             className="bg-[#009E65] text-[16px] text-white py-5 px-8 rounded-[15px] flex items-center md:w-full"
           >
             <img src={flight} alt="" className="mr-2 w-[17px]" />

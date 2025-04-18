@@ -14,7 +14,8 @@ import { LuGraduationCap } from "react-icons/lu";
 import { MdLightbulbOutline } from "react-icons/md";
 import { CiGlobe } from "react-icons/ci";
 import { TiSocialFacebook } from "react-icons/ti";
-import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const impacts = [
   {
@@ -279,7 +280,7 @@ const About = () => {
                   rel="noopener noreferrer"
                   className="text-xl"
                 >
-                  <FaTwitter />
+                  <FaXTwitter />
                 </a>
                 <a
                   href={leader.instagram}

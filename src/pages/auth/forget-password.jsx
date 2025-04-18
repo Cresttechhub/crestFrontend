@@ -165,7 +165,7 @@ const ForgetPassword = () => {
                 className="mt-2 w-full text-[12px] md:text-[16px] p-3 border border-[#1E1E1E] rounded-[15px] focus:outline-none focus:ring focus:ring-[#1E1E1E]"
                 id="email"
                 type="email"
-                placeholder="you@gmail.com"
+                placeholder="yourname@example.com"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
