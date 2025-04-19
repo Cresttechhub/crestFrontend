@@ -60,7 +60,7 @@ const Login = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      navigate("/");
+      navigate("/path");
     }
 
     if (!validateForm()) return;
