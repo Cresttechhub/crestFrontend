@@ -19,12 +19,12 @@ import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 const impacts = [
   {
     icon: <FaUserCheck className="text-green-600 text-3xl" />,
-    number: "5000+",
+    number: "100+",
     description: "Students Trained",
   },
   {
     icon: <RiBuilding2Line className="text-green-600 text-3xl" />,
-    number: "200+",
+    number: "10+",
     description: "Partner Companies",
   },
 
