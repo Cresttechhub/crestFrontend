@@ -48,7 +48,7 @@ const testimonials = [
   {
     id: 6,
     name: "Usurat.",
-    location: "Osun state, Nigeria.",
+    location: "Osun State, Nigeria.",
     course: "UI/UX Design Preparatory Track",
     text: "I appreciate the organization for organizing this because without them, we the beginners won't be able to have any knowledge about tech, so I say a very big Thank You to CrestTech and to our mentor, we appreciate you for coaching us well because I really gained a lot. About the assessment, I was so impressed after knowing how much I learned",
     image: AvatarPlaceholder,
@@ -96,7 +96,11 @@ const Testimonial = () => {
             transition: { duration: 1.5 },
           }}
         >
-          <img src={Quote} alt="Quote" className="mt-10 md:mt-15 self-start md:self-center" />
+          <img
+            src={Quote}
+            alt="Quote"
+            className="mt-10 md:mt-15 self-start md:self-center"
+          />
         </motion.div>
 
         <div className="relative w-full mt-0 overflow-hidden md:min-h-[600px] min-h-[auto]">
@@ -151,8 +155,9 @@ const Testimonial = () => {
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
-              className={`w-4 h-4 rounded-full transition-colors duration-300 ${index === activeIndex ? "bg-[#009E65]" : "bg-gray-400"
-                } cursor-pointer`}
+              className={`w-4 h-4 rounded-full transition-colors duration-300 ${
+                index === activeIndex ? "bg-[#009E65]" : "bg-gray-400"
+              } cursor-pointer`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
@@ -160,14 +165,20 @@ const Testimonial = () => {
         {/* Subtle arrow nav for mobile only */}
         <div className="flex md:hidden justify-between items-center mt-6 px-6">
           <button
-            onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+            onClick={() =>
+              setActiveIndex(
+                (prev) => (prev - 1 + testimonials.length) % testimonials.length
+              )
+            }
             className="bg-gray-500 text-gray-800 text-3xl rounded-full px-2 -py-0 hover:bg-gray-400 transition-all duration-300"
             aria-label="Previous testimonial"
           >
             &lt;
           </button>
           <button
-            onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)}
+            onClick={() =>
+              setActiveIndex((prev) => (prev + 1) % testimonials.length)
+            }
             className=" bg-gray-500 text-gray-800 rounded-full text-3xl px-2 -py-0 hover:bg-gray-400 transition-all duration-300"
             aria-label="Next testimonial"
           >

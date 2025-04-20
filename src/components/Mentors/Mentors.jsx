@@ -1,19 +1,21 @@
 import { useState } from "react";
-import wakilat from "../../images/wakilat.png";
-import soliu from "../../images/soliu.png";
-import daniel from "../../images/daniel.png";
-import ismail from "../../images/Ismail.png";
+
+import sofiyat from "../../images/sofiyat.png";
+import bassey from "../../images/bassey.png";
+import florence from "../../images/florence.png";
 import fatima from "../../images/fatima.png";
-import muqtadir from "../../images/muqtadir.png";
+import dennis from "../../images/Dennis.png";
 
 const initialMentors = [
-  // {
-  //   name: "Soliu Opeyemi Sakariyau",
-  //   role: "Co-Founder",
-  //   description: "Tech entrepreneur with innovative solutions.",
-  //   tags: ["Tech Innovation", "Software Development"],
-  //   image: soliu,
-  // },
+  {
+    name: "Sofiyat Gbadamosi",
+    role: "Software Development Lead",
+    description:
+      "Mentoring on user-friendly interfaces and frontend frameworks. ",
+    tags: ["FrontendMentor", "TechLeadership"],
+    image: sofiyat,
+  },
+
   {
     name: "Fatimah Adebimpe",
     role: "Frontend Development Mentor",
@@ -22,78 +24,38 @@ const initialMentors = [
     tags: ["Frontend", "Web Development"],
     image: fatima,
   },
-  // {
-  //   name: "Ismail Tijani",
-  //   role: "Director of Engineering",
-  //   description: "Software development & project management",
-  //   tags: ["SoftwareDev", "ProjMgmt"],
-  //   image: ismail,
-  // },
-  // {
-  //   name: "Amakeme Onyekachi Daniel",
-  //   role: "Creative Director",
-  //   description:
-  //     "Leads branding, UX, marketing, and design innovation in tech products.",
-  //   tags: ["Design Excellence", "Digital Creativity"],
-  //   image: daniel,
-  // },
+
+  {
+    name: "Florence Egwu",
+    role: "UI/UX Design Lead",
+    description: "Innovating product design and mentoring.",
+    tags: ["UIDesign", "DesignMentor"],
+    image: florence,
+  },
+  {
+    name: "Chukwuemeka Dennis ",
+    role: "Software Development Mentor",
+    description: "Full-stack development expert",
+    tags: ["FullStackMentor", "CodeWithDennis"],
+    image: dennis,
+  },
+  {
+    name: "Mannaseh Bassey",
+    role: "WordPress Development mentor",
+    description: "Seasoned technical analyst and IT trainer",
+    tags: ["WordPress", "IT Training"],
+    image: bassey,
+  },
+
 ];
 
 const additionalMentors = [
   {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: "",
-  },
-  {
-    name: "K",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: "",
-  },
-  {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: "",
-  },
-  {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: "",
-  },
-  {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: "",
-  },
-  {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: "",
-  },
-  {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
-    image: "",
-  },
-  {
-    name: "Klever Hoset",
-    role: "UI/UX Mentor",
-    description: "Skilled in UX research, User research and Design thinking.",
-    tags: ["UX Research", "Design Thinking"],
+
+    name: "",
+    role: "",
+    description: "",
+    tags: [""],
     image: "",
   },
 ];
@@ -142,14 +104,14 @@ export default function Mentors() {
           </div>
         ))}
       </div>
-      {!showMore && (
+      {/* {!showMore && (
         <button
           onClick={handleViewMore}
           className="mt-12 px-6 py-4 w-full text-nowrap md:w-[240px] text-white text-[14px] md:text-[16px] hover:text-[#009E65] font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
         >
           View More Mentors
         </button>
-      )}
+      )} */}
     </div>
   );
 }

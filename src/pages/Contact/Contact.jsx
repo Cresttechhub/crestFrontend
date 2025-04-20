@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import map from "../../images/map.svg";
 import { IoArrowBackOutline } from "react-icons/io5";
 import PhoneInput from "react-phone-input-2";
@@ -119,7 +120,7 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTwitter className=" hover:text-[#ffffff] cursor-pointer" />
+              <FaXTwitter className=" hover:text-[#ffffff] cursor-pointer" />
             </a>
             <a
               href="https://instagram.com/cresttechhub"
@@ -164,7 +165,7 @@ const Contact = () => {
             </label>
             <input
               type="email"
-              placeholder="you@gmail.com"
+              placeholder="yourname@example.com"
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })

@@ -11,6 +11,7 @@ const loginUser = async (userData) => {
 export const useLogin = () => {
   return useMutation({
     mutationFn: loginUser,
+
     onSuccess: (data) => {
       console.log("Login successful:", data);
       //create user object with initials
@@ -35,5 +36,6 @@ export const useLogin = () => {
         error?.response?.data?.message || error.message
       );
     },
+
   });
 };
