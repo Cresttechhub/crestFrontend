@@ -40,7 +40,7 @@ const initialMentors = [
     image: dennis,
   },
   {
-    name: "Mannaseh Bassey",
+    name: "Manasseh Bassey",
     role: "WordPress Development mentor",
     description: "Seasoned technical analyst and IT trainer",
     tags: ["WordPress", "IT Training"],
