@@ -20,12 +20,12 @@ import { FaXTwitter } from "react-icons/fa6";
 const impacts = [
   {
     icon: <FaUserCheck className="text-green-600 text-3xl" />,
-    number: "5000+",
+    number: "100+",
     description: "Students Trained",
   },
   {
     icon: <RiBuilding2Line className="text-green-600 text-3xl" />,
-    number: "200+",
+    number: "10+",
     description: "Partner Companies",
   },
 
@@ -68,7 +68,6 @@ const leadershipTeam = [
     linkedin: "https://www.linkedin.com/in/wakilat-kikelomo-zakariyau",
   },
   {
-
     name: "Soliu Opeyemi Sakariyau",
     position: "Co-Founder",
     image: soliu,
@@ -76,7 +75,6 @@ const leadershipTeam = [
     twitter: "https://x.com/Iam_RAYMOS?t=IyEIQV_ZhnpWqDiQV5giHA&s=09",
     instagram: "",
     linkedin: "https://www.linkedin.com/in/soliu-sakariyau",
-
   },
   {
     name: "Fatimah Adebimpe",

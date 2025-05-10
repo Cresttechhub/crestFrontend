@@ -14,7 +14,7 @@ const Statistics = () => {
       const interval = setInterval(() => {
         count++;
 
-        setStat1((prev) => Math.min(prev + 10, 40));
+        setStat1((prev) => Math.min(prev + 10, 10));
         setStat2((prev) => Math.min(prev + 50, 200));
         setStat3((prev) => Math.min(prev + 30, 95));
 
