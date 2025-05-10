@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Statistics = () => {
-  const [stat1, setStat1] = useState(10);
+  const [stat1, setStat1] = useState(3);
   const [stat2, setStat2] = useState(50);
   const [stat3, setStat3] = useState(30);
   const [ref, inView] = useInView({ triggerOnce: true });
@@ -14,7 +14,7 @@ const Statistics = () => {
       const interval = setInterval(() => {
         count++;
 
-        setStat1((prev) => Math.min(prev + 10, 10));
+        setStat1((prev) => Math.min(prev + 3, 10));
         setStat2((prev) => Math.min(prev + 50, 200));
         setStat3((prev) => Math.min(prev + 30, 95));
 
