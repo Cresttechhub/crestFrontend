@@ -5,28 +5,29 @@ import about_img from "../../images/about_img.svg";
 const About = () => {
   const navigate = useNavigate();
 
-
   const handleButtonClick = () => {
     navigate("/about");
   };
 
   return (
-    <div className="md:px-24 md:py-6 p-8">
-
-      <div className="flex flex-col md:flex-row justify-between">
-
-        <div className="hidden md:block w-full">
+    <div className="px-6 py-12 md:px-12 lg:px-24">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-20">
+        {/* Image Container: High priority on Desktop, moves below text on Mobile/Tablet stack */}
+        <div className="w-full lg:w-1/2 order-2 lg:order-1">
           <img
             src={about_img}
             alt="about image"
-            className="w-[650px] h-[470px] rounded-[25px] object-cover"
+            className="w-full max-w-[650px] aspect-[4/3] rounded-[25px] object-cover shadow-lg mx-auto"
           />
         </div>
-        <div className="w-full flex flex-col justify-start ">
-          <h1 className="text-[18px] md:text-[40px] text-[#1E1E1E] font-bold mb-8">
+
+        {/* Text Content Container */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-start order-1 lg:order-2">
+          <h1 className="text-[28px] md:text-[40px] text-[#1E1E1E] font-bold mb-6 text-center lg:text-left">
             About CrestTech Hub
           </h1>
-          <div className="text-[#6D737A] text-[14px] md:text-[16px] leading-[36px]">
+
+          <div className="text-[#6D737A] text-[15px] md:text-[16px] leading-relaxed md:leading-[32px] text-center lg:text-left">
             <p>
               Founded in 2024, CrestTech Hub emerged from a vision to bridge the
               gap between traditional education and the rapidly evolving tech
@@ -37,25 +38,18 @@ const About = () => {
               Today, we've grown into a thriving community of learners, mentors,
               and industry partners, all united by our passion for technology
               and innovation. Our success is measured by the achievement of our
-              graduates who are making significant contributions to the tech
-              industry worldwide..
+              graduates.
             </p>
           </div>
-          <div className=" mt-10 mb-10 md:mb-0 md:mt-12">
+
+          <div className="mt-8 flex justify-center lg:justify-start">
             <button
-              className="w-full md:w-[159px] py-6 md:px-6 md:py-2 text-white text-[14px] md:text-[16px] hover:text-[#009E65] hover:font-medium bg-[#009E65] hover:border-2 hover:border-[#009E65]  hover:bg-white rounded-[15px] cursor-pointer"
+              className="w-full sm:w-[180px] py-4 md:py-3 text-white text-[16px] font-medium bg-[#009E65] border-2 border-[#009E65] hover:bg-white hover:text-[#009E65] rounded-[15px] transition-all duration-300 cursor-pointer"
               onClick={handleButtonClick}
             >
               Learn More
             </button>
           </div>
-        </div>
-        <div className="block md:hidden w-full">
-          <img
-            src={about_img}
-            alt="about image"
-            className="w-[667px] h-[447px] rounded-[25px] object-cover"
-          />
         </div>
       </div>
     </div>
