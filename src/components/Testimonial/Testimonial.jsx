@@ -7,10 +7,10 @@ import AvatarPlaceholder from "../../images/AvatarPlaceholder.svg";
 const testimonials = [
   {
     id: 1,
-    name: "Alade Victoria.",
-    location: "Ibadan, Nigeria.",
-    course: "UI/UX Design Preparatory Track",
-    text: "Throughout my class, my experience was incredible, knowledgeable mentor, engaging lessons. Everything exceeded my expectations, overall the course has been a great motivation.",
+    name: "Emmanuel Etuk.",
+    location: "Lagos state, Nigeria.",
+    course: "Frontend Software Development Preparatory Track",
+    text: "I had an amazing time learning with CrestTech. The curriculum was well structured with nice resources. The problem was challenging but it helped me apply concepts. The assessment was comprehensive, allowing me access to area of improvement. And my mentor Miss Eniola, with her invaluable guidance helped a lot. Key highlights: Completing my project helped me showcase my skills in this field and also recieving feedback from my mentor means a lot. I highly recommend the CrestTech Preparatory Program to anyone to kickstart their tech journey.",
     image: AvatarPlaceholder,
   },
   {
@@ -31,10 +31,10 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Emmanuel Etuk.",
-    location: "Lagos state, Nigeria.",
-    course: "Frontend Software Development Preparatory Track",
-    text: "I had an amazing time learning with CrestTech. The curriculum was well structured with nice resources. The problem was challenging but it helped me apply concepts. The assessment was comprehensive, allowing me access to area of improvement. And my mentor Miss Eniola, with her invaluable guidance helped a lot. Key highlights: Completing my project helped me showcase my skills in this field and also recieving feedback from my mentor means a lot. I highly recommend the CrestTech Preparatory Program to anyone to kickstart their tech journey.",
+    name: "Alade Victoria.",
+    location: "Ibadan, Nigeria.",
+    course: "UI/UX Design Preparatory Track",
+    text: "Throughout my class, my experience was incredible, knowledgeable mentor, engaging lessons. Everything exceeded my expectations, overall the course has been a great motivation.",
     image: AvatarPlaceholder,
   },
   {

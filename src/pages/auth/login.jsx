@@ -21,6 +21,7 @@ const Login = () => {
     rememberMe: false,
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [apiError, setApiError] = useState("");
 
   const navigate = useNavigate();
   const { mutate: loginUser, isPending } = useLogin();
@@ -55,9 +56,14 @@ const Login = () => {
   };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear API error when user starts typing again
+    if (apiError) {
+      setApiError("");
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setApiError(""); // Clear previous API errors
 
     if (validateForm()) {
       navigate("/path");
@@ -78,6 +84,9 @@ const Login = () => {
       onError: (error) => {
         const message = error?.response?.data?.message || error.message;
         setErrors({ form: message });
+        const serverError = error?.response?.data?.error || "An error occurred";
+        console.error("Login error:", serverError);
+        setApiError(serverError); // Set API error
       },
     });
   };
@@ -86,8 +95,8 @@ const Login = () => {
     <div className="relative   flex md:flex-row flex-col overflow-hidden">
       {/* Green Background (Desktop) */}
       <div className="bg-[#00A665] h-screen w-[40%] hidden md:block relative">
-        <div className="mr-12 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-4">
-          <img src={whiteLogo} alt="" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src={whiteLogo} alt="" width={120} />
         </div>
         {/* Motion Images */}
         <motion.img
@@ -166,6 +175,11 @@ const Login = () => {
             </p>
           </div>
           <form onSubmit={handleSubmit}>
+            {apiError && (
+              <p className="text-red-500 text-sm text-center mb-4">
+                {apiError}
+              </p>
+            )}
             <div className="mb-4">
               <label
                 className="block text-[#1E1E1E] text-[14px] md:text-[16px]"
@@ -183,7 +197,7 @@ const Login = () => {
                 onChange={handleChange}
               />
               {errors.form && (
-                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+                <p className="text-red-500 text-sm mb-4">{errors.email}</p>
               )}
             </div>
             <div className="mb-4 relative">
@@ -215,7 +229,7 @@ const Login = () => {
               </span>
 
               {errors.form && (
-                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+                <p className="text-red-500 text-sm mb-4">{errors.password}</p>
               )}
             </div>
             <div className="flex items-center justify-between mb-6">
@@ -236,7 +250,7 @@ const Login = () => {
                 to="/forgetpassword"
                 className="text-[14px] md:text-[16px] font-medium text-[#00A665] hover:underline"
               >
-                Forgot Password
+                Forget Password
               </Link>
             </div>
 

@@ -1,6 +1,6 @@
-
 import { useMutation } from "@tanstack/react-query";
 import axiosInstance from "./axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 const loginUser = async (userData) => {
   const response = await axiosInstance.post("/auth/login", userData);
@@ -9,6 +9,7 @@ const loginUser = async (userData) => {
 };
 
 export const useLogin = () => {
+  const navigate = useNavigate();
   return useMutation({
     mutationFn: loginUser,
 
@@ -19,8 +20,11 @@ export const useLogin = () => {
         email: data.email,
         name: data.name,
         initials: data.name
-          ? data.name.split(' ').map(word => word[0].toUpperCase()).join('')
-          : data.email?.[0]?.toUpperCase() || 'N',
+          ? data.name
+              .split(" ")
+              .map((word) => word[0].toUpperCase())
+              .join("")
+          : data.email?.[0]?.toUpperCase() || "N",
       };
 
       //store both token and user
@@ -29,13 +33,12 @@ export const useLogin = () => {
 
       navigate("/");
     },
-    
+
     onError: (error) => {
       console.error(
         "Login failed:",
         error?.response?.data?.message || error.message
       );
     },
-
   });
 };

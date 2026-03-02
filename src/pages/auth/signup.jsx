@@ -29,6 +29,7 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [apiError, setApiError] = useState("");
 
   const handleClose = () => {
     navigate("/");
@@ -40,6 +41,10 @@ const Signup = () => {
       ...prevData,
       [name]: type === "checkbox" ? checked : value,
     }));
+    // Clear API error when user starts typing again
+    if (apiError) {
+      setApiError("");
+    }
   };
 
   const validateForm = () => {
@@ -71,6 +76,7 @@ const Signup = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setApiError(""); // Clear previous API errors
     // if (!validateForm()) return;
 
     setIsSubmitting(true);
@@ -80,7 +86,11 @@ const Signup = () => {
       onSuccess: () => {
         console.log("Signup successful!", formData);
         setIsSubmitting(false);
-        navigate("/verifycode", { state: { email: formData.email } });
+        setIsSubmitted(true);
+        // Optionally, navigate after a short delay
+        setTimeout(() => {
+          navigate("/verifycode", { state: { email: formData.email } });
+        }, 2000); // Navigate after 2 seconds
       },
 
       onError: (err) => {
@@ -88,7 +98,7 @@ const Signup = () => {
         console.error("Error Response:", err.response);
 
         const serverError = err.response?.data?.message || "Signup failed";
-        setErrors({ api: serverError });
+        setApiError(serverError); // Set API error
         setIsSubmitting(false);
       },
     });
@@ -136,8 +146,8 @@ const Signup = () => {
       {/* Green Background (Desktop) */}
 
       <div className="bg-[#00A665] h-screen w-[40%] hidden md:block relative">
-        <div className="mr-12 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-4">
-          <img src={whiteLogo} alt="" />
+        <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+          <img src={whiteLogo} alt="" width={120} />
         </div>
         {/* Motion Images */}
         <motion.img
@@ -220,6 +230,11 @@ const Signup = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
+            {apiError && (
+              <p className="text-red-500 text-sm text-center mb-4">
+                {apiError}
+              </p>
+            )}
             <div className="mb-4">
               <label
                 className="text-[#1E1E1E] text-[14px] md:text-[16px] "
@@ -237,7 +252,7 @@ const Signup = () => {
                 onChange={handleChange}
               />
               {errors.form && (
-                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+                <p className="text-red-500 text-sm mb-4">{errors.fullName}</p>
               )}
             </div>
             <div className="mb-4">
@@ -257,7 +272,7 @@ const Signup = () => {
                 onChange={handleChange}
               />
               {errors.form && (
-                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+                <p className="text-red-500 text-sm mb-4">{errors.email}</p>
               )}
             </div>
             <div className="mb-4">
@@ -301,7 +316,7 @@ const Signup = () => {
               />
 
               {errors.form && (
-                <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+                <p className="text-red-500 text-sm mb-4">{errors.password}</p>
               )}
             </div>
             <div className="flex items-center justify-between mb-6">

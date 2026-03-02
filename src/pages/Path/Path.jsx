@@ -10,6 +10,7 @@ import master from "../../images/master.svg";
 import { motion } from "framer-motion";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { usePayment } from "../../contexts/PaymentContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 const faqs = [
   {
@@ -55,21 +56,19 @@ const ProgramCard = ({ program }) => {
 
   return (
     <div
-      className={`bg-white shadow-lg rounded-2xl p-6 w-full h-full ${
-        program.level === "Pro Level"
+      className={`bg-white shadow-lg rounded-2xl p-6 w-full h-full ${program.level === "Pro Level"
           ? "border-2 border-[#00A665]"
           : "border-none"
-      }`}
+        }`}
     >
       <h3 className="font-semibold text-[16px] md:text-[20px] mb-12">
         {program.title}
       </h3>
       <span
-        className={` text-xs font-medium px-2 py-1 rounded-lg ${
-          program.level === "Beginner-friendly"
+        className={` text-xs font-medium px-2 py-1 rounded-lg ${program.level === "Beginner-friendly"
             ? "bg-[#EDE7F6]  text-[#7A24FB]"
             : "bg-[#E3F2FD] text-[#0048FF]"
-        }`}
+          }`}
       >
         {program.level}
       </span>
@@ -168,11 +167,17 @@ const Path = () => {
     return program;
   });
 
+  const { isLoggedIn, user } = useAuth();
   return (
     <div className="mt-36">
       <div className="p-8 lg:px-24 lg:py-12">
         <div className="flex font-medium justify-between items-center px-4 py-6 md:py-[20px] md:px-[50px] bg-[#E5F6F0] text-[#00A665] text-[14px] md:text-[16px] rounded-[20px]  ">
-          <h1>Welcome, KashMooniee Choose your learning path below.</h1>
+          <h1>Welcome{" "}
+            {isLoggedIn && user
+              ? user.email?.split('@')[0] // Extracts the part before the @ in the email
+              : "Guest"
+            }{" "}
+            ! Choose your learning path below.</h1>
           <Link to="/" className="flex justify-between space-x-4 items-center ">
             <IoArrowBackOutline className=" text-[20px]" />
             <h2>Home</h2>
@@ -196,15 +201,13 @@ const Path = () => {
           <Switch
             checked={isMonthly}
             onChange={setIsMonthly}
-            className={`${
-              isMonthly ? "bg-[#00A665]" : "bg-[#C7C7C7]"
-            } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
+            className={`${isMonthly ? "bg-[#00A665]" : "bg-[#C7C7C7]"
+              } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
           >
             <span className="sr-only">Enable monthly payment</span>
             <span
-              className={`${
-                isMonthly ? "translate-x-6" : "translate-x-1"
-              } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+              className={`${isMonthly ? "translate-x-6" : "translate-x-1"
+                } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
             />
           </Switch>
           <span className="text-[14px] md-text-[16px] text-[#6D737A]">

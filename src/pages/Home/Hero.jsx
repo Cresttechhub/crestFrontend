@@ -48,7 +48,7 @@ const Hero = () => {
   }, []);
 
   const imageVariants = {
-    initial: { x: 0, opacity: 1, scale: 1, zIndex: 1 },
+    initial: { x: 0, opacity: 0, scale: 0.8, zIndex: 1 },
     animate: {
       x: 0,
       opacity: 1,
@@ -56,30 +56,46 @@ const Hero = () => {
       zIndex: 1,
       transition: { duration: 0.5 },
     },
-    moveIn: (index) => ({
-      x:
-        index === 0
-          ? 60
-          : index === 1
-          ? 30
-          : index === 3
-          ? -30
-          : index === 4
-          ? -60
-          : 0,
-      opacity: 1,
-      scale: 1,
-      zIndex: index === 2 ? 3 : index === 1 || index === 3 ? 2 : 1,
-      transition: { duration: 0.5 },
-    }),
-    exit: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } },
-  };
+    moveIn: (index) => {
+      // We calculate a base offset. 40px works well for both mobile and desktop cards.
+      const offset = 40;
 
+      const xPos =
+        index === 0
+          ? offset * 1.5
+          : index === 1
+            ? offset * 0.75
+            : index === 3
+              ? -(offset * 0.75)
+              : index === 4
+                ? -(offset * 1.5)
+                : 0;
+
+      return {
+        x: xPos,
+        opacity: 1,
+        scale: 1,
+        // Keeps the middle image (index 2) on top, others layered behind
+        zIndex: index === 2 ? 10 : index === 1 || index === 3 ? 5 : 1,
+        transition: {
+          type: "spring",
+          stiffness: 300,
+          damping: 30,
+        },
+      };
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.5,
+      transition: { duration: 0.3 },
+    },
+  };
   return (
-    <div className="mt-32 md:mt-64 md:px-24 p-8 justify-between md:flex-row flex  flex-col">
-      <div className="">
-        <div className="text-[32px] md:text-[72px] text-[#1E1E1E] font-bold">
-          Learn.
+    <div className="mt-32 lg:mt-64 px-6 md:px-12 lg:px-24 flex flex-col lg:flex-row items-center justify-between gap-12">
+      {/* Left Section: Text & Search */}
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-1/2">
+        <div className="text-[40px] md:text-[60px] lg:text-[72px] text-[#1E1E1E] font-bold leading-tight">
+          Learn.{" "}
           <motion.span
             key={words[index]}
             initial={{ y: "100%", opacity: 0 }}
@@ -95,16 +111,17 @@ const Hero = () => {
           >
             {words[index]}
           </motion.span>
-          <h1>Innovate.</h1>
+          <h1 className="mt-[-10px]">Innovate.</h1>
         </div>
 
-        <p className="mt-4 text-[14px] md:text-[16px] text-[#6D737A] min-w-[340px] md:max-w-[596px]">
+        <p className="mt-6 text-[16px] md:text-[18px] text-[#6D737A] max-w-[500px] lg:max-w-[596px]">
           Gain in-demand tech skills online with expert mentorship, hands-on
           projects, and real-world training. Join live classes, build a
-          portfolio, connect with industry experts, and access internships-all
-          affordably!
+          portfolio, and access internships—all affordably!
         </p>
-        <div className="flex items-center  text-[14px] md:text-[16px] mt-12 md:mt-6">
+
+        {/* CTA & Search Bar */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full max-w-[500px] lg:max-w-none">
           <Link
             to="/signup"
             className="bg-[#009E65] text-[16px] text-white py-5 px-8 rounded-[15px] flex items-center md:w-full"
@@ -112,67 +129,71 @@ const Hero = () => {
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
           </Link>
-          <div className="ml-4 hidden md:flex items-center border border-[#737373] rounded-[15px] px-8 py-5 text-[#6D737A] text-[14px] w-full">
+
+          <div className="flex items-center border border-[#737373] rounded-[15px] px-6 py-4 text-[#6D737A] w-full lg:max-w-[400px]">
             <input
               type="text"
               placeholder="What do you want to learn?"
-              className="outline-none w-full"
+              className="outline-none w-full bg-transparent text-[14px]"
             />
-            <IoSearch className="text-[#1E1E1E] text-[18px]" />
+            <IoSearch className="text-[#1E1E1E] text-[20px] ml-2" />
           </div>
         </div>
       </div>
-      {/* Image Section */}
-      <div className="relative mt-20 md:mt-0">
-        <img
-          src={homeHero}
-          alt="Woman on laptop"
-          className="bg-[#D1F1E5] rounded-3xl relative"
-        />
-        <img
-          src={cap}
-          alt="cap"
-          className="absolute top-12 right-2 md:-right-16 w-30 md:w-40"
-        />
-        <img
-          src={laptop}
-          alt="laptop"
-          className="absolute top-80 -left-12 md:-left-16 w-30 md:w-40"
-        />
 
-        {/* Profile Images */}
+      {/* Right Section: Image & Floating Elements */}
+      <div className="relative mt-16 lg:mt-0 w-full max-w-[500px] lg:max-w-none flex justify-center lg:justify-end">
+        <div className="relative">
+          <img
+            src={homeHero}
+            alt="Woman on laptop"
+            className="bg-[#D1F1E5] rounded-3xl w-full max-w-[450px] lg:max-w-[550px] object-cover"
+          />
 
-        <div className="absolute left-60 md:-right-15 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="bg-[#FFFFFF] rounded-[25px] shadow-lg p-4 flex flex-col items-center w-[400px]">
-            <div className="flex relative w-full justify-center items-center">
-              <AnimatePresence initial={false} custom={animationStage}>
-                {images.map((image, index) => (
-                  <motion.img
-                    key={index}
-                    src={image}
-                    alt={`Profile ${index + 1}`}
-                    initial="initial"
-                    animate={animationStage === 0 ? "animate" : "moveIn"}
-                    exit="exit"
-                    variants={imageVariants}
-                    custom={index}
-                    style={{
-                      ...(animationStage === 0 && {
-                        transform: `translateX(${(index - 2) * 50}px)`,
-                      }),
-                    }}
-                  />
-                ))}
-              </AnimatePresence>
-            </div>
-            <div className="text-[#1E1E1E] flex items-center justify-center space-x-2 mt-4">
-              <h1 className="text-[30px] md:text-[40px] font-medium">10K </h1>
-              <span className="text-[14px] md:text-[16px]">
-                Learners & Counting!
-              </span>
+          {/* Decorative Icons - Scaled for Tablet */}
+          <img
+            src={cap}
+            alt="cap"
+            className="absolute -top-6 -right-4 md:-right-10 w-20 md:w-32 lg:w-40"
+          />
+          <img
+            src={laptop}
+            alt="laptop"
+            className="absolute bottom-20 -left-6 md:-left-12 w-20 md:w-32 lg:w-40"
+          />
+
+          {/* Floating Profile Card - Responsive Width */}
+          <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[350px] md:w-[400px]">
+            <div className="bg-white rounded-[25px] shadow-2xl p-4 md:p-6 flex flex-col items-center border border-gray-100">
+              <div className="flex relative w-full justify-center items-center h-12">
+                <AnimatePresence initial={false} custom={animationStage}>
+                  {images.map((image, idx) => (
+                    <motion.img
+                      key={idx}
+                      src={image}
+                      className="absolute w-10 h-10 rounded-full border-2 border-white object-cover"
+                      initial="initial"
+                      animate={animationStage === 0 ? "animate" : "moveIn"}
+                      exit="exit"
+                      variants={imageVariants}
+                      custom={idx}
+                      style={{
+                        ...(animationStage === 0 && {
+                          transform: `translateX(${(idx - 2) * 35}px)`,
+                        }),
+                      }}
+                    />
+                  ))}
+                </AnimatePresence>
+              </div>
+              <div className="text-[#1E1E1E] flex items-center justify-center space-x-2 mt-2">
+                <h1 className="text-[24px] md:text-[32px] font-bold">100+ </h1>
+                <span className="text-[12px] md:text-[14px] font-medium text-gray-500">
+                  Learners & Counting!
+                </span>
+              </div>
             </div>
           </div>
-          <div className="absolute inset-0 bg-[#f6f9f8] rounded-[25px] -z-10 -mt-4 -ml-4 -mr-4" />
         </div>
       </div>
     </div>

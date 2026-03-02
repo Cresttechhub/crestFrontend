@@ -31,21 +31,19 @@ function Header() {
   ];
 
   useEffect(() => {
-    const handleClickOutside = (event) =>{
-      if(profileRef.current && 
-        !profileRef.current.contains(event.target)
-      ){
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
         setDropdownOpen(false);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return()=>{
+    return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [])
+  }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setMenuOpen(false);
@@ -70,8 +68,8 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 w-full bg-white z-50 flex justify-center">
       <div className="w-full overflow-visible md:px-24 md:py-8">
-        <nav className="w-full flex flex-wrap justify-between items-center py-1 border-b md:border-none border-[#D6D6D6] md:mt-0 mt-6 bg-white md:rounded-[20px]">
-          <div className="flex items-center min-w-0 flex-shrink md:m-0 m-2">
+        <nav className="w-full flex flex-wrap justify-between md:m-0 m-4 items-center py-1 border-b md:border-none border-[#D6D6D6] md:mt-0 mt-6 bg-white md:rounded-[20px]">
+          <div className="flex items-center min-w-0 flex-shrink md:m-0 ml-2">
             <img src={Icon} alt="Icon" className="h-10" />
             <span className="font-bold text-2xl">CrestTech Hub</span>
           </div>
@@ -92,32 +90,33 @@ function Header() {
           <div className="hidden md:flex gap-7 items-center text-[18px] text-[#1E1E1E]">
             {isLoggedIn ? (
               <div className="relative" ref={profileRef}>
-              <div
-                className="flex items-center gap-2 cursor-pointer"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-              >
-                <div className="flex items-center pr-3 space-x-1">
-                  <p className="bg-[#9747FF] font-[400] text-[23px] text-white rounded-full w-8 h-8 flex items-center justify-center">
-                  {user?.initials || 'N/A'} {/* Display first letter of the user's name */}
-                  </p>
-                  <span className="text-[14px] font-[600] text-[#1E1E1E]">
-                    {user?.email?.slice(0, 10)}...
-                  </span>
+                <div
+                  className="flex items-center gap-2 cursor-pointer"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                >
+                  <div className="flex items-center pr-3 space-x-1">
+                    <p className="bg-[#9747FF] font-[400] text-[23px] text-white rounded-full w-8 h-8 flex items-center justify-center">
+                      {user?.initials || "N/A"}{" "}
+                      {/* Display first letter of the user's name */}
+                    </p>
+                    <span className="text-[14px] font-[600] text-[#1E1E1E]">
+                      {user?.email?.slice(0, 10)}...
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Dropdown menu */}
-              {dropdownOpen && (
-                <div className="absolute right-0 w-32 top-full bg-white rounded-2xl shadow-md z-10 mt-4">
-                  <button
-                    onClick={handleLogout}
-                    className="block w-full p-2 text-center px-3 py-3 text-lg text-red-500 font-[600]"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
+                {/* Dropdown menu */}
+                {dropdownOpen && (
+                  <div className="absolute right-0 w-32 top-full bg-white rounded-2xl shadow-md z-10 mt-4">
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full p-2 text-center px-3 py-3 text-lg text-red-500 font-[600]"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
             ) : (
               <>
                 <Link
