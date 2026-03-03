@@ -33,8 +33,8 @@ const ProgramCard = ({
     navigate("/payment");
   };
   return (
-    <div className="bg-white shadow-lg rounded-2xl p-6 w-full h-full">
-      <div className="flex justify-between">
+    <div className="bg-white shadow-lg rounded-2xl p-6 md:p-8 w-full h-full flex flex-col ">
+      <div className="flex justify-between items-start">
         <h3 className="font-semibold text-[16px] md:text-[20px]">{title}</h3>
         <span
           className={`text-xs font-medium px-2 py-1 rounded-lg ${
@@ -46,8 +46,8 @@ const ProgramCard = ({
           {level}
         </span>
       </div>
-      <div className="text-[14px] md:text-[16px] text-[#6D737A] ">
-        <p className="mt-4">{description}</p>
+      <div className="flex-grow text-[14px] md:text-[16px] text-[#6D737A] ">
+        <p className="mt-4 leading-relaxed">{description}</p>
         <p className="mt-4 flex items-center">
           <MdAccessTime className="mr-2" />
           {duration}
@@ -123,7 +123,7 @@ const Program = () => {
         <h2 className="text-[18px] md:text-[30px] text-[#1E1E1E] font-bold md:text-center mb-12">
           Our Programs
         </h2>
-        <div className="flex flex-col space-y-10 md:flex-row justify-between space-x-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-[1100px] mx-auto">
           {programs.map((program, index) => (
             <ProgramCard key={index} {...program} />
           ))}
