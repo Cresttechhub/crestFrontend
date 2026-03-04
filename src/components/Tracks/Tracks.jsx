@@ -68,9 +68,9 @@ const Tracks = () => {
       </div>
 
       {/* Enroll Button */}
-      <div className="flex justify-center items-center mt-12">
-        <Link to="/path">
-          <Button className="rounded-2xl md:px-12 md:py-4 px-30 font-[500] text-[20px] border border-[#009E65] md:hover:bg-white md:hover:text-[#009E65]">
+      <div className="flex justify-center items-center mt-12 w-full px-4 md:px-0">
+        <Link to="/path" className="w-full md:w-auto">
+          <Button className="w-full justify-center items-center md:w-auto rounded-2xl py-4 px-12 font-[500] text-[18px] md:text-[20px] bg-[#009E65] text-white border border-[#009E65] transition-all duration-300 md:hover:bg-white md:hover:text-[#009E65]">
             Enroll Now
           </Button>
         </Link>

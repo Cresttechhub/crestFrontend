@@ -27,7 +27,7 @@ const About = () => {
             About CrestTech Hub
           </h1>
 
-          <div className="text-[#6D737A] text-[15px] md:text-[16px] leading-relaxed md:leading-[32px] text-center lg:text-left">
+          <div className="text-[#6D737A] text-[15px] md:text-[16px] leading-relaxed md:leading-[32px] text-left">
             <p>
               Founded in 2024, CrestTech Hub emerged from a vision to bridge the
               gap between traditional education and the rapidly evolving tech
@@ -41,7 +41,6 @@ const About = () => {
               graduates.
             </p>
           </div>
-
           <div className="mt-8 flex justify-center lg:justify-start">
             <button
               className="w-full sm:w-[180px] py-4 md:py-3 text-white text-[16px] font-medium bg-[#009E65] border-2 border-[#009E65] hover:bg-white hover:text-[#009E65] rounded-[15px] transition-all duration-300 cursor-pointer"

@@ -167,7 +167,8 @@ const Testimonial = () => {
           <button
             onClick={() =>
               setActiveIndex(
-                (prev) => (prev - 1 + testimonials.length) % testimonials.length
+                (prev) =>
+                  (prev - 1 + testimonials.length) % testimonials.length,
               )
             }
             className="bg-gray-500 text-gray-800 text-3xl rounded-full px-2 -py-0 hover:bg-gray-400 transition-all duration-300"
