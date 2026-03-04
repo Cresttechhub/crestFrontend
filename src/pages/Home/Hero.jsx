@@ -124,7 +124,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full max-w-[500px] lg:max-w-none">
           <Link
             to="/signup"
-            className="bg-[#009E65] text-[16px] text-white py-5 px-8 rounded-[15px] flex items-center md:w-full"
+            className="bg-[#009E65] text-[16px] text-white py-4 px-6 rounded-[15px] flex items-center lg:max-w-[400px] w-full"
           >
             <img src={flight} alt="" className="mr-2 w-[17px]" />
             Get Started Today
